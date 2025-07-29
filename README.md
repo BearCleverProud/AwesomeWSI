@@ -1185,6 +1185,7 @@ The following comparison table systematically evaluates the PFMs across **13 dis
 ### ICML 2025
 1. [Scalable Generation of Spatial Transcriptomics from Histology Images via Whole-Slide Flow Matching](https://icml.cc/virtual/2025/poster/45412): This paper introduces flow matching to model the joint distribution of gene expression across entire slide (rather than predicting spots independently) to solve the challenge of capturing cell-cell interactions when generating spatial transcriptomics from histology images, using an efficient slide-level encoder with local spatial attention to overcome memory constraints.
 2. [Distributed Parallel Gradient Stacking(DPGS): Solving Whole Slide Image Stacking Challenge in Multi-Instance Learning](https://icml.cc/virtual/2025/poster/43811): This paper introduces Distributed Parallel Gradient Stacking with Deep Model-Gradient Compression to solve the non-stackable data problem in MIL where varying patch counts across WSIs prevent efficient batch processing (in short, batch size could be greater than 1 if using this method).
+3. [L-Diffusion: Laplace Diffusion for Efficient Pathology Image Segmentation](https://icml.cc/virtual/2025/poster/46562): This paper introduces a diffusion model using multiple Laplace distributions (instead of Gaussian) combined with contrastive learning for pixel-wise feature refinement to solve the challenge of segmenting rare cell and tissue types in pathology images with limited annotations.
 
 ## 📄 Citation
 If you find thie repository useful, please cite our work:

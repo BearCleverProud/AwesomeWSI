@@ -20,7 +20,7 @@
 - [🆕 Latest Updates](#-latest-updates)
 - [🎯 Overview](#-overview)
 - [📑 Our Survey](#-our-survey)
-- [📚 Curated Papers](#-curated-papers) *(Coming Soon)*
+- [📚 Curated Papers](#-curated-papers)
 - [🔧 Useful Toolboxes](#-useful-toolboxes) *(Coming Soon)*
 - [📊 Datasets](#-datasets) *(Coming Soon)*
 - [🏆 Benchmarks](#-benchmarks) *(Coming Soon)*
@@ -36,6 +36,7 @@
 
 | 📅 **Timeline** | 🎉 **What's New** |
 |:---------------:|:------------------|
+| **🔔 July 2025** | **Curated Papers Online!** 📑<br/>The curated paper section is online, and available in [📚 Curated Papers](#-curated-papers). More papers are coming and check it out!|
 | **🌟 June 2025** | **Survey Materials Organized!** 📑<br/>All materials related to our comprehensive survey have been carefully organized and are now available in [📑 Our Survey](#-our-survey). More exciting updates coming your way soon! |
 | **🚀 June 2025** | **Repository Structure Finalized!** 🎯<br/>We've established the perfect organizational structure for this repository. Everything is now in its right place for optimal collaboration and accessibility! |
 | **🏆 March 2025** | **IJCAI 2025 Acceptance!** 🎊<br/>🎉 Our survey has been officially accepted by the prestigious **IJCAI 2025 Survey Track**! This is a major milestone for our research. |
@@ -1178,6 +1179,12 @@ The following comparison table systematically evaluates the PFMs across **13 dis
     </tr>
   </tbody>
 </table>
+
+## 📚 Curated Papers
+
+### ICML 2025
+1. [Scalable Generation of Spatial Transcriptomics from Histology Images via Whole-Slide Flow Matching](https://icml.cc/virtual/2025/poster/45412): This paper introduces flow matching to model the joint distribution of gene expression across entire slide (rather than predicting spots independently) to solve the challenge of capturing cell-cell interactions when generating spatial transcriptomics from histology images, using an efficient slide-level encoder with local spatial attention to overcome memory constraints.
+2. [Distributed Parallel Gradient Stacking(DPGS): Solving Whole Slide Image Stacking Challenge in Multi-Instance Learning](https://icml.cc/virtual/2025/poster/43811): This paper introduces Distributed Parallel Gradient Stacking with Deep Model-Gradient Compression to solve the non-stackable data problem in MIL where varying patch counts across WSIs prevent efficient batch processing (in short, batch size could be greater than 1 if using this method).
 
 ## 📄 Citation
 If you find thie repository useful, please cite our work:

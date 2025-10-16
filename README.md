@@ -21,9 +21,9 @@
 - [🎯 Overview](#-overview)
 - [📑 Our Survey](#-our-survey)
 - [📚 Curated Papers](#-curated-papers)
-- [🔧 Useful Toolboxes](#-useful-toolboxes) *(Coming Soon)*
-- [📊 Datasets](#-datasets) *(Coming Soon)*
-- [🏆 Benchmarks](#-benchmarks) *(Coming Soon)*
+- [🔧 Useful Toolboxes](#-useful-toolboxes)
+- [📊 Datasets](#-datasets)
+- [🏆 Benchmarks](#-benchmarks)
 - [📄 Citation](#-citation)
 
 ---
@@ -36,6 +36,7 @@
 
 | 📅 **Timeline** | 🎉 **What's New** |
 |:---------------:|:------------------|
+| **🔔 Oct 2025** | **Toolboxes, Datasets, Benchmarks Online!** 📑<br/>The rest of the planned contents are online, available in [🔧 Useful Toolboxes](#-useful-toolboxes), [📊 Datasets](#-datasets), and [🏆 Benchmarks](#-benchmarks)! Check them out as we will update them regularly!|
 | **🔔 July 2025** | **Curated Papers Online!** 📑<br/>The curated paper section is online, and available in [📚 Curated Papers](#-curated-papers). More papers are coming and check it out!|
 | **🌟 June 2025** | **Survey Materials Organized!** 📑<br/>All materials related to our comprehensive survey have been carefully organized and are now available in [📑 Our Survey](#-our-survey). More exciting updates coming your way soon! |
 | **🚀 June 2025** | **Repository Structure Finalized!** 🎯<br/>We've established the perfect organizational structure for this repository. Everything is now in its right place for optimal collaboration and accessibility! |
@@ -1223,6 +1224,26 @@ Aware Mixture-of-Experts module to learn pathology-specific information based on
 15. [Robust Multimodal Survival Prediction with Conditional Latent Differentiation Variational AutoEncoder](https://openaccess.thecvf.com/content/CVPR2025/html/Zhou_Robust_Multimodal_Survival_Prediction_with_Conditional_Latent_Differentiation_Variational_AutoEncoder_CVPR_2025_paper.html): This paper proposes a Conditional Latent Differentiation Variational AutoEncoder for robust multimodal survival prediction that compresses gigapixel WSIs and generates genomic embeddings with diverse biological functions, enabling effective prediction even when genomic data is missing.
 16. [BioX-CPath: Biologically-driven Explainable Diagnostics for Multistain IHC Computational Pathology](https://openaccess.thecvf.com/content/CVPR2025/html/Gallagher-Syed_BioX-CPath_Biologically-driven_Explainable_Diagnostics_for_Multistain_IHC_Computational_Pathology_CVPR_2025_paper.html): This paper introduces BioX-CPath, an explainable graph neural network architecture that leverages both spatial and semantic features across multiple stains to provide biologically interpretable diagnostics for multistain IHC computational pathology.
 17. [Multi-Resolution Pathology-Language Pre-training Model with Text-Guided Visual Representation](https://openaccess.thecvf.com/content/CVPR2025/html/Albastaki_Multi-Resolution_Pathology-Language_Pre-training_Model_with_Text-Guided_Visual_Representation_CVPR_2025_paper.html): This paper proposes a multi-resolution pathology-language pre-training model that aligns visual and textual features across multiple magnification levels to address the challenge of single-resolution VLMs failing to capture both contextual overview and cellular details.
+
+## 🔧 Useful Toolboxes
+1. [OpenSlide](https://openslide.org): The foundation of WSI reading for almost every python library.
+2. [CLAM](https://github.com/mahmoodlab/CLAM): The whole pipeline of WSI analysis: cropping patches from WSIs, extracting features from patches, MIL(CLAM) training, heatmap visualization.
+3. [Trident](https://github.com/mahmoodlab/trident): The upgraded release of CLAM, which supports much more foundation models than CLAM.
+4. [QuPath](https://qupath.github.io): A software for visualizing gigapixel WSIs, and their annotations.
+5. [TIAToolbox](https://tia-toolbox.readthedocs.io/en/latest/): End to end PyTorch toolkit for WSI reading, preprocessing, modeling, and visualization with a consistent API.  
+
+## 📊 Datasets
+1. [Camelyon16](https://camelyon16.grand-challenge.org): A dataset for metastases detection in hematoxylin and eosin (H&E) stained whole-slide images of lymph node sections.
+2. [Camelyon17](https://camelyon17.grand-challenge.org): Similar to Camelyon16, but with larger datasets.
+3. [TCGA](https://portal.gdc.cancer.gov/): The Cancer Genome Atlas (TCGA) is a landmark cancer genomics program that sequenced and molecularly characterized over 11000 cases of primary cancer samples.
+4. [BRACS](https://www.bracs.icar.cnr.it): A  new dataset of hematoxylin and eosin histopathological images for automated detection/classification of breast tumors.
+5. [PANDA](https://www.kaggle.com/competitions/prostate-cancer-grade-assessment): The training set consists of around 11,000 whole-slide images of digitized H&E-stained prostate biopsies originating from two centers.
+6. [PAIP2021](https://paip2021.grand-challenge.org): PAIP 2021 challenge aims to promote the development of a common algorithm for automatic detection of perineural invasion in resected specimens of multi-organ cancers.
+7. [Quilt-1M](https://github.com/wisdomikezogwo/quilt1m): 1M paired image-text samples from Twitter, Youtube videos, research papers, and the Internet in general.
+8. [PathGen-1.6M](https://huggingface.co/datasets/jamessyx/PathGen): 1.6M paired image-text samples from TCGA datasets.
+
+## 🏆 Benchmarks
+1. [WSI-Bench](https://github.com/XinhengLyu/WSI-LLaVA): A comprehensive collection of VQA pairs and WSI data covering 30 cancer types, including 9,642 WSIs with 175,450 VQA pairs.
 
 ## 📄 Citation
 If you find thie repository useful, please cite our work:

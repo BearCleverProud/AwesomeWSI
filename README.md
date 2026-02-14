@@ -1230,7 +1230,8 @@ Aware Mixture-of-Experts module to learn pathology-specific information based on
 2. [CLAM](https://github.com/mahmoodlab/CLAM): The whole pipeline of WSI analysis: cropping patches from WSIs, extracting features from patches, MIL(CLAM) training, heatmap visualization.
 3. [Trident](https://github.com/mahmoodlab/trident): The upgraded release of CLAM, which supports much more foundation models than CLAM.
 4. [QuPath](https://qupath.github.io): A software for visualizing gigapixel WSIs, and their annotations.
-5. [TIAToolbox](https://tia-toolbox.readthedocs.io/en/latest/): End to end PyTorch toolkit for WSI reading, preprocessing, modeling, and visualization with a consistent API.  
+5. [TIAToolbox](https://tia-toolbox.readthedocs.io/en/latest/): End to end PyTorch toolkit for WSI reading, preprocessing, modeling, and visualization with a consistent API.
+6. [ASlide](https://github.com/MrPeterJin/ASlide/): An integrated pathology image reading library with extensive format support.
 
 ## 📊 Datasets
 1. [Camelyon16](https://camelyon16.grand-challenge.org): A dataset for metastases detection in hematoxylin and eosin (H&E) stained whole-slide images of lymph node sections.

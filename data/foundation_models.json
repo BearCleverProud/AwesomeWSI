@@ -495,7 +495,7 @@
         "UMP"
       ],
       "architecture": [
-        "BEIT-3"
+        "BEiT-3"
       ],
       "data_source": [
         "Quilt-1M +",

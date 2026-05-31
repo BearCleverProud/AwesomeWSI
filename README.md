@@ -387,7 +387,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
             <td>H</td>
-            <td>UDK</td>
+            <td>UKD</td>
             <td>40/512</td>
             <td class="architecture">ViT-L/14</td>
             <td class="params">307M</td>
@@ -639,7 +639,7 @@ The following comprehensive table presents the surveyed PFMs with detailed techn
             <td class="venue"><strong>Nature</strong></td>
             <td class="model-name">MUSK</td>
             <td>UMP</td>
-            <td class="architecture">BEIT-3</td>
+            <td class="architecture">BEiT-3</td>
             <td>Quilt-1M +<br>PathAsst</td>
             <td>~33,000 H&amp;E WSIs<br>50M Patches<br>1M Image-Text Pairs</td>
             <td><a href="https://huggingface.co/xiangjx/musk">HuggingFace</a> <a href="https://github.com/lilab-stanford/MUSK">GitHub</a> <a href="https://www.nature.com/articles/s41586-024-08378-w">PDF</a></td>

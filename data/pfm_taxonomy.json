@@ -350,7 +350,7 @@
       },
       "model_pretraining": {
         "input": "H",
-        "base_method": "UDK",
+        "base_method": "UKD",
         "magnification_or_resolution": "40/512"
       },
       "model_design": {

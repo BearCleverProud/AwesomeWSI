@@ -864,12 +864,23 @@
     const groups = state.data.evaluation.tasks;
     const groupEntries = Object.entries(groups);
     const models = state.data.evaluation.models.filter((model) => includesQuery([model.model], state.surveyQuery));
-    const firstHeader = `<tr><th rowspan="2">Model</th>${groupEntries
-      .map(([group, tasks]) => `<th colspan="${tasks.length}">${escapeHtml(taskGroupLabels[group] ?? group)}</th>`)
+    const firstHeader = `<tr><th class="evaluation-model-header" rowspan="2">Model</th>${groupEntries
+      .map(
+        ([group, tasks], groupIndex) =>
+          `<th class="evaluation-group-header" data-group-index="${groupIndex}" colspan="${tasks.length}">${escapeHtml(
+            taskGroupLabels[group] ?? group
+          )}</th>`
+      )
       .join("")}</tr>`;
     const secondHeader = `<tr>${groupEntries
-      .flatMap(([, tasks]) => tasks)
-      .map((task) => `<th>${escapeHtml(taskLabels[task] ?? task)}</th>`)
+      .flatMap(([, tasks]) =>
+        tasks.map(
+          (task, taskIndex) =>
+            `<th class="evaluation-task-header${
+              taskIndex === 0 ? " evaluation-group-start" : ""
+            }">${escapeHtml(taskLabels[task] ?? task)}</th>`
+        )
+      )
       .join("")}</tr>`;
     const body = models
       .map((model) => {
@@ -890,7 +901,9 @@
           .map((cell) =>
             typeof cell === "string"
               ? cell
-              : `<td data-group="${escapeHtml(cell.group)}" data-label="${escapeHtml(
+              : `<td class="evaluation-score-cell${
+                  cell.taskIndex === 0 ? " evaluation-group-start" : ""
+                }" data-group="${escapeHtml(cell.group)}" data-label="${escapeHtml(
                   cell.task
                 )}" data-task-count="${cell.taskCount}" data-task-index="${cell.taskIndex}"><span class="score-pill ${scoreClass(
                   cell.value

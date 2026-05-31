@@ -748,6 +748,43 @@ pre {
   display: none;
 }
 
+@media (min-width: 761px) {
+  #evaluationTable th,
+  #evaluationTable td {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  #evaluationTable .evaluation-model-header,
+  #evaluationTable tbody td:first-child {
+    text-align: left;
+  }
+
+  #evaluationTable .evaluation-group-header {
+    border-left: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+  }
+
+  #evaluationTable .evaluation-task-header {
+    text-align: center;
+  }
+
+  #evaluationTable .evaluation-group-start {
+    border-left: 1px solid var(--line);
+  }
+
+  #evaluationTable thead tr:first-child th {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  #evaluationTable thead tr:nth-child(2) th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
 .model-name {
   font-weight: 850;
 }

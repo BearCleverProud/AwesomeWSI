@@ -7,10 +7,23 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![Last Update](https://img.shields.io/badge/Last%20Update-May%202026-blue.svg)](https://github.com/BearCleverProud/AwesomeWSI)
 [![DOI](https://img.shields.io/badge/DOI-10.24963%2Fijcai.2025%2F1193-blue.svg)](https://doi.org/10.24963/ijcai.2025/1193)
+[![Website](https://img.shields.io/badge/Website-Open%20Awesome%20WSI-0f766e.svg?style=for-the-badge)](https://bearcleverproud.github.io/AwesomeWSI/)
 
 *A Comprehensive Collection of Whole Slide Image Analysis and Pathology Foundation Models*
 
-[📖 Our Survey](#-our-survey) • [📚 Curated Papers](#-curated-papers) • [🔧 Toolboxes](#-useful-toolboxes) • [📊 Datasets](#-datasets) • [🏆 Benchmarks](#-benchmarks)
+[🌐 Website](https://bearcleverproud.github.io/AwesomeWSI/) • [📖 Our Survey](#-our-survey) • [📚 Curated Papers](#-curated-papers) • [🔧 Toolboxes](#-useful-toolboxes) • [📊 Datasets](#-datasets) • [🏆 Benchmarks](#-benchmarks)
+
+</div>
+
+---
+
+<div align="center">
+
+## 🌐 Website
+
+### [Open the Awesome WSI Website](https://bearcleverproud.github.io/AwesomeWSI/)
+
+Interactive survey companion for pathology foundation models, evaluation tasks, curated papers, toolboxes, datasets, and benchmarks.
 
 </div>
 
@@ -19,6 +32,7 @@
 ## 📋 Table of Contents
 
 - [🆕 Latest Updates](#-latest-updates)
+- [🌐 Website](#-website)
 - [🎯 Overview](#-overview)
 - [📑 Our Survey](#-our-survey)
 - [📚 Curated Papers](#-curated-papers)
@@ -37,6 +51,7 @@
 
 | 📅 **Timeline** | 🎉 **What's New** |
 |:---------------:|:------------------|
+| **🔔 May 2026** | **Interactive Website Added!** 🌐<br/>A static website is now included for browsing the survey companion, foundation model explorer, evaluation matrix, curated papers, toolboxes, datasets, and benchmarks. Open it here: [🌐 Awesome WSI Website](https://bearcleverproud.github.io/AwesomeWSI/). |
 | **🔔 May 2026** | **Structured Data, Resources, and Official Links Updated!** 📄<br/>The survey citation now links to the official IJCAI proceedings page, PDF, and DOI. The Toolboxes, Datasets, and Benchmarks sections have been expanded with verified resources and migrated to structured JSON, together with the core tables and curated papers, so the README can be rendered consistently from data sources. Conference placeholders for upcoming curated paper sections have also been prepared. |
 | **🔔 Oct 2025** | **Toolboxes, Datasets, Benchmarks Online!** 📑<br/>The rest of the planned contents are online, available in [🔧 Useful Toolboxes](#-useful-toolboxes), [📊 Datasets](#-datasets), and [🏆 Benchmarks](#-benchmarks)! Check them out as we will update them regularly!|
 | **🔔 July 2025** | **Curated Papers Online!** 📑<br/>The curated paper section is online, and available in [📚 Curated Papers](#-curated-papers). More papers are coming and check it out!|
@@ -628,13 +643,13 @@ The following comprehensive table presents the surveyed PFMs with detailed techn
             <td><a href="https://huggingface.co/xiangjx/musk">HuggingFace</a> <a href="https://github.com/lilab-stanford/MUSK">GitHub</a> <a href="https://www.nature.com/articles/s41586-024-08378-w">PDF</a></td>
         </tr>
         <tr>
-            <td class="venue">BioRxiv</td>
+            <td class="venue"><strong>Nat. Commun.</strong></td>
             <td class="model-name">BEPH</td>
             <td>MIM</td>
             <td class="architecture">BEiTv2</td>
             <td>TCGA</td>
             <td>11,760 WSIs<br>11,774,353 Patches</td>
-            <td><a href="https://github.com/Zhcyoung/BEPH">GitHub</a> <a href="https://www.biorxiv.org/content/10.1101/2024.05.16.594499v1.full">PDF</a></td>
+            <td><a href="https://github.com/Zhcyoung/BEPH">GitHub</a> <a href="https://www.nature.com/articles/s41467-025-57587-y">PDF</a></td>
         </tr>
         <tr>
             <td class="venue">arXiv</td>
@@ -646,22 +661,22 @@ The following comprehensive table presents the surveyed PFMs with detailed techn
             <td><a href="https://huggingface.co/histai/hibou-L">HuggingFace</a> <a href="https://github.com/HistAI/hibou">GitHub</a> <a href="https://arxiv.org/pdf/2406.05074">PDF</a></td>
         </tr>
         <tr>
-            <td class="venue">arXiv</td>
+            <td class="venue"><strong>Nat. Commun.</strong></td>
             <td class="model-name">mSTAR+</td>
             <td>S: CLIP<br>P: mSTAR</td>
             <td class="architecture">S: TransMIL<br>P: ViT-L</td>
             <td>TCGA</td>
             <td>11,727 WSIs<br>22,127 Modality Pairs</td>
-            <td><a href="https://huggingface.co/Wangyh/mSTAR">HuggingFace</a> <a href="https://github.com/Innse/mSTAR">GitHub</a> <a href="https://arxiv.org/pdf/2407.15362">PDF</a></td>
+            <td><a href="https://huggingface.co/Wangyh/mSTAR">HuggingFace</a> <a href="https://github.com/Innse/mSTAR">GitHub</a> <a href="https://www.nature.com/articles/s41467-025-66220-x">PDF</a></td>
         </tr>
         <tr>
-            <td class="venue">arXiv</td>
+            <td class="venue"><strong>Nat. Bio. Engg.</strong></td>
             <td class="model-name">GPFM</td>
             <td>UKD</td>
             <td class="architecture">ViT-L/14</td>
             <td>33 Public<br>Dataset</td>
             <td>72,280 WSIs<br>190,212,668 Patches</td>
-            <td><a href="https://huggingface.co/majiabo/GPFM">HuggingFace</a> <a href="https://github.com/birkhoffkiki/GPFM">GitHub</a> <a href="https://arxiv.org/pdf/2407.18449">PDF</a></td>
+            <td><a href="https://huggingface.co/majiabo/GPFM">HuggingFace</a> <a href="https://github.com/birkhoffkiki/GPFM">GitHub</a> <a href="https://www.nature.com/articles/s41551-025-01488-4">PDF</a></td>
         </tr>
         <tr>
             <td class="venue">arXiv</td>
@@ -700,13 +715,13 @@ The following comprehensive table presents the surveyed PFMs with detailed techn
             <td><a href="https://huggingface.co/MahmoodLab/TITAN">HuggingFace</a> <a href="https://github.com/mahmoodlab/TITAN">GitHub</a> <a href="https://www.nature.com/articles/s41591-025-03982-3">PDF</a></td>
         </tr>
         <tr>
-            <td class="venue">arXiv</td>
+            <td class="venue"><strong>Cancer Cell</strong></td>
             <td class="model-name">KEEP</td>
             <td>KEVL</td>
             <td class="architecture">UNI</td>
             <td>Quilt-1M +<br>OpenPath</td>
             <td>143K Image-Text Pairs<br>Hierarchical Medical KG</td>
-            <td><a href="https://huggingface.co/Astaxanthin/KEEP">HuggingFace</a> <a href="https://github.com/MAGIC-AI4Med/KEEP">GitHub</a> <a href="https://arxiv.org/pdf/2412.13126">PDF</a></td>
+            <td><a href="https://huggingface.co/Astaxanthin/KEEP">HuggingFace</a> <a href="https://github.com/MAGIC-AI4Med/KEEP">GitHub</a> <a href="https://doi.org/10.1016/j.ccell.2026.01.019">DOI</a></td>
         </tr>
         <tr>
             <td class="venue">arXiv</td>

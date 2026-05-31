@@ -522,8 +522,8 @@
       ]
     },
     {
-      "venue": "BioRxiv",
-      "venue_highlight": false,
+      "venue": "Nat. Commun.",
+      "venue_highlight": true,
       "model": "BEPH",
       "method": [
         "MIM"
@@ -545,7 +545,7 @@
         },
         {
           "label": "PDF",
-          "url": "https://www.biorxiv.org/content/10.1101/2024.05.16.594499v1.full"
+          "url": "https://www.nature.com/articles/s41467-025-57587-y"
         }
       ]
     },
@@ -585,8 +585,8 @@
       ]
     },
     {
-      "venue": "arXiv",
-      "venue_highlight": false,
+      "venue": "Nat. Commun.",
+      "venue_highlight": true,
       "model": "mSTAR+",
       "method": [
         "S: CLIP",
@@ -614,13 +614,13 @@
         },
         {
           "label": "PDF",
-          "url": "https://arxiv.org/pdf/2407.15362"
+          "url": "https://www.nature.com/articles/s41467-025-66220-x"
         }
       ]
     },
     {
-      "venue": "arXiv",
-      "venue_highlight": false,
+      "venue": "Nat. Bio. Engg.",
+      "venue_highlight": true,
       "model": "GPFM",
       "method": [
         "UKD"
@@ -647,7 +647,7 @@
         },
         {
           "label": "PDF",
-          "url": "https://arxiv.org/pdf/2407.18449"
+          "url": "https://www.nature.com/articles/s41551-025-01488-4"
         }
       ]
     },
@@ -783,8 +783,8 @@
       ]
     },
     {
-      "venue": "arXiv",
-      "venue_highlight": false,
+      "venue": "Cancer Cell",
+      "venue_highlight": true,
       "model": "KEEP",
       "method": [
         "KEVL"
@@ -810,8 +810,8 @@
           "url": "https://github.com/MAGIC-AI4Med/KEEP"
         },
         {
-          "label": "PDF",
-          "url": "https://arxiv.org/pdf/2412.13126"
+          "label": "DOI",
+          "url": "https://doi.org/10.1016/j.ccell.2026.01.019"
         }
       ]
     },

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Awesome WSI | Resources</title>
+    <meta
+      name="description"
+      content="Curated WSI papers, tools, datasets, and benchmarks for computational pathology research."
+    >
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html#survey" aria-label="Awesome WSI survey">
+        <span class="brand-mark">AW</span>
+        <span>
+          <strong>Awesome WSI</strong>
+          <small>Resource Index</small>
+        </span>
+      </a>
+      <nav class="top-nav" aria-label="Primary navigation">
+        <a href="index.html#survey">Survey</a>
+        <a href="#papers">Papers</a>
+        <a href="#toolboxes">Toolboxes</a>
+        <a href="#datasets">Datasets</a>
+        <a href="#benchmarks">Benchmarks</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero" id="resource-index">
+        <p class="eyebrow">Awesome WSI Resource Index</p>
+        <h1>Curated Papers, Tools, Datasets, and Benchmarks</h1>
+        <p class="lede">
+          A structured index for WSI research resources maintained alongside the survey repository.
+        </p>
+      </section>
+
+      <section class="summary-band" aria-label="Curated resource summary">
+        <div class="metric">
+          <span id="paperCount">--</span>
+          <small>Curated Papers</small>
+        </div>
+        <div class="metric">
+          <span id="toolCount">--</span>
+          <small>Tools</small>
+        </div>
+        <div class="metric">
+          <span id="datasetCount">--</span>
+          <small>Datasets</small>
+        </div>
+        <div class="metric">
+          <span id="benchmarkCount">--</span>
+          <small>Benchmarks</small>
+        </div>
+      </section>
+
+      <section class="workspace" id="resource-explorer" aria-label="Curated resource explorer">
+        <div class="workspace-bar">
+          <div>
+            <p class="eyebrow">Explore</p>
+            <h2>Resource Index</h2>
+          </div>
+          <label class="search-field">
+            <span>Search</span>
+            <input id="ecosystemSearch" type="search" placeholder="Search papers, tools, datasets, benchmarks...">
+          </label>
+        </div>
+
+        <div class="tab-list" role="tablist" aria-label="Curated resource sections">
+          <button class="tab active" type="button" data-ecosystem-view="papers">Papers</button>
+          <button class="tab" type="button" data-ecosystem-view="toolboxes">Toolboxes</button>
+          <button class="tab" type="button" data-ecosystem-view="datasets">Datasets</button>
+          <button class="tab" type="button" data-ecosystem-view="benchmarks">Benchmarks</button>
+        </div>
+
+        <section class="view active" data-ecosystem-panel="papers">
+          <div class="tab-summary" id="paperSummary"></div>
+          <div class="paper-list" id="paperList"></div>
+        </section>
+
+        <section class="view" data-ecosystem-panel="toolboxes">
+          <div class="tab-summary" data-resource-summary="toolboxes"></div>
+          <div class="resource-grid" data-resource-grid="toolboxes"></div>
+        </section>
+
+        <section class="view" data-ecosystem-panel="datasets">
+          <div class="tab-summary" data-resource-summary="datasets"></div>
+          <div class="resource-grid" data-resource-grid="datasets"></div>
+        </section>
+
+        <section class="view" data-ecosystem-panel="benchmarks">
+          <div class="tab-summary" data-resource-summary="benchmarks"></div>
+          <div class="resource-grid" data-resource-grid="benchmarks"></div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Awesome WSI</span>
+      <a href="index.html">Survey Companion</a>
+      <a href="https://github.com/BearCleverProud/AwesomeWSI" target="_blank" rel="noreferrer">Source</a>
+    </footer>
+
+    <script src="assets/app.js" defer></script>
+  </body>
+</html>

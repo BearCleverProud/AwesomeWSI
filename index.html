@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Awesome WSI | Survey</title>
+    <meta
+      name="description"
+      content="Companion site for the IJCAI 2025 survey on pathology foundation models."
+    >
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html#survey" aria-label="Awesome WSI home">
+        <span class="brand-mark">AW</span>
+        <span>
+          <strong>Awesome WSI</strong>
+          <small>Survey Companion</small>
+        </span>
+      </a>
+      <nav class="top-nav" aria-label="Primary navigation">
+        <a href="#survey">Survey</a>
+        <a href="resources.html#papers">Papers</a>
+        <a href="resources.html#toolboxes">Toolboxes</a>
+        <a href="resources.html#datasets">Datasets</a>
+        <a href="resources.html#benchmarks">Benchmarks</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="survey">
+        <div class="hero-copy">
+          <p class="eyebrow">IJCAI 2025 Survey Track</p>
+          <h1>A Survey of Pathology Foundation Model: Progress and Future Directions</h1>
+          <p class="lede">
+            A companion site for the survey paper, collecting the official citation, taxonomy figure,
+            pathology foundation model table, and evaluation matrix.
+          </p>
+          <div class="action-row" aria-label="Survey links">
+            <a class="button primary" href="https://www.ijcai.org/proceedings/2025/1193" target="_blank" rel="noreferrer">IJCAI</a>
+            <a class="button" href="https://www.ijcai.org/proceedings/2025/1193.pdf" target="_blank" rel="noreferrer">PDF</a>
+            <a class="button" href="https://arxiv.org/abs/2504.04045" target="_blank" rel="noreferrer">arXiv</a>
+          </div>
+        </div>
+        <div class="survey-panel" aria-label="Survey citation">
+          <div class="panel-heading">
+            <span>Official Citation</span>
+            <button class="icon-button" id="copyCitation" type="button" aria-label="Copy BibTeX citation">Copy</button>
+          </div>
+          <pre id="citationText">@inproceedings{ijcai2025p1193,
+  title={A Survey of Pathology Foundation Model: Progress and Future Directions},
+  author={Xiong, Conghao and Chen, Hao and Sung, Joseph J. Y.},
+  booktitle={Proceedings of the Thirty-Fourth International Joint Conference on Artificial Intelligence, IJCAI-25},
+  pages={10751--10760},
+  year={2025},
+  month={8},
+  note={Survey Track},
+  doi={10.24963/ijcai.2025/1193},
+  url={https://doi.org/10.24963/ijcai.2025/1193}
+}</pre>
+        </div>
+      </section>
+
+      <section class="news-board" aria-label="News">
+        <div class="news-heading">
+          <p class="eyebrow">News</p>
+          <h2>Latest updates</h2>
+        </div>
+        <div class="news-list" id="newsList"></div>
+      </section>
+
+      <section class="summary-band" aria-label="Survey companion summary">
+        <div class="metric">
+          <span id="modelCount">--</span>
+          <small>Foundation Models</small>
+        </div>
+        <div class="metric">
+          <span id="evalTaskCount">--</span>
+          <small>Evaluation Tasks</small>
+        </div>
+      </section>
+
+      <section class="section-grid">
+        <article class="taxonomy-figure">
+          <div class="section-title compact">
+            <p class="eyebrow">Survey Scope</p>
+            <h2>PFM taxonomy anchored in the MIL workflow</h2>
+          </div>
+          <img src="MIL.png" alt="Hierarchical taxonomy integrated within the MIL framework for pathology foundation models">
+        </article>
+        <article class="resource-callout">
+          <div class="section-title compact">
+            <p class="eyebrow">Repository Index</p>
+            <h2>Browse by section</h2>
+          </div>
+          <nav class="section-index" aria-label="Repository sections">
+            <a href="resources.html#papers">
+              <span>Papers</span>
+              <strong id="paperCount">--</strong>
+            </a>
+            <a href="resources.html#toolboxes">
+              <span>Toolboxes</span>
+              <strong id="toolCount">--</strong>
+            </a>
+            <a href="resources.html#datasets">
+              <span>Datasets</span>
+              <strong id="datasetCount">--</strong>
+            </a>
+            <a href="resources.html#benchmarks">
+              <span>Benchmarks</span>
+              <strong id="benchmarkCount">--</strong>
+            </a>
+          </nav>
+        </article>
+      </section>
+
+      <section class="workspace" id="survey-explorer" aria-label="Survey companion data explorer">
+        <div class="workspace-bar">
+          <div>
+            <p class="eyebrow">Survey Companion</p>
+            <h2>PFM Models and Evaluation</h2>
+          </div>
+          <label class="search-field">
+            <span>Search</span>
+            <input id="surveySearch" type="search" placeholder="Search survey models and evaluation...">
+          </label>
+        </div>
+
+        <div class="tab-list" role="tablist" aria-label="Survey companion sections">
+          <button class="tab active" type="button" data-survey-view="models">Models</button>
+          <button class="tab" type="button" data-survey-view="evaluation">Evaluation</button>
+        </div>
+
+        <section class="view active" id="models" data-survey-panel="models">
+          <div class="filter-panel" id="modelFilters" aria-label="Model filters"></div>
+          <div class="table-wrap">
+            <table class="data-table" id="modelTable">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Venue</th>
+                  <th>Scope</th>
+                  <th>Pretraining</th>
+                  <th>Architecture</th>
+                  <th>Data</th>
+                  <th>Links</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="view" id="evaluation" data-survey-panel="evaluation">
+          <div class="legend" id="evalLegend"></div>
+          <div class="table-wrap">
+            <table class="data-table compact-table" id="evaluationTable"></table>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Awesome WSI</span>
+      <a href="https://doi.org/10.24963/ijcai.2025/1193" target="_blank" rel="noreferrer">DOI: 10.24963/ijcai.2025/1193</a>
+      <a href="resources.html">Resource Index</a>
+      <a href="https://github.com/BearCleverProud/AwesomeWSI" target="_blank" rel="noreferrer">Source</a>
+    </footer>
+
+    <script src="assets/app.js" defer></script>
+  </body>
+</html>

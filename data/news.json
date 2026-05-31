@@ -1,0 +1,66 @@
+{
+  "schema": "awesomewsi.news.v1",
+  "source": "Migrated from README.md News section.",
+  "items": [
+    {
+      "date": "May 2026",
+      "title": "Interactive website added",
+      "description": "A static website is included for browsing the IJCAI survey companion, foundation model explorer, evaluation matrix, curated papers, toolboxes, datasets, and benchmarks.",
+      "links": [
+        {
+          "label": "Website",
+          "url": "index.html#survey"
+        },
+        {
+          "label": "Resources",
+          "url": "resources.html#papers"
+        }
+      ]
+    },
+    {
+      "date": "May 2026",
+      "title": "Structured data, resources, and official links updated",
+      "description": "Survey links now point to IJCAI, PDF, DOI, and arXiv; resource sections were expanded and migrated to JSON.",
+      "links": [
+        {
+          "label": "Survey",
+          "url": "https://www.ijcai.org/proceedings/2025/1193"
+        },
+        {
+          "label": "Resources",
+          "url": "resources.html#toolboxes"
+        }
+      ]
+    },
+    {
+      "date": "Oct 2025",
+      "title": "Toolboxes, datasets, and benchmarks online",
+      "description": "The planned repository resource sections are available and maintained for WSI research.",
+      "links": [
+        {
+          "label": "Toolboxes",
+          "url": "resources.html#toolboxes"
+        },
+        {
+          "label": "Datasets",
+          "url": "resources.html#datasets"
+        },
+        {
+          "label": "Benchmarks",
+          "url": "resources.html#benchmarks"
+        }
+      ]
+    },
+    {
+      "date": "July 2025",
+      "title": "Curated papers online",
+      "description": "Conference paper sections were added for tracking relevant WSI and pathology foundation model work.",
+      "links": [
+        {
+          "label": "Papers",
+          "url": "resources.html#papers"
+        }
+      ]
+    }
+  ]
+}

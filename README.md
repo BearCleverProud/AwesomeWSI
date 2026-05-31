@@ -132,7 +132,7 @@ The following table presents **comprehensive technical specifications** for Our 
 - **🏗️ Model Design** → Model architectures, parameter counts, scale categories (XS to G)  
 - **📏 Scale Hierarchy** → From 2.78M (XS) to 1.9B (G) parameters following ViT-based quantization  
 
-**Input Modalities:** H&E **(H)**, Patch **(P)**, Text **(T)**, WSI with unspecified stains **(W)**, Images **(I)**, Genes **(G)**, DNA **(D)**, RNA **(R)**  
+**Input Modalities:** H&E-stained flag **(H)**, Patch/tile image **(P)**, Text/report **(T)**, Slide-level WSI **(W)**, Genes **(G)**, DNA **(D)**, RNA **(R)**. **H** is added only when the source clearly indicates H&E-stained pathology input; **P/W** encode the image granularity.<br>
 **Scale Categories:** XS, S, B, L, H, g, G (Extra-Small to Giant) based on parameter count
 
 > 🔍 **Essential for developers** to understand PFM architectures, computational requirements, and implementation specifications for deployment in clinical and research environments.
@@ -164,7 +164,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">CTransPath</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>H</td>
+            <td>H, P</td>
             <td>MoCov3</td>
             <td>10/224</td>
             <td class="architecture">Swin-T/14</td>
@@ -175,7 +175,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">REMEDIS</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>H</td>
+            <td>H, P</td>
             <td>SimCLR</td>
             <td>Multi/224</td>
             <td class="architecture">ResNet-50</td>
@@ -186,7 +186,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">HIPT</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="check-mark">✅</span></td>
-            <td>H</td>
+            <td>H, P, W</td>
             <td>DINO</td>
             <td>20/256,4096</td>
             <td class="architecture">ViT-S/16-XS/256</td>
@@ -208,7 +208,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">CONCH</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>W, T</td>
+            <td>P, T</td>
             <td>iBOT/CoCa</td>
             <td>20/256</td>
             <td class="architecture">ViT/B-16</td>
@@ -219,7 +219,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">Phikon</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>H</td>
+            <td>H, P</td>
             <td>iBOT</td>
             <td>20/224</td>
             <td class="architecture">ViT-S/B/L/16</td>
@@ -230,7 +230,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">UNI</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>H</td>
+            <td>H, P</td>
             <td>DINOv2</td>
             <td>20/256,512</td>
             <td class="architecture">ViT-L/16</td>
@@ -241,7 +241,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">Virchow</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>H</td>
+            <td>H, P</td>
             <td>DINOv2</td>
             <td>20/224</td>
             <td class="architecture">ViT-H/14</td>
@@ -252,7 +252,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">SINAI</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>H</td>
+            <td>H, P</td>
             <td>DINO/MAE</td>
             <td>Unknown</td>
             <td class="architecture">ViT-S/L</td>
@@ -263,7 +263,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">CHIEF</td>
             <td><span class="cross-mark">❌</span></td>
             <td><span class="check-mark">✅</span></td>
-            <td>H,T</td>
+            <td>H, W</td>
             <td>Sup.+CLIP</td>
             <td>10/224</td>
             <td class="architecture">CHIEF</td>
@@ -274,7 +274,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">Prov-GigaPath</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="check-mark">✅</span></td>
-            <td>H,I</td>
+            <td>P, W</td>
             <td>DINOv2/MAE</td>
             <td>20/256</td>
             <td class="architecture">ViT-g/14/LongNet</td>
@@ -285,7 +285,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">Pathoduet</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>H,I</td>
+            <td>P</td>
             <td>MoCov3</td>
             <td>40/256,20/1024</td>
             <td class="architecture">ViT-B/16</td>
@@ -296,7 +296,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">RudolfV</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>W</td>
+            <td>P</td>
             <td>DINOv2</td>
             <td>20,40,80/256</td>
             <td class="architecture">ViT-L/14</td>
@@ -307,7 +307,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">PLUTO</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>W</td>
+            <td>P</td>
             <td>DINOv2</td>
             <td>20,40/224</td>
             <td class="architecture">FlexiViT-S/16</td>
@@ -318,7 +318,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">PRISM</td>
             <td><span class="cross-mark">❌</span></td>
             <td><span class="check-mark">✅</span></td>
-            <td>H,T</td>
+            <td>H, W, T</td>
             <td>CoCa</td>
             <td>20/224</td>
             <td class="architecture">Perceiver</td>
@@ -329,7 +329,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">TANGLE</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="check-mark">✅</span></td>
-            <td>H,G</td>
+            <td>H, P, W, G</td>
             <td>iBOT/SimCLR</td>
             <td>20/224</td>
             <td class="architecture">ViT-B/16/ABMIL</td>
@@ -340,7 +340,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">MUSK</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>H,T</td>
+            <td>H, P, T</td>
             <td>MIM</td>
             <td>10,20,40/384</td>
             <td class="architecture">BEiT-3</td>
@@ -351,7 +351,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">BEPH</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>H</td>
+            <td>H, P</td>
             <td>MIM</td>
             <td>40/224</td>
             <td class="architecture">BEiTv2</td>
@@ -362,7 +362,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">Hibou</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>W</td>
+            <td>P</td>
             <td>DINOv2</td>
             <td>Unknown</td>
             <td class="architecture">ViT-B/L/16</td>
@@ -373,7 +373,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">mSTAR+</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="check-mark">✅</span></td>
-            <td>H,G,T</td>
+            <td>H, P, W, G, T</td>
             <td>CLIP/ST</td>
             <td>20/256</td>
             <td class="architecture">TransMIL/ViT-L</td>
@@ -384,7 +384,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">GPFM</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>H</td>
+            <td>P</td>
             <td>UDK</td>
             <td>40/512</td>
             <td class="architecture">ViT-L/14</td>
@@ -395,7 +395,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">Virchow2G</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>W</td>
+            <td>P</td>
             <td>DINOv2</td>
             <td>5,10,20,40/224</td>
             <td class="architecture">ViT-G/14</td>
@@ -417,7 +417,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">Phikon-v2</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>W</td>
+            <td>H, P</td>
             <td>DINOv2</td>
             <td>20/224</td>
             <td class="architecture">ViT-L/16</td>
@@ -428,7 +428,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">TITAN</td>
             <td><span class="cross-mark">❌</span></td>
             <td><span class="check-mark">✅</span></td>
-            <td>W,T</td>
+            <td>W, T</td>
             <td>iBOT/CoCa</td>
             <td>20/8192</td>
             <td class="architecture">TITAN/TITAN<sub>V</sub></td>
@@ -439,7 +439,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">KEEP</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>W,T</td>
+            <td>P, T</td>
             <td>CLIP</td>
             <td>20/224</td>
             <td class="architecture">UNI</td>
@@ -450,7 +450,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">THREADS</td>
             <td><span class="cross-mark">❌</span></td>
             <td><span class="check-mark">✅</span></td>
-            <td>H,D,R</td>
+            <td>H, W, D, R</td>
             <td>CLIP</td>
             <td>20/512</td>
             <td class="architecture">MH-ABMIL</td>
@@ -1214,6 +1214,12 @@ The following comparison table systematically evaluates the PFMs across **13 dis
 
 ## 📚 Curated Papers
 
+**Paper tags:** `task` describes the final problem/output; `topic` describes the main technical route.
+
+**Task tags:** `classification` WSI/patch/tile classification; `survival` prognosis/risk prediction; `segmentation` segmentation or localization; `generation` synthesis or augmentation; `molecular` gene/RNA/DNA/spatial transcriptomics/pathway prediction or generation; `language` VQA/caption/report/dialogue outputs; `compression` WSI compression; `benchmark` dataset or benchmark contribution.
+
+**Topic tags:** `mil` MIL or slide-level aggregation; `foundation_model` pathology foundation model pretraining/adaptation/evaluation; `vision_language` image-text/report/language-prompt/VLM/LLM reasoning; `generative_model` diffusion, flow, VAE, or related generative modeling; `multi_omics` histology with gene/RNA/DNA/genomic/spatial transcriptomic/pathway data, not report text alone; `efficient_wsi` sampling, compression, scalable training/inference, or other WSI efficiency methods.
+
 <!-- BEGIN GENERATED SECTION: curated_papers -->
 <!-- Generated from data/curated_papers.json. Do not edit this section directly. -->
 ### ICML 2026
@@ -1225,44 +1231,108 @@ The following comparison table systematically evaluates the PFMs across **13 dis
 ### AAAI 2026
 
 ### NeurIPS 2025
+1. [PathVQ: Reforming Computational Pathology Foundation Model for Whole Slide Image Analysis via Vector Quantization](https://proceedings.neurips.cc/paper_files/paper/2025/hash/59f278de1619bdb6b53fd04e8e0976e0-Abstract-Conference.html): This paper proposes PathVQ, a WSI foundation model framework that vector-quantizes spatial patch tokens into compact discrete codes and uses multi-scale VQ supervision for slide-level self-supervised learning, addressing the efficiency-representation trade-off in scalable pathology foundation models.<br>
+   Tags: task: `classification`; topic: `foundation_model`, `efficient_wsi`
+2. [CPathAgent: An Agent-based Foundation Model for Interpretable High-Resolution Pathology Image Analysis Mimicking Pathologists' Diagnostic Logic](https://proceedings.neurips.cc/paper_files/paper/2025/hash/933b5d002cf251b3e854d586e55ac58c-Abstract-Conference.html): This paper proposes CPathAgent, an agent-based pathology foundation model that navigates WSIs through zoom and move operations and unifies patch-, region-, and slide-level capabilities, addressing black-box WSI diagnosis by producing interpretable diagnostic summaries.<br>
+   Tags: task: `language`, `benchmark`; topic: `foundation_model`, `vision_language`, `efficient_wsi`
+3. [Single GPU Task Adaptation of Pathology Foundation Models for Whole Slide Image Analysis](https://proceedings.neurips.cc/paper_files/paper/2025/hash/10a3b1c30b8cceb507b9e8ddcc9a1a6a-Abstract-Conference.html): This paper proposes TAPFM, a single-GPU adaptation method that uses ViT attention for MIL aggregation while separately optimizing PFM representations and attention weights, making weakly supervised pathology foundation model adaptation practical for WSI mutation prediction.<br>
+   Tags: task: `classification`, `molecular`; topic: `foundation_model`, `mil`, `efficient_wsi`
+4. [Revisiting End-to-End Learning with Slide-level Supervision in Computational Pathology](https://proceedings.neurips.cc/paper_files/paper/2025/hash/eae33167166b44df7c929f70984c0c0b-Abstract-Conference.html): This paper proposes ABMILX with global correlation-based attention refinement and efficient multi-scale random patch sampling, revisiting end-to-end slide-level training to address the disjoint optimization and high compute cost of two-stage WSI MIL pipelines.<br>
+   Tags: task: `classification`, `survival`; topic: `mil`, `efficient_wsi`
+5. [Navigating the MIL Trade-Off: Flexible Pooling for Whole Slide Image Classification](https://openreview.net/forum?id=RIL1vOuZOC): This paper proposes Maxsoft, a flexible MIL pooling function derived from temperature-controlled log-sum-exp pooling, together with PerPatch augmentation, to balance mean-like robustness and max-like sensitivity for low-data WSI classification.<br>
+   Tags: task: `classification`; topic: `mil`
+6. [Sequential Attention-based Sampling for Histopathological Analysis](https://nips.cc/virtual/2025/poster/115302): This paper proposes SASHA, a deep reinforcement learning framework that combines hierarchical attention-based MIL feature learning with sequential patch sampling, addressing WSI inference cost by selectively zooming into only 10-20% of high-resolution patches.<br>
+   Tags: task: `classification`; topic: `mil`, `efficient_wsi`
+7. [MAPLE: Multi-scale Attribute-enhanced Prompt Learning for Few-shot Whole Slide Image Classification](https://proceedings.neurips.cc/paper_files/paper/2025/hash/a94a8800a4b0af45600bab91164849df-Abstract-Conference.html): This paper proposes MAPLE, a few-shot WSI classification framework that uses LLM-generated entity- and slide-level prompts, entity-guided cross-attention, and cross-scale entity graph learning to capture subtype-specific histological attributes under limited labels.<br>
+   Tags: task: `classification`; topic: `foundation_model`, `vision_language`, `mil`
+8. [Cancer Survival Analysis via Zero-shot Tumor Microenvironment Segmentation on Low-resolution Whole Slide Pathology Images](https://proceedings.neurips.cc/paper_files/paper/2025/hash/527d9d8f89aec80d634e366a97f49ba8-Abstract-Conference.html): This paper proposes ZTSurv, an end-to-end survival framework that performs zero-shot tumor and stroma segmentation from TIL maps on 50x downsampled WSIs and builds heterogeneous graphs over TME components, reducing annotation and computational costs for prognosis prediction.<br>
+   Tags: task: `survival`, `segmentation`; topic: `efficient_wsi`
+9. [Learning Relative Gene Expression Trends from Pathology Images in Spatial Transcriptomics](https://proceedings.neurips.cc/paper_files/paper/2025/hash/7d535a224c8ae54ba75bac0457b6b279-Abstract-Conference.html): This paper proposes STRank, a relative-expression learning objective that predicts gene-expression trends rather than absolute values from pathology images, addressing stochastic noise and batch effects in spatial transcriptomics prediction.<br>
+   Tags: task: `molecular`; topic: `multi_omics`
+10. [GeneFlow: Translation of Single-cell Gene Expression to Histopathological Images via Rectified Flow](https://proceedings.neurips.cc/paper_files/paper/2025/hash/40ae6c3a8dea3b20ea2352b33f52243f-Abstract-Conference.html): This paper proposes GeneFlow, a rectified-flow framework with an attention-based RNA encoder and conditional UNet to translate single- and multi-cell gene expression into paired histopathology images, addressing the many-to-one mapping between transcriptomics and morphology.<br>
+   Tags: task: `generation`, `molecular`; topic: `multi_omics`, `generative_model`
+11. [D-VST: Diffusion Transformer for Pathology-Correct Tone-Controllable Cross-Dye Virtual Staining of Whole Slide Images](https://proceedings.neurips.cc/paper_files/paper/2025/hash/048445f5e3321dc9721930b15ba9387b-Abstract-Conference.html): This paper proposes D-VST, a diffusion virtual staining transformer with separate pathology and tone encoders plus frequency-aware adaptive patch sampling, addressing pathology leakage and efficient billion-pixel WSI cross-dye virtual staining.<br>
+   Tags: task: `generation`; topic: `generative_model`, `efficient_wsi`
+12. [SGCD: Stain-Guided CycleDiffusion for Unsupervised Domain Adaptation of Histopathology Image Classification](https://proceedings.neurips.cc/paper_files/paper/2025/hash/37964391303da7d70d07e83d2b0c3c5e-Abstract-Conference.html): This paper proposes SGCD, a stain-guided dual diffusion framework with bidirectional generative constraints and consistency loss, addressing unpaired domain translation while preserving discriminative features for histopathology classification.<br>
+   Tags: task: `classification`, `generation`; topic: `generative_model`
+13. [Semantic and Visual Crop-Guided Diffusion Models for Heterogeneous Tissue Synthesis in Histopathology](https://openreview.net/forum?id=yNVDkAjGjw): This paper proposes a latent diffusion model conditioned on semantic segmentation maps and tissue-specific visual crops, with a self-supervised extension for unannotated TCGA WSIs, addressing heterogeneous histopathology synthesis and annotated data scarcity.<br>
+   Tags: task: `generation`, `segmentation`; topic: `generative_model`
+14. [MATCH: Multi-faceted Adaptive Topo-Consistency for Semi-Supervised Histopathology Segmentation](https://proceedings.neurips.cc/paper_files/paper/2025/hash/97e2df4bb8b2f1913657344a693166a2-Abstract-Conference.html): This paper proposes MATCH, a semi-supervised histopathology segmentation framework that enforces topological consistency across dropout- and snapshot-perturbed predictions and matches structures using spatial overlap and global alignment, addressing limited labels and noisy dense tissue objects.<br>
+   Tags: task: `segmentation`
+15. [THUNDER: Tile-level Histopathology image UNDERstanding benchmark](https://proceedings.neurips.cc/paper_files/paper/2025/hash/e3a2bd22ef74970b2fff74a16f806237-Abstract-Datasets_and_Benchmarks_Track.html): This paper introduces THUNDER, a tile-level benchmark for digital pathology foundation models that compares 23 models across 16 datasets while analyzing downstream performance, feature spaces, robustness, and uncertainty, addressing fragmented evaluation of pathology feature extractors.<br>
+   Tags: task: `benchmark`; topic: `foundation_model`
+16. [STARC-9: A Large-scale Dataset for Multi-Class Tissue Classification for CRC Histopathology](https://proceedings.neurips.cc/paper_files/paper/2025/hash/f90cd97544e17dfd76af5c4f1b698a50-Abstract-Datasets_and_Benchmarks_Track.html): This paper introduces STARC-9, a 630K-tile CRC histopathology dataset across nine tissue classes, curated with DeepCluster++ and pathologist verification, addressing diversity, class balance, and quality limitations in public CRC tissue classification datasets.<br>
+   Tags: task: `classification`, `segmentation`, `benchmark`; topic: `foundation_model`
 
 ### ICCV 2025
-1. [Graph Domain Adaptation with Dual-branch Encoder and Two-level Alignment for Whole Slide Image-based Survival Prediction](https://arxiv.org/abs/2411.14001): This paper proposes a dual-branch graph encoder with message-passing and shortest-path branches, together with two-level alignment at the category and feature levels to capture semantic information from WSIs and mitigate domain shifts between datasets.
-2. [Continual Multiple Instance Learning with Enhanced Localization for Histopathological Whole Slide Image Analysis](https://arxiv.org/abs/2507.02395): This paper introduces continual multiple instance learning with enhanced localization for both localization and adaptability with minimal forgetting in continual learning settings.
-3. [Cracking Instance Jigsaw Puzzles: An Alternative to Multiple Instance Learning for Whole Slide Image Analysis](https://arxiv.org/abs/2507.08178): This paper proposes a Siamese network solution, an alternative to the permutation-invariant MIL framework, to better model the spatial correlations between image patches.
-4. [Flow-MIL: Constructing Highly-expressive Latent Feature Space For Whole Slide Image Classification Using Normalizing Flow](https://iccv.thecvf.com/virtual/2025/poster/2490): This paper proposes Flow-MIL, which maps instance features into a simple, highly expressive latent space that preserves critical semantics via a normalizing-flow latent semantic embedding space and GMM-based latent prototypes, enabling better instance-level insight and stronger slide-level predictions.
-5. [GMMamba: Group Masking Mamba for Whole Slide Image Classification](https://iccv.thecvf.com/virtual/2025/poster/1554): This paper proposes GMMamba, which couples intra-group masking Mamba and cross-group super-feature sampling to form compact local representations and discriminative global features, thereby reducing redundant or uninformative instances and better modeling long-range dependencies in WSIs.
-6. [Bridging Local Inductive Bias and Long-Range Dependencies with Pixel-Mamba for End-to-end Whole Slide Image Analysis](https://arxiv.org/abs/2412.16711): This paper introduces Pixel-Mamba, which incorporates local inductive biases through progressively expanding tokens to hierarchically combine both local and global information and address computational and representational challenges.
-7. [WSI-LLaVA: A Multimodal Large Language Model for Whole Slide Image](https://arxiv.org/abs/2412.02141): This paper proposes WSI-LLaVA, a WSI-level MLLM trained to produce morphology-grounded explanations, and releases WSI-Bench, a 180k-pair morphology-aware benchmark, strengthening morphological understanding and explainability in WSI reasoning while addressing the common failure of current MLLMs to attend to key morphology and justify their answers.
-8. [PS3: A Multimodal Transformer Integrating Pathology Reports with Histology Images and Biological Pathways for Cancer Survival Prediction](https://arxiv.org/abs/2509.20022): This paper proposes PS3, a prototype-based multimodal transformer that integrates pathology reports, histology whole slide images, and pathway-level transcriptomics, enabling effective intra-modal and cross-modal attention for survival prediction and addressing modality imbalance in early fusion.
-9. [Controllable Latent Space Augmentation for Digital Pathology](https://arxiv.org/abs/2508.14588): This paper introduces HistAug, a controllable feature space augmentation for patch features, to overcome the challenge of heavy computational cost in patch image augmentation as well as the challenge of preserving the semantic information during feature space augmentation.
-10. [ModalTune: Fine-Tuning Slide-Level Foundation Models with Multi-Modal Information for Multi-task Learning in Digital Pathology](https://arxiv.org/abs/2503.17564): This paper proposes ModalTune, which leverages modal adapters to integrate new modalities without modifying the weights of slide-level foundation models and better utilize shared information between different modalities and tasks.
+1. [Graph Domain Adaptation with Dual-branch Encoder and Two-level Alignment for Whole Slide Image-based Survival Prediction](https://arxiv.org/abs/2411.14001): This paper proposes a dual-branch graph encoder with message-passing and shortest-path branches, together with two-level alignment at the category and feature levels to capture semantic information from WSIs and mitigate domain shifts between datasets.<br>
+   Tags: task: `survival`; topic: `mil`
+2. [Continual Multiple Instance Learning with Enhanced Localization for Histopathological Whole Slide Image Analysis](https://arxiv.org/abs/2507.02395): This paper proposes CoMEL, a continual MIL framework that combines Grouped Double Attention Transformer instance encoding, bag-prototype pseudo-labeling, and orthogonal weighted LoRA to address forgetting and instance localization in weakly supervised WSI analysis.<br>
+   Tags: task: `classification`, `segmentation`; topic: `mil`
+3. [Cracking Instance Jigsaw Puzzles: An Alternative to Multiple Instance Learning for Whole Slide Image Analysis](https://arxiv.org/abs/2507.08178): This paper proposes an instance jigsaw-puzzle alternative to permutation-invariant MIL, using a Siamese network grounded in optimal transport to restore shuffled instance order and capture spatial and semantic correlations for WSI classification and survival prediction.<br>
+   Tags: task: `classification`, `survival`; topic: `mil`
+4. [Flow-MIL: Constructing Highly-expressive Latent Feature Space For Whole Slide Image Classification Using Normalizing Flow](https://iccv.thecvf.com/virtual/2025/poster/2490): This paper proposes Flow-MIL, which maps instance features into a simple, highly expressive latent space that preserves critical semantics via a normalizing-flow latent semantic embedding space and GMM-based latent prototypes, enabling better instance-level insight and stronger slide-level predictions.<br>
+   Tags: task: `classification`; topic: `mil`, `generative_model`
+5. [GMMamba: Group Masking Mamba for Whole Slide Image Classification](https://iccv.thecvf.com/virtual/2025/poster/1554): This paper proposes GMMamba, which couples intra-group masking Mamba and cross-group super-feature sampling to form compact local representations and discriminative global features, thereby reducing redundant or uninformative instances and better modeling long-range dependencies in WSIs.<br>
+   Tags: task: `classification`; topic: `mil`, `efficient_wsi`
+6. [Bridging Local Inductive Bias and Long-Range Dependencies with Pixel-Mamba for End-to-end Whole Slide Image Analysis](https://arxiv.org/abs/2412.16711): This paper introduces Pixel-Mamba, which incorporates local inductive biases through progressively expanding tokens to hierarchically combine both local and global information and address computational and representational challenges.<br>
+   Tags: task: `classification`, `survival`; topic: `efficient_wsi`
+7. [WSI-LLaVA: A Multimodal Large Language Model for Whole Slide Image](https://arxiv.org/abs/2412.02141): This paper proposes WSI-LLaVA, a WSI-level MLLM trained through WSI-text alignment, feature-space alignment, and task-specific instruction tuning, and introduces WSI-Bench to address patch-level MLLMs limited whole-slide morphological reasoning.<br>
+   Tags: task: `language`, `benchmark`; topic: `foundation_model`, `vision_language`
+8. [PS3: A Multimodal Transformer Integrating Pathology Reports with Histology Images and Biological Pathways for Cancer Survival Prediction](https://arxiv.org/abs/2509.20022): This paper proposes PS3, a prototype-based multimodal transformer that integrates pathology reports, histology whole slide images, and pathway-level transcriptomics, enabling effective intra-modal and cross-modal attention for survival prediction and addressing modality imbalance in early fusion.<br>
+   Tags: task: `survival`; topic: `vision_language`, `multi_omics`
+9. [Controllable Latent Space Augmentation for Digital Pathology](https://arxiv.org/abs/2508.14588): This paper introduces HistAug, a controllable feature space augmentation for patch features, to overcome the challenge of heavy computational cost in patch image augmentation as well as the challenge of preserving the semantic information during feature space augmentation.<br>
+   Tags: task: `generation`; topic: `mil`, `generative_model`, `efficient_wsi`
+10. [ModalTune: Fine-Tuning Slide-Level Foundation Models with Multi-Modal Information for Multi-task Learning in Digital Pathology](https://arxiv.org/abs/2503.17564): This paper proposes ModalTune, a fine-tuning framework that adds modal adapters to frozen slide-level foundation models and uses LLM-encoded label text to share semantics across tasks, modalities, and cancer types, addressing underused cross-task and cross-modal information in survival and subtype prediction.<br>
+   Tags: task: `classification`, `survival`; topic: `foundation_model`
 
 ### ICML 2025
-1. [Scalable Generation of Spatial Transcriptomics from Histology Images via Whole-Slide Flow Matching](https://icml.cc/virtual/2025/poster/45412): This paper introduces flow matching to model the joint distribution of gene expression across entire slide (rather than predicting spots independently) to solve the challenge of capturing cell-cell interactions when generating spatial transcriptomics from histology images, using an efficient slide-level encoder with local spatial attention to overcome memory constraints.
-2. [Distributed Parallel Gradient Stacking (DPGS): Solving Whole Slide Image Stacking Challenge in Multi-Instance Learning](https://icml.cc/virtual/2025/poster/43811): This paper introduces Distributed Parallel Gradient Stacking with Deep Model-Gradient Compression to solve the non-stackable data problem in MIL where varying patch counts across WSIs prevent efficient batch processing.
-3. [L-Diffusion: Laplace Diffusion for Efficient Pathology Image Segmentation](https://icml.cc/virtual/2025/poster/46562): This paper introduces a diffusion model using multiple Laplace distributions (instead of Gaussian) combined with contrastive learning for pixel-wise feature refinement to solve the challenge of segmenting rare cell and tissue types in pathology images with limited annotations.
-4. [Do Multiple Instance Learning Models Transfer?](https://icml.cc/virtual/2025/poster/44403): This paper conducts the first comprehensive investigation of transfer learning in MIL models to solve the challenge of small, weakly-supervised clinical datasets in computational pathology.
-5. [How Effective Can Dropout Be in Multiple Instance Learning?](https://icml.cc/virtual/2025/poster/43917): This paper introduces MIL-Dropout that systematically drops top-k most important instances to address noisy feature embeddings and weak supervision in WSI classification, demonstrating improved generalization across five MIL benchmarks with negligible computational cost.
+1. [Scalable Generation of Spatial Transcriptomics from Histology Images via Whole-Slide Flow Matching](https://icml.cc/virtual/2025/poster/45412): This paper proposes STFlow, a flow-matching generative model that predicts whole-slide spatial transcriptomics by modeling the joint gene-expression distribution and using local spatial attention, addressing independent spot prediction and memory constraints in ST-from-histology generation.<br>
+   Tags: task: `generation`, `molecular`; topic: `multi_omics`, `generative_model`, `efficient_wsi`
+2. [Distributed Parallel Gradient Stacking (DPGS): Solving Whole Slide Image Stacking Challenge in Multi-Instance Learning](https://icml.cc/virtual/2025/poster/43811): This paper introduces Distributed Parallel Gradient Stacking with Deep Model-Gradient Compression to solve the non-stackable data problem in MIL where varying patch counts across WSIs prevent efficient batch processing.<br>
+   Tags: task: `classification`; topic: `mil`, `efficient_wsi`
+3. [L-Diffusion: Laplace Diffusion for Efficient Pathology Image Segmentation](https://icml.cc/virtual/2025/poster/46562): This paper introduces a diffusion model using multiple Laplace distributions (instead of Gaussian) combined with contrastive learning for pixel-wise feature refinement to solve the challenge of segmenting rare cell and tissue types in pathology images with limited annotations.<br>
+   Tags: task: `segmentation`; topic: `generative_model`
+4. [Do Multiple Instance Learning Models Transfer?](https://icml.cc/virtual/2025/poster/44403): This paper systematically studies MIL transfer learning by evaluating pretrained MIL models across tissue subtyping, cancer grading, and molecular subtype tasks, showing when supervised MIL pretraining improves data-scarce computational pathology instead of training from scratch.<br>
+   Tags: task: `classification`; topic: `mil`
+5. [How Effective Can Dropout Be in Multiple Instance Learning?](https://icml.cc/virtual/2025/poster/43917): This paper introduces MIL-Dropout that systematically drops top-k most important instances to address noisy feature embeddings and weak supervision in WSI classification, demonstrating improved generalization across five MIL benchmarks with negligible computational cost.<br>
+   Tags: task: `classification`; topic: `mil`
 
 ### CVPR 2025
-1. [FOCUS: Knowledge-enhanced Adaptive Visual Compression for Few-shot Whole Slide Image Classification](https://openaccess.thecvf.com/content/CVPR2025/html/Guo_FOCUS_Knowledge-enhanced_Adaptive_Visual_Compression_for_Few-shot_Whole_Slide_Image_CVPR_2025_paper.html): This paper introduces knowledge-enhanced adaptive visual compression with language prompts to solve the challenge of few-shot WSI classification with limited training data and vast irrelevant patches, achieving superior performance on cancer diagnosis by prioritizing diagnostically relevant regions through pathology foundation models.
-2. [Distilled Prompt Learning for Incomplete Multimodal Survival Prediction](https://openaccess.thecvf.com/content/CVPR2025/html/Xu_Distilled_Prompt_Learning_for_Incomplete_Multimodal_Survival_Prediction_CVPR_2025_paper.html): This paper introduces a two-stage prompting framework (unimodal and multimodal) to solve the challenge of incomplete multimodal data collection in survival prediction, enabling inference of missing modality information from available ones.
-3. [Fast and Accurate Gigapixel Pathological Image Classification with Hierarchical Distillation Multi-Instance Learning](https://openaccess.thecvf.com/content/CVPR2025/html/Dong_Fast_and_Accurate_Gigapixel_Pathological_Image_Classification_with_Hierarchical_Distillation_CVPR_2025_paper.html): This paper introduces hierarchical distillation MIL with dynamic masking and lightweight pre-screening to solve the high inference cost challenge in gigapixel WSI classification.
-4. [SlideChat: A Large Vision-Language Assistant for Whole-Slide Pathology Image Understanding](https://openaccess.thecvf.com/content/CVPR2025/html/Chen_SlideChat_A_Large_Vision-Language_Assistant_for_Whole-Slide_Pathology_Image_Understanding_CVPR_2025_paper.html): This paper introduces SlideChat, the first vision-language assistant capable of understanding gigapixel WSIs, supported by the SlideInstruction dataset (4.2K captions, 176K VQA pairs) and SlideBench benchmark, to solve the challenge of existing MLLMs being limited to patch-level analysis without WSI-level contextual understanding.
-5. [2DMamba: Efficient State Space Model for Image Representation with Applications on Giga-Pixel Whole Slide Image Classification](https://openaccess.thecvf.com/content/CVPR2025/html/Zhang_2DMamba_Efficient_State_Space_Model_for_Image_Representation_with_Applications_CVPR_2025_paper.html): This paper introduces an efficient 2D selective state space model with hardware-aware optimization to solve the quadratic complexity challenge of transformers in processing gigapixel WSIs.
-6. [CPath-Omni: A Unified Multimodal Foundation Model for Patch and Whole Slide Image Analysis in Computational Pathology](https://openaccess.thecvf.com/content/CVPR2025/html/Sun_CPath-Omni_A_Unified_Multimodal_Foundation_Model_for_Patch_and_Whole_CVPR_2025_paper.html): This paper introduces CPath-Omni, a 15B multimodal foundation model that unifies patch-level and WSI analysis in a single framework to solve the challenge of previous models being trained separately for either patches or WSIs, preventing knowledge transfer across scales, achieving state-of-the-art performance on 39 of 42 datasets across classification, VQA, captioning, and visual referring tasks.
-7. [MERGE: Multi-faceted Hierarchical Graph-based GNN for Gene Expression Prediction from Whole Slide Histopathology Images](https://openaccess.thecvf.com/content/CVPR2025/html/Ganguly_MERGE_Multi-faceted_Hierarchical_Graph-based_GNN_for_Gene_Expression_Prediction_from_CVPR_2025_paper.html): This paper introduces a graph neural network that clusters tissue patches by both spatial proximity and morphological similarity with intra- and inter-cluster connections to solve the challenge of existing methods failing to model interactions between tissue locations crucial for gene expression prediction, while also addressing spatial transcriptomics data artifacts through gene-aware smoothing techniques.
-8. [HistoFS: Non-IID Histopathologic Whole Slide Image Classification via Federated Style Transfer with RoI-Preserving](https://openaccess.thecvf.com/content/CVPR2025/html/Raswa_HistoFS_Non-IID_Histopathologic_Whole_Slide_Image_Classification_via_Federated_Style_CVPR_2025_paper.html): This paper introduces HistoFS, which incorporates a pseudo-bag style and an authenticity module so the model can learn from multiple centers while maintaining essential RoIs, addressing the non-IID challenge across centers.
-9. [M3amba: Memory Mamba is All You Need for Whole Slide Image Classification](https://openaccess.thecvf.com/content/CVPR2025/html/Zheng_M3amba_Memory_Mamba_is_All_You_Need_for_Whole_Slide_CVPR_2025_paper.html): This paper proposes a memory-driven Mamba framework that fully explores the global latent relations among instances, mitigating both the contextual forgetting issue and the failure to capture global context in WSI that vanilla Mamba has.
-10. [Advancing Multiple Instance Learning with Continual Learning for Whole Slide Imaging](https://openaccess.thecvf.com/content/CVPR2025/html/Li_Advancing_Multiple_Instance_Learning_with_Continual_Learning_for_Whole_Slide_CVPR_2025_paper.html): This paper proposes Attention Knowledge Distillation and the Pseudo-Bag Memory Pool to supplement the current continual learning framework and mitigate catastrophic forgetting, mainly in the attention layer of the MIL model.
-11. [WISE: A Framework for Gigapixel Whole-Slide-Image Lossless Compression](https://openaccess.thecvf.com/content/CVPR2025/html/Mao_WISE_A_Framework_for_Gigapixel_Whole-Slide-Image_Lossless_Compression_CVPR_2025_paper.html): This paper proposes WISE as a lossless compression method that employs a hierarchical encoding strategy to extract effective bits, reducing the entropy of the image and then adopting a dictionary-based method to handle the irregular frequency patterns to mitigate the storage challenge of the gigapixel WSIs.
-12. [MExD: An Expert-Infused Diffusion Model for Whole-Slide Image Classification](https://openaccess.thecvf.com/content/CVPR2025/html/Zhao_MExD_An_Expert-Infused_Diffusion_Model_for_Whole-Slide_Image_Classification_CVPR_2025_paper.html): This paper proposes an Expert-Infused Diffusion Model that incorporates the benefits of MoE and diffusion model to effectively extract discriminative features, reduce patch noise, and address data imbalance problems.
-13. [Learning Heterogeneous Tissues with Mixture of Experts for Gigapixel Whole Slide Images](https://openaccess.thecvf.com/content/CVPR2025/html/Wu_Learning_Heterogeneous_Tissues_with_Mixture_of_Experts_for_Gigapixel_Whole_CVPR_2025_paper.html): This paper proposes a plug-and-play Pathology-Aware Mixture-of-Experts module to learn pathology-specific information based on an MoE structure and discard patches that none of the experts prioritize, addressing complex pathological tissue environments and the absence of target-driven domain knowledge.
-14. [Unsupervised Foundation Model-Agnostic Slide-Level Representation Learning](https://openaccess.thecvf.com/content/CVPR2025/html/Lenz_Unsupervised_Foundation_Model-Agnostic_Slide-Level_Representation_Learning_CVPR_2025_paper.html): This paper proposes a self-supervised method for single-modality slide-level aggregator pretraining, using features from different foundation models and patch configurations for contrastive learning without requiring multimodal data or multiview augmentation.
-15. [Robust Multimodal Survival Prediction with Conditional Latent Differentiation Variational AutoEncoder](https://openaccess.thecvf.com/content/CVPR2025/html/Zhou_Robust_Multimodal_Survival_Prediction_with_Conditional_Latent_Differentiation_Variational_AutoEncoder_CVPR_2025_paper.html): This paper proposes a Conditional Latent Differentiation Variational AutoEncoder for robust multimodal survival prediction that compresses gigapixel WSIs and generates genomic embeddings with diverse biological functions, enabling effective prediction even when genomic data is missing.
-16. [BioX-CPath: Biologically-driven Explainable Diagnostics for Multistain IHC Computational Pathology](https://openaccess.thecvf.com/content/CVPR2025/html/Gallagher-Syed_BioX-CPath_Biologically-driven_Explainable_Diagnostics_for_Multistain_IHC_Computational_Pathology_CVPR_2025_paper.html): This paper introduces BioX-CPath, an explainable graph neural network architecture that leverages both spatial and semantic features across multiple stains to provide biologically interpretable diagnostics for multistain IHC computational pathology.
-17. [Multi-Resolution Pathology-Language Pre-training Model with Text-Guided Visual Representation](https://openaccess.thecvf.com/content/CVPR2025/html/Albastaki_Multi-Resolution_Pathology-Language_Pre-training_Model_with_Text-Guided_Visual_Representation_CVPR_2025_paper.html): This paper proposes a multi-resolution pathology-language pre-training model that aligns visual and textual features across multiple magnification levels to address the challenge of single-resolution VLMs failing to capture both contextual overview and cellular details.
+1. [FOCUS: Knowledge-enhanced Adaptive Visual Compression for Few-shot Whole Slide Image Classification](https://openaccess.thecvf.com/content/CVPR2025/html/Guo_FOCUS_Knowledge-enhanced_Adaptive_Visual_Compression_for_Few-shot_Whole_Slide_Image_CVPR_2025_paper.html): This paper introduces knowledge-enhanced adaptive visual compression with language prompts to solve the challenge of few-shot WSI classification with limited training data and vast irrelevant patches, achieving superior performance on cancer diagnosis by prioritizing diagnostically relevant regions through pathology foundation models.<br>
+   Tags: task: `classification`; topic: `foundation_model`, `vision_language`, `efficient_wsi`
+2. [Distilled Prompt Learning for Incomplete Multimodal Survival Prediction](https://openaccess.thecvf.com/content/CVPR2025/html/Xu_Distilled_Prompt_Learning_for_Incomplete_Multimodal_Survival_Prediction_CVPR_2025_paper.html): This paper introduces a two-stage prompting framework (unimodal and multimodal) to solve the challenge of incomplete multimodal data collection in survival prediction, enabling inference of missing modality information from available ones.<br>
+   Tags: task: `survival`; topic: `vision_language`, `multi_omics`
+3. [Fast and Accurate Gigapixel Pathological Image Classification with Hierarchical Distillation Multi-Instance Learning](https://openaccess.thecvf.com/content/CVPR2025/html/Dong_Fast_and_Accurate_Gigapixel_Pathological_Image_Classification_with_Hierarchical_Distillation_CVPR_2025_paper.html): This paper proposes HDMIL, which trains high-resolution DMIN attention masks to supervise a lightweight low-resolution pre-screening network and adds a Chebyshev-polynomial KAN classifier, reducing WSI inference cost by filtering irrelevant regions while preserving classification accuracy.<br>
+   Tags: task: `classification`; topic: `mil`, `efficient_wsi`
+4. [SlideChat: A Large Vision-Language Assistant for Whole-Slide Pathology Image Understanding](https://openaccess.thecvf.com/content/CVPR2025/html/Chen_SlideChat_A_Large_Vision-Language_Assistant_for_Whole-Slide_Pathology_Image_Understanding_CVPR_2025_paper.html): This paper introduces SlideChat, the first vision-language assistant capable of understanding gigapixel WSIs, supported by the SlideInstruction dataset (4.2K captions, 176K VQA pairs) and SlideBench benchmark, to solve the challenge of existing MLLMs being limited to patch-level analysis without WSI-level contextual understanding.<br>
+   Tags: task: `language`, `benchmark`; topic: `foundation_model`, `vision_language`
+5. [2DMamba: Efficient State Space Model for Image Representation with Applications on Giga-Pixel Whole Slide Image Classification](https://openaccess.thecvf.com/content/CVPR2025/html/Zhang_2DMamba_Efficient_State_Space_Model_for_Image_Representation_with_Applications_CVPR_2025_paper.html): This paper introduces 2DMamba, a 2D selective state-space framework with a hardware-aware operator that preserves image spatial structure while keeping efficient long-context modeling, addressing transformer cost and 1D Mamba spatial mismatch for WSI classification and survival analysis.<br>
+   Tags: task: `classification`, `survival`; topic: `efficient_wsi`
+6. [CPath-Omni: A Unified Multimodal Foundation Model for Patch and Whole Slide Image Analysis in Computational Pathology](https://openaccess.thecvf.com/content/CVPR2025/html/Sun_CPath-Omni_A_Unified_Multimodal_Foundation_Model_for_Patch_and_Whole_CVPR_2025_paper.html): This paper introduces CPath-Omni, a 15B pathology LMM that unifies patch- and WSI-level classification, VQA, captioning, and visual referring, with a specialized CPath-CLIP visual processor to reduce fragmentation between separate patch and slide models.<br>
+   Tags: task: `classification`, `language`; topic: `foundation_model`, `vision_language`
+7. [MERGE: Multi-faceted Hierarchical Graph-based GNN for Gene Expression Prediction from Whole Slide Histopathology Images](https://openaccess.thecvf.com/content/CVPR2025/html/Ganguly_MERGE_Multi-faceted_Hierarchical_Graph-based_GNN_for_Gene_Expression_Prediction_from_CVPR_2025_paper.html): This paper proposes MERGE, a hierarchical graph neural network that clusters patches by spatial and morphological features and connects intra- and inter-cluster tissue regions to improve WSI-based gene-expression prediction while using gene-aware smoothing to reduce ST artifacts.<br>
+   Tags: task: `molecular`; topic: `multi_omics`
+8. [HistoFS: Non-IID Histopathologic Whole Slide Image Classification via Federated Style Transfer with RoI-Preserving](https://openaccess.thecvf.com/content/CVPR2025/html/Raswa_HistoFS_Non-IID_Histopathologic_Whole_Slide_Image_Classification_via_Federated_Style_CVPR_2025_paper.html): This paper introduces HistoFS, which incorporates a pseudo-bag style and an authenticity module so the model can learn from multiple centers while maintaining essential RoIs, addressing the non-IID challenge across centers.<br>
+   Tags: task: `classification`; topic: `mil`
+9. [M3amba: Memory Mamba is All You Need for Whole Slide Image Classification](https://openaccess.thecvf.com/content/CVPR2025/html/Zheng_M3amba_Memory_Mamba_is_All_You_Need_for_Whole_Slide_CVPR_2025_paper.html): This paper proposes a memory-driven Mamba framework that fully explores the global latent relations among instances, mitigating both the contextual forgetting issue and the failure to capture global context in WSI that vanilla Mamba has.<br>
+   Tags: task: `classification`; topic: `mil`, `efficient_wsi`
+10. [Advancing Multiple Instance Learning with Continual Learning for Whole Slide Imaging](https://openaccess.thecvf.com/content/CVPR2025/html/Li_Advancing_Multiple_Instance_Learning_with_Continual_Learning_for_Whole_Slide_CVPR_2025_paper.html): This paper proposes Attention Knowledge Distillation and the Pseudo-Bag Memory Pool to supplement the current continual learning framework and mitigate catastrophic forgetting, mainly in the attention layer of the MIL model.<br>
+   Tags: task: `classification`; topic: `mil`
+11. [WISE: A Framework for Gigapixel Whole-Slide-Image Lossless Compression](https://openaccess.thecvf.com/content/CVPR2025/html/Mao_WISE_A_Framework_for_Gigapixel_Whole-Slide-Image_Lossless_Compression_CVPR_2025_paper.html): This paper proposes WISE as a lossless compression method that employs a hierarchical encoding strategy to extract effective bits, reducing the entropy of the image and then adopting a dictionary-based method to handle the irregular frequency patterns to mitigate the storage challenge of the gigapixel WSIs.<br>
+   Tags: task: `compression`; topic: `efficient_wsi`
+12. [MExD: An Expert-Infused Diffusion Model for Whole-Slide Image Classification](https://openaccess.thecvf.com/content/CVPR2025/html/Zhao_MExD_An_Expert-Infused_Diffusion_Model_for_Whole-Slide_Image_Classification_CVPR_2025_paper.html): This paper proposes MExD, an expert-infused diffusion model that uses an MoE aggregator to rebalance and denoise patch features, then generates WSI class distributions with a diffusion process to address noisy, imbalanced feature aggregation in WSI classification.<br>
+   Tags: task: `classification`; topic: `generative_model`
+13. [Learning Heterogeneous Tissues with Mixture of Experts for Gigapixel Whole Slide Images](https://openaccess.thecvf.com/content/CVPR2025/html/Wu_Learning_Heterogeneous_Tissues_with_Mixture_of_Experts_for_Gigapixel_Whole_CVPR_2025_paper.html): This paper proposes a plug-and-play Pathology-Aware Mixture-of-Experts module to learn pathology-specific information based on an MoE structure and discard patches that none of the experts prioritize, addressing complex pathological tissue environments and the absence of target-driven domain knowledge.<br>
+   Tags: task: `survival`; topic: `mil`
+14. [Unsupervised Foundation Model-Agnostic Slide-Level Representation Learning](https://openaccess.thecvf.com/content/CVPR2025/html/Lenz_Unsupervised_Foundation_Model-Agnostic_Slide-Level_Representation_Learning_CVPR_2025_paper.html): This paper proposes a self-supervised method for single-modality slide-level aggregator pretraining, using features from different foundation models and patch configurations for contrastive learning without requiring multimodal data or multiview augmentation.<br>
+   Tags: task: `classification`; topic: `foundation_model`
+15. [Robust Multimodal Survival Prediction with Conditional Latent Differentiation Variational AutoEncoder](https://openaccess.thecvf.com/content/CVPR2025/html/Zhou_Robust_Multimodal_Survival_Prediction_with_Conditional_Latent_Differentiation_Variational_AutoEncoder_CVPR_2025_paper.html): This paper proposes a Conditional Latent Differentiation Variational AutoEncoder for robust multimodal survival prediction that compresses gigapixel WSIs and generates genomic embeddings with diverse biological functions, enabling effective prediction even when genomic data is missing.<br>
+   Tags: task: `survival`; topic: `multi_omics`, `generative_model`
+16. [BioX-CPath: Biologically-driven Explainable Diagnostics for Multistain IHC Computational Pathology](https://openaccess.thecvf.com/content/CVPR2025/html/Gallagher-Syed_BioX-CPath_Biologically-driven_Explainable_Diagnostics_for_Multistain_IHC_Computational_Pathology_CVPR_2025_paper.html): This paper introduces BioX-CPath, an explainable graph neural network for multistain IHC WSI classification that uses Stain-Aware Attention Pooling to create patient embeddings and expose stain attention and interactions, addressing biological interpretability in computational pathology.<br>
+   Tags: task: `classification`; topic: `mil`
+17. [Multi-Resolution Pathology-Language Pre-training Model with Text-Guided Visual Representation](https://openaccess.thecvf.com/content/CVPR2025/html/Albastaki_Multi-Resolution_Pathology-Language_Pre-training_Model_with_Text-Guided_Visual_Representation_CVPR_2025_paper.html): This paper proposes a multi-resolution pathology-language pre-training model that aligns visual and textual features across multiple magnification levels to address the challenge of single-resolution VLMs failing to capture both contextual overview and cellular details.<br>
+   Tags: task: `classification`, `survival`; topic: `foundation_model`, `vision_language`
 <!-- END GENERATED SECTION: curated_papers -->
 
 <!-- BEGIN GENERATED SECTION: resources -->

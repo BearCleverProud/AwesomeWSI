@@ -14,6 +14,11 @@
     ecosystemView: "papers",
     surveyQuery: "",
     ecosystemQuery: "",
+    paperFilters: {
+      task: [],
+      topic: [],
+    },
+    openPaperMenu: null,
     venue: [],
     scope: [],
     dataType: [],
@@ -38,6 +43,11 @@
     dataType: "Data Type",
   };
 
+  const paperMenuLabels = {
+    task: "Task",
+    topic: "Topic",
+  };
+
   const modelFacetLabels = {
     input: "Input Modality",
     base: "Base Method",
@@ -53,11 +63,10 @@
   ];
 
   const modalityLabels = {
-    H: "H&E (H)",
-    P: "Patch (P)",
-    T: "Text (T)",
-    W: "WSI stains (W)",
-    I: "Images (I)",
+    H: "H&E-stained (H)",
+    P: "Patch/tile (P)",
+    T: "Text/report (T)",
+    W: "Slide-level WSI (W)",
     G: "Genes (G)",
     D: "DNA (D)",
     R: "RNA (R)",
@@ -280,7 +289,7 @@
   }
 
   async function loadJson(path) {
-    const response = await fetch(path);
+    const response = await fetch(path, { cache: "no-cache" });
     if (!response.ok) throw new Error(`Failed to load ${path}`);
     return response.json();
   }
@@ -321,11 +330,6 @@
     return "unknown";
   }
 
-  function combinedModelScope(taxes) {
-    if (!taxes.length) return "Not listed";
-    return uniqueValues(taxes.map(modelScope)).join(" / ");
-  }
-
   function combinedScopeKeys(taxes) {
     return uniqueValues(taxes.map(modelScopeKey));
   }
@@ -345,11 +349,51 @@
       .join("")}</span>`;
   }
 
+  function dataAttrs(attrs) {
+    return Object.entries(attrs)
+      .filter(([, value]) => value !== undefined && value !== null)
+      .map(([key, value]) => ` ${key}="${escapeHtml(value)}"`)
+      .join("");
+  }
+
   function tagList(tags, variant = "") {
     return `<span class="tag-list">${tags
       .filter(Boolean)
-      .map((tag) => `<span class="tag ${variant}">${inlineText(tag)}</span>`)
+      .map((tag) => tagHtml(tag, variant))
       .join("")}</span>`;
+  }
+
+  function tagHtml(tag, fallbackVariant = "") {
+    const item = typeof tag === "object" ? tag : { label: tag };
+    const classes = ["tag", item.variant ?? fallbackVariant, item.active ? "active" : "", item.clickable ? "tag-button" : ""]
+      .filter(Boolean)
+      .join(" ");
+    if (item.clickable) {
+      return `<button class="${escapeHtml(classes)}" type="button"${dataAttrs(item.attrs ?? {})} aria-pressed="${
+        item.active ? "true" : "false"
+      }">${inlineText(item.label)}</button>`;
+    }
+    return `<span class="${escapeHtml(classes)}">${inlineText(item.label)}</span>`;
+  }
+
+  function uniqueTagItems(items) {
+    const seen = new Set();
+    return items.filter((item) => {
+      const key = [
+        item.attrs?.["data-model-tag-group"],
+        item.attrs?.["data-paper-tag-kind"],
+        item.attrs?.["data-model-tag-value"],
+        item.attrs?.["data-paper-tag-value"],
+        item.label ?? item,
+      ].join("|");
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  }
+
+  function toggleValue(values, value) {
+    return values.includes(value) ? values.filter((item) => item !== value) : [...values, value];
   }
 
   function setStats() {
@@ -375,6 +419,7 @@
     const root = $("#newsList");
     if (!root) return;
     root.innerHTML = state.data.news.items
+      .slice(0, 3)
       .map(
         (item) => `<article class="news-item">
           <time>${escapeHtml(item.date)}</time>
@@ -388,6 +433,8 @@
 
   function populateFilters() {
     renderModelFacetFilters();
+    renderPaperFilters();
+    renderPaperTagDefinitions();
   }
 
   function modelFacetOptions() {
@@ -460,8 +507,152 @@
     return baseMethodLabels[value] ?? value;
   }
 
-  function formatBaseMethodValue(value) {
-    return String(value ?? "").replace(/\bSup\.(?=$|[+/,\s])/g, "Supervised").replaceAll("+", " + ");
+  function isModelFilterActive(group, value) {
+    if (group === "venue") return state.venue.includes(value);
+    if (group === "scope") return state.scope.includes(value);
+    if (group === "dataType") return state.dataType.includes(value);
+    return state.modelFilters[group]?.includes(value) ?? false;
+  }
+
+  function modelFilterTag(group, value, label, variant = "") {
+    return {
+      label,
+      variant,
+      active: isModelFilterActive(group, value),
+      clickable: true,
+      attrs: {
+        "data-model-tag-group": group,
+        "data-model-tag-value": value,
+      },
+    };
+  }
+
+  function scopeTagItems(taxes) {
+    if (!taxes.length) return ["Not listed"];
+    return uniqueTagItems(
+      uniqueValues(taxes.map((tax) => modelScopeKey(tax))).map((value) =>
+        value === "unknown" ? "Not listed" : modelFilterTag("scope", value, labelForOption(scopeOptions, value), "teal")
+      )
+    );
+  }
+
+  function tagDefinitions(kind) {
+    return state.data.papers.tag_definitions?.[kind] ?? [];
+  }
+
+  function paperTagLabel(kind, value) {
+    return tagDefinitions(kind).find((item) => item.id === value)?.label ?? value;
+  }
+
+  function paperTagLabels(kind, values) {
+    return asLines(values).map((value) => paperTagLabel(kind, value));
+  }
+
+  function paperFilterTag(kind, value, variant = "") {
+    return {
+      label: paperTagLabel(`${kind}s`, value),
+      variant,
+      active: state.paperFilters[kind]?.includes(value) ?? false,
+      clickable: true,
+      attrs: {
+        "data-paper-tag-kind": kind,
+        "data-paper-tag-value": value,
+      },
+    };
+  }
+
+  function paperTagItems(kind, values, variant = "") {
+    return asLines(values).map((value) => paperFilterTag(kind, value, variant));
+  }
+
+  function paperFilterOptions(kind) {
+    const values = uniqueValues(
+      state.data.papers.sections.flatMap((section) => section.papers.flatMap((paper) => paper[kind] ?? []))
+    );
+    const definitions = tagDefinitions(kind);
+    return definitions
+      .filter((item) => values.includes(item.id))
+      .map((item) => [item.id, item.label]);
+  }
+
+  function matchesPaperFilters(paper) {
+    return Object.entries(state.paperFilters).every(([kind, selectedValues]) => {
+      if (!selectedValues.length) return true;
+      const field = kind === "task" ? "tasks" : "topics";
+      return selectedValues.some((value) => asLines(paper[field]).includes(value));
+    });
+  }
+
+  function paperMatchesSearch(paper) {
+    const tagText = [
+      ...paperTagLabels("tasks", paper.tasks),
+      ...paperTagLabels("topics", paper.topics),
+      ...asLines(paper.tasks),
+      ...asLines(paper.topics),
+    ];
+    return includesQuery([paper.title, paper.summary, paper.venue, paper.year, paper.paper_url, ...tagText], state.ecosystemQuery);
+  }
+
+  function renderPaperTagDefinitions() {
+    const root = $("#paperTagDefinitions");
+    if (!root) return;
+    const groups = [
+      ["tasks", "Task", "final problem/output"],
+      ["topics", "Topic", "main technical route"],
+    ];
+    root.innerHTML = groups
+      .map(
+        ([kind, label, scope]) => `<div class="definition-group">
+          <strong>${escapeHtml(label)} <span>${escapeHtml(scope)}</span></strong>
+          <div class="definition-tags">
+            ${tagDefinitions(kind)
+              .map(
+                (item) => {
+                  const filterKind = kind === "tasks" ? "task" : "topic";
+                  const active = state.paperFilters[filterKind].includes(item.id);
+                  return `<button class="definition-tag ${active ? "active" : ""}" type="button" title="${escapeHtml(
+                    item.definition
+                  )}" data-paper-tag-kind="${escapeHtml(filterKind)}" data-paper-tag-value="${escapeHtml(
+                    item.id
+                  )}" aria-pressed="${active ? "true" : "false"}">${escapeHtml(item.label)}</button>`;
+                }
+              )
+              .join("")}
+          </div>
+        </div>`
+      )
+      .join("");
+  }
+
+  function renderPaperFilters() {
+    const root = $("#paperFilters");
+    if (!root) return;
+    const hasActiveFilters = Object.values(state.paperFilters).some((values) => values.length);
+    const menus = ["task", "topic"];
+    root.innerHTML = `<div class="filter-strip">
+      ${menus
+        .map(
+          (menu) => `<button class="filter-menu-button ${
+            state.openPaperMenu === menu ? "active" : ""
+          }" type="button" data-paper-filter-menu="${escapeHtml(menu)}">
+            <span>${escapeHtml(paperMenuLabels[menu])}</span>
+            <strong>${escapeHtml(selectionSummary(state.paperFilters[menu].map((value) => paperTagLabel(`${menu}s`, value))))}</strong>
+          </button>`
+        )
+        .join("")}
+      <button class="filter-clear" id="clearPaperFilters" type="button" ${hasActiveFilters ? "" : "disabled"}>Clear</button>
+    </div>
+    ${
+      state.openPaperMenu
+        ? `<div class="filter-popover" data-open-paper-filter="${escapeHtml(state.openPaperMenu)}">
+            ${optionPanelHtml(
+              `paper-${state.openPaperMenu}`,
+              paperFilterOptions(`${state.openPaperMenu}s`),
+              state.paperFilters[state.openPaperMenu]
+            )}
+          </div>`
+        : ""
+    }`;
   }
 
   function selectableButtonHtml(group, value, label, active) {
@@ -499,17 +690,61 @@
     </div>`;
   }
 
-  function pretrainingTags(taxes) {
-    return uniqueValues(
+  function togglePaperFilter(kind, value, closeMenu = true) {
+    if (!state.paperFilters[kind]) return;
+    state.paperFilters[kind] = toggleValue(state.paperFilters[kind], value);
+    if (closeMenu) state.openPaperMenu = null;
+    renderPaperFilters();
+    renderPaperTagDefinitions();
+    renderPapers();
+  }
+
+  function modelFilterValues(group) {
+    if (group === "venue") return state.venue;
+    if (group === "scope") return state.scope;
+    if (group === "dataType") return state.dataType;
+    return state.modelFilters[group];
+  }
+
+  function setModelFilterValues(group, values) {
+    if (group === "venue") state.venue = values;
+    else if (group === "scope") state.scope = values;
+    else if (group === "dataType") state.dataType = values;
+    else state.modelFilters[group] = values;
+  }
+
+  function toggleModelFilter(group, value, closeMenu = true) {
+    const selectedValues = modelFilterValues(group);
+    if (!selectedValues) return;
+    setModelFilterValues(group, toggleValue(selectedValues, value));
+    if (closeMenu) state.openModelMenu = null;
+    renderModelFacetFilters();
+    renderModels();
+  }
+
+  function pretrainingTagItems(taxes) {
+    return uniqueTagItems(
       taxes.flatMap((tax) => {
         const magRes = parseMagnificationAndResolution(tax.model_pretraining?.magnification_or_resolution);
         return [
-          tax.model_pretraining?.input && `Input: ${tax.model_pretraining.input}`,
-          tax.model_pretraining?.base_method && `Base Method: ${formatBaseMethodValue(tax.model_pretraining.base_method)}`,
-          tax.model_pretraining?.magnification_or_resolution && `Magnification: ${magRes.magnification.join(", ")}`,
-          tax.model_pretraining?.magnification_or_resolution && `Resolution: ${magRes.resolution.join(", ")}`,
-        ];
+          ...splitTokenList(tax.model_pretraining?.input, /[,]+/).map((value) =>
+            modelFilterTag("input", value, `Input: ${labelModality(value)}`)
+          ),
+          ...splitTokenList(tax.model_pretraining?.base_method, /[+/]+/).map((value) =>
+            modelFilterTag("base", value, `Base Method: ${labelBaseMethod(value)}`)
+          ),
+          ...magRes.magnification.map((value) => modelFilterTag("magnification", value, `Magnification: ${value}`)),
+          ...magRes.resolution.map((value) => modelFilterTag("resolution", value, `Resolution: ${value}`)),
+        ].filter((item) => item.label && !String(item.label).endsWith(": Unknown"));
       })
+    );
+  }
+
+  function scaleTagItems(taxes) {
+    return uniqueTagItems(
+      taxes.flatMap((tax) =>
+        splitTokenList(tax.model_design?.scale, /[,/]+/).map((value) => modelFilterTag("scale", value, `Scale: ${value}`))
+      )
     );
   }
 
@@ -547,18 +782,18 @@
 
     tableBody.innerHTML = rows
       .map(({ model, taxes }) => {
-        const pretraining = pretrainingTags(taxes);
+        const pretraining = pretrainingTagItems(taxes);
+        const scaleTags = scaleTagItems(taxes);
         const architecture = [
           ...asLines(model.architecture),
           ...uniqueValues(taxes.map((tax) => tax.model_design?.parameters && `Params: ${tax.model_design.parameters}`)),
-          ...uniqueValues(taxes.map((tax) => tax.model_design?.scale && `Scale: ${tax.model_design.scale}`)),
         ].filter(Boolean);
         return `<tr>
           <td><span class="model-name">${inlineText(model.model)}</span></td>
           <td>${model.venue_highlight ? `<strong>${escapeHtml(model.venue)}</strong>` : escapeHtml(model.venue)}</td>
-          <td>${tagList([combinedModelScope(taxes)], "teal")}</td>
+          <td>${tagList(scopeTagItems(taxes), "teal")}</td>
           <td>${tagList(pretraining)}</td>
-          <td>${joinLines(architecture)}</td>
+          <td>${joinLines(architecture)}${scaleTags.length ? `<div class="model-meta-tags">${tagList(scaleTags)}</div>` : ""}</td>
           <td>${joinLines(model.data_source)}<br><span class="muted-lines">${joinLines(model.data_statistics)}</span></td>
           <td>${linksHtml(model.links)}</td>
         </tr>`;
@@ -653,27 +888,26 @@
     );
     const totalPapers = sections.reduce((total, section) => total + section.papers.length, 0);
     const populatedSections = sections.filter((section) => section.papers.length).length;
+    const hasActivePaperFilters = Object.values(state.paperFilters).some((values) => values.length);
     const matchingPapers = sections.reduce(
       (total, section) =>
-        total +
-        section.papers.filter((paper) =>
-          includesQuery([paper.title, paper.summary, paper.venue, paper.year, paper.paper_url], state.ecosystemQuery)
-        ).length,
+        total + section.papers.filter((paper) => paperMatchesSearch(paper) && matchesPaperFilters(paper)).length,
       0
     );
     const paperSummary = $("#paperSummary");
     if (paperSummary) {
       paperSummary.innerHTML = tabSummaryHtml([
-        [state.ecosystemQuery ? matchingPapers : totalPapers, state.ecosystemQuery ? "matching papers" : "listed papers"],
+        [
+          state.ecosystemQuery || hasActivePaperFilters ? matchingPapers : totalPapers,
+          state.ecosystemQuery || hasActivePaperFilters ? "matching papers" : "listed papers",
+        ],
         [populatedSections, "populated sections"],
         [sections.length - populatedSections, "prepared sections"],
       ]);
     }
     paperList.innerHTML = sections
       .map((section) => {
-        const papers = section.papers.filter((paper) =>
-          includesQuery([paper.title, paper.summary, paper.venue, paper.year, paper.paper_url], state.ecosystemQuery)
-        );
+        const papers = section.papers.filter((paper) => paperMatchesSearch(paper) && matchesPaperFilters(paper));
         const content = section.papers.length
           ? papers.length
             ? `<div class="paper-items">${papers
@@ -682,11 +916,15 @@
                     <h4><a href="${escapeHtml(paper.paper_url)}" target="_blank" rel="noreferrer">${inlineText(
                     paper.title
                   )}</a></h4>
+                    <div class="paper-tags">
+                      ${tagList(paperTagItems("task", paper.tasks, "teal"))}
+                      ${tagList(paperTagItems("topic", paper.topics, "berry"))}
+                    </div>
                     <p>${inlineText(paper.summary)}</p>
                   </article>`
                 )
                 .join("")}</div>`
-            : `<div class="empty-state">No papers match the current search.</div>`
+            : `<div class="empty-state">No papers match the current search or filters.</div>`
           : `<div class="empty-state">Coming soon.</div>`;
         return `<section class="conference-section">
           <div class="conference-head">
@@ -812,10 +1050,52 @@
       renderEvaluation();
     });
 
+    $("#modelTable")?.addEventListener("click", (event) => {
+      const tagButton = event.target.closest("[data-model-tag-group]");
+      if (!tagButton) return;
+      toggleModelFilter(tagButton.dataset.modelTagGroup, tagButton.dataset.modelTagValue);
+    });
+
     $("#ecosystemSearch")?.addEventListener("input", (event) => {
       state.ecosystemQuery = normalize(event.target.value.trim());
       renderPapers();
       renderResources();
+    });
+
+    $("#resource-explorer")?.addEventListener("click", (event) => {
+      const tagButton = event.target.closest("[data-paper-tag-kind]");
+      if (!tagButton) return;
+      togglePaperFilter(tagButton.dataset.paperTagKind, tagButton.dataset.paperTagValue);
+    });
+
+    $("#paperFilters")?.addEventListener("click", (event) => {
+      const clearButton = event.target.closest("#clearPaperFilters");
+      if (clearButton) {
+        state.paperFilters.task = [];
+        state.paperFilters.topic = [];
+        state.openPaperMenu = null;
+        renderPaperFilters();
+        renderPaperTagDefinitions();
+        renderPapers();
+        return;
+      }
+
+      const menuButton = event.target.closest("[data-paper-filter-menu]");
+      if (menuButton) {
+        const menu = menuButton.dataset.paperFilterMenu;
+        state.openPaperMenu = state.openPaperMenu === menu ? null : menu;
+        renderPaperFilters();
+        return;
+      }
+
+      const optionButton = event.target.closest("[data-filter-group]");
+      if (optionButton) {
+        const group = optionButton.dataset.filterGroup;
+        if (!group.startsWith("paper-")) return;
+        const kind = group.replace("paper-", "");
+        const value = optionButton.dataset.filterValue;
+        togglePaperFilter(kind, value, false);
+      }
     });
 
     $("#modelFilters")?.addEventListener("click", (event) => {
@@ -845,18 +1125,7 @@
       if (optionButton) {
         const group = optionButton.dataset.filterGroup;
         const value = optionButton.dataset.filterValue;
-        const selectedValues =
-          group === "venue" ? state.venue : group === "scope" ? state.scope : group === "dataType" ? state.dataType : state.modelFilters[group];
-        if (!selectedValues) return;
-        const nextValues = selectedValues.includes(value)
-          ? selectedValues.filter((item) => item !== value)
-          : [...selectedValues, value];
-        if (group === "venue") state.venue = nextValues;
-        else if (group === "scope") state.scope = nextValues;
-        else if (group === "dataType") state.dataType = nextValues;
-        else state.modelFilters[group] = nextValues;
-        renderModelFacetFilters();
-        renderModels();
+        toggleModelFilter(group, value, false);
       }
     });
 

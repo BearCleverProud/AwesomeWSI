@@ -4,8 +4,8 @@
   "items": [
     {
       "date": "May 2026",
-      "title": "Interactive website added",
-      "description": "A static website is included for browsing the IJCAI survey companion, foundation model explorer, evaluation matrix, curated papers, toolboxes, datasets, and benchmarks.",
+      "title": "Website launched",
+      "description": "Browse the survey companion, model explorer, evaluation matrix, and curated WSI resources online.",
       "links": [
         {
           "label": "Website",
@@ -19,8 +19,8 @@
     },
     {
       "date": "May 2026",
-      "title": "Structured data, resources, and official links updated",
-      "description": "Survey links now point to IJCAI, PDF, DOI, and arXiv; resource sections were expanded and migrated to JSON.",
+      "title": "Structured data and paper tags updated",
+      "description": "Core tables render from JSON, and curated papers now include task/topic tags with website filters.",
       "links": [
         {
           "label": "Survey",
@@ -34,8 +34,8 @@
     },
     {
       "date": "Oct 2025",
-      "title": "Toolboxes, datasets, and benchmarks online",
-      "description": "The planned repository resource sections are available and maintained for WSI research.",
+      "title": "Resources expanded",
+      "description": "Toolboxes, datasets, and benchmarks are available as maintained WSI resource sections.",
       "links": [
         {
           "label": "Toolboxes",

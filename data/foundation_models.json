@@ -1,0 +1,858 @@
+{
+  "schema": "awesomewsi.foundation_models.v1",
+  "source": "Migrated mechanically from README.md Foundation Models Overview table.",
+  "models": [
+    {
+      "venue": "MedIA",
+      "venue_highlight": true,
+      "model": "CTransPath",
+      "method": [
+        "SRCL"
+      ],
+      "architecture": [
+        "Swin-T/14"
+      ],
+      "data_source": [
+        "TCGA + PAIP"
+      ],
+      "data_statistics": [
+        "32,220 WSIs",
+        "15,580,262 Patches"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Xiyue-Wang/TransPath"
+        },
+        {
+          "label": "PDF",
+          "url": "https://www.sciencedirect.com/science/article/pii/S1361841522002043"
+        }
+      ]
+    },
+    {
+      "venue": "Nat. Bio. Engg.",
+      "venue_highlight": true,
+      "model": "REMEDIS",
+      "method": [
+        "SimCLR"
+      ],
+      "architecture": [
+        "ResNet-50"
+      ],
+      "data_source": [
+        "TCGA"
+      ],
+      "data_statistics": [
+        "29,018 WSIs",
+        "50 Million Patches"
+      ],
+      "links": [
+        {
+          "label": "PDF",
+          "url": "https://www.nature.com/articles/s41551-023-01049-7"
+        }
+      ]
+    },
+    {
+      "venue": "CVPR",
+      "venue_highlight": true,
+      "model": "HIPT",
+      "method": [
+        "DINO"
+      ],
+      "architecture": [
+        "ViT-S/16",
+        "ViT-XS/256"
+      ],
+      "data_source": [
+        "TCGA"
+      ],
+      "data_statistics": [
+        "10,678 H&E WSIs",
+        "~ 104 Million Patches"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/mahmoodlab/HIPT"
+        },
+        {
+          "label": "PDF",
+          "url": "https://openaccess.thecvf.com/content/CVPR2022/papers/Chen_Scaling_Vision_Transformers_to_Gigapixel_Images_via_Hierarchical_Self-Supervised_Learning_CVPR_2022_paper.pdf"
+        }
+      ]
+    },
+    {
+      "venue": "Nat. Med.",
+      "venue_highlight": true,
+      "model": "PLIP",
+      "method": [
+        "CLIP"
+      ],
+      "architecture": [
+        "ViT-B/32"
+      ],
+      "data_source": [
+        "OpenPath"
+      ],
+      "data_statistics": [
+        "208,414 Image-Text Pairs"
+      ],
+      "links": [
+        {
+          "label": "HuggingFace",
+          "url": "https://huggingface.co/vinid/plip"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/PathologyFoundation/plip"
+        },
+        {
+          "label": "PDF",
+          "url": "https://www.nature.com/articles/s41591-023-02504-3"
+        }
+      ]
+    },
+    {
+      "venue": "Nat. Med.",
+      "venue_highlight": true,
+      "model": "CONCH",
+      "method": [
+        "P: iBOT",
+        "A: CoCa"
+      ],
+      "architecture": [
+        "P: ViT-B/16",
+        "A: GPT-style"
+      ],
+      "data_source": [
+        "In-house"
+      ],
+      "data_statistics": [
+        "21,442 WSIs",
+        "16 Million Patches",
+        "> 1.17M Image-Text Pairs"
+      ],
+      "links": [
+        {
+          "label": "HuggingFace",
+          "url": "https://huggingface.co/MahmoodLab/CONCH"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/mahmoodlab/CONCH"
+        },
+        {
+          "label": "PDF",
+          "url": "https://www.nature.com/articles/s41591-024-02856-4"
+        }
+      ]
+    },
+    {
+      "venue": "MedRxiv",
+      "venue_highlight": false,
+      "model": "Phikon",
+      "method": [
+        "iBOT"
+      ],
+      "architecture": [
+        "ViT-S/B/L/16"
+      ],
+      "data_source": [
+        "TCGA"
+      ],
+      "data_statistics": [
+        "6,093 WSIs",
+        "43,374,634 Patches"
+      ],
+      "links": [
+        {
+          "label": "HuggingFace",
+          "url": "https://huggingface.co/owkin/phikon"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/owkin/HistoSSLscaling?tab=readme-ov-file"
+        },
+        {
+          "label": "PDF",
+          "url": "https://www.medrxiv.org/content/10.1101/2023.07.21.23292757v2.full.pdf"
+        }
+      ]
+    },
+    {
+      "venue": "Nat. Med.",
+      "venue_highlight": true,
+      "model": "UNI",
+      "method": [
+        "DINOv2"
+      ],
+      "architecture": [
+        "ViT-L/16"
+      ],
+      "data_source": [
+        "Mass-100K"
+      ],
+      "data_statistics": [
+        "100,426 H&E WSIs",
+        "100,130,900 Patches"
+      ],
+      "links": [
+        {
+          "label": "HuggingFace",
+          "url": "https://huggingface.co/MahmoodLab/UNI"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/mahmoodlab/UNI/"
+        },
+        {
+          "label": "PDF",
+          "url": "https://www.nature.com/articles/s41591-024-02857-3"
+        }
+      ]
+    },
+    {
+      "venue": "Nat. Med.",
+      "venue_highlight": true,
+      "model": "Virchow",
+      "method": [
+        "DINOv2"
+      ],
+      "architecture": [
+        "ViT-H/14"
+      ],
+      "data_source": [
+        "MSKCC"
+      ],
+      "data_statistics": [
+        "1,488,550 H&E WSIs",
+        "2 Billion Patches"
+      ],
+      "links": [
+        {
+          "label": "HuggingFace",
+          "url": "https://huggingface.co/paige-ai/Virchow"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Paige-AI/paige-ml-sdk"
+        },
+        {
+          "label": "PDF",
+          "url": "https://www.nature.com/articles/s41591-024-03141-0"
+        }
+      ]
+    },
+    {
+      "venue": "AAAI S.",
+      "venue_highlight": true,
+      "model": "SINAI",
+      "method": [
+        "DINO",
+        "MAE"
+      ],
+      "architecture": [
+        "ViT-S",
+        "ViT-L"
+      ],
+      "data_source": [
+        "Mount Sinai",
+        "Health System"
+      ],
+      "data_statistics": [
+        "423,563 H&E WSIs",
+        "3.2 Billion Patches"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/fuchs-lab-public/OPAL/tree/main/SinaiPathologyFoundationModels"
+        },
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2310.07033"
+        }
+      ]
+    },
+    {
+      "venue": "Nature",
+      "venue_highlight": true,
+      "model": "CHIEF",
+      "method": [
+        "P: Pretrained",
+        "S: Sup.+CLIP"
+      ],
+      "architecture": [
+        "P: CTransPath",
+        "S: CHIEF"
+      ],
+      "data_source": [
+        "Public +",
+        "In-house"
+      ],
+      "data_statistics": [
+        "60,530 H&E WSIs",
+        "~ 15 Million Patches"
+      ],
+      "links": [
+        {
+          "label": "Docker",
+          "url": "https://hub.docker.com/r/chiefcontainer/chief/"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/hms-dbmi/chief"
+        },
+        {
+          "label": "PDF",
+          "url": "https://www.nature.com/articles/s41586-024-07894-z"
+        }
+      ]
+    },
+    {
+      "venue": "Nature",
+      "venue_highlight": true,
+      "model": "Prov-GigaPath",
+      "method": [
+        "P: DINOv2",
+        "S: MAE",
+        "A: CLIP"
+      ],
+      "architecture": [
+        "P: ViT-g/14",
+        "S: LongNet"
+      ],
+      "data_source": [
+        "Providence",
+        "Health System"
+      ],
+      "data_statistics": [
+        "171,189 WSIs",
+        "1,384,860,229 Patches"
+      ],
+      "links": [
+        {
+          "label": "HuggingFace",
+          "url": "https://huggingface.co/prov-gigapath/prov-gigapath"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/prov-gigapath/prov-gigapath"
+        },
+        {
+          "label": "PDF",
+          "url": "https://www.nature.com/articles/s41586-024-07441-w"
+        }
+      ]
+    },
+    {
+      "venue": "MedIA",
+      "venue_highlight": true,
+      "model": "Pathoduet",
+      "method": [
+        "Enhanced",
+        "MoCov3"
+      ],
+      "architecture": [
+        "ViT-B/16"
+      ],
+      "data_source": [
+        "TCGA"
+      ],
+      "data_statistics": [
+        "11,000 WSIs",
+        "13,166,437 Patches"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/openmedlab/PathoDuet"
+        },
+        {
+          "label": "PDF",
+          "url": "https://www.sciencedirect.com/science/article/pii/S1361841524002147"
+        }
+      ]
+    },
+    {
+      "venue": "arXiv",
+      "venue_highlight": false,
+      "model": "RudolfV",
+      "method": [
+        "DINOv2"
+      ],
+      "architecture": [
+        "ViT-L/14"
+      ],
+      "data_source": [
+        "TCGA +",
+        "In-house"
+      ],
+      "data_statistics": [
+        "133,998 WSIs",
+        "1.25 Billion Patches"
+      ],
+      "links": [
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2401.04079"
+        }
+      ]
+    },
+    {
+      "venue": "ICML W.",
+      "venue_highlight": true,
+      "model": "PLUTO",
+      "method": [
+        "DINOv2+",
+        "MAE+Fourior"
+      ],
+      "architecture": [
+        "FlexiViT-S/16"
+      ],
+      "data_source": [
+        "TCGA +",
+        "Proprietary"
+      ],
+      "data_statistics": [
+        "158,852 WSIs",
+        "195 Million Patches"
+      ],
+      "links": [
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2405.07905"
+        }
+      ]
+    },
+    {
+      "venue": "arXiv",
+      "venue_highlight": false,
+      "model": "PRISM",
+      "method": [
+        "P: Pretrained",
+        "S: CoCa"
+      ],
+      "architecture": [
+        "P: Virchow",
+        "S: Perceiver"
+      ],
+      "data_source": [
+        "MSKCC"
+      ],
+      "data_statistics": [
+        "587,196 WSIs",
+        "195K Pathology Reports"
+      ],
+      "links": [
+        {
+          "label": "HuggingFace",
+          "url": "https://huggingface.co/paige-ai/Prism"
+        },
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2405.10254"
+        }
+      ]
+    },
+    {
+      "venue": "CVPR",
+      "venue_highlight": true,
+      "model": "TANGLE",
+      "method": [
+        "P: iBOT",
+        "S: Alignment"
+      ],
+      "architecture": [
+        "P: ViT-B/16",
+        "S: ABMIL"
+      ],
+      "data_source": [
+        "TG-GATEs"
+      ],
+      "data_statistics": [
+        "47,227 WSIs",
+        "6,597 Image-Gene Pair"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/mahmoodlab/TANGLE"
+        },
+        {
+          "label": "PDF",
+          "url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Jaume_Transcriptomics-guided_Slide_Representation_Learning_in_Computational_Pathology_CVPR_2024_paper.pdf"
+        }
+      ]
+    },
+    {
+      "venue": "Nature",
+      "venue_highlight": true,
+      "model": "MUSK",
+      "method": [
+        "UMP"
+      ],
+      "architecture": [
+        "BEIT-3"
+      ],
+      "data_source": [
+        "Quilt-1M +",
+        "PathAsst"
+      ],
+      "data_statistics": [
+        "~33,000 H&E WSIs",
+        "50M Patches",
+        "1M Image-Text Pairs"
+      ],
+      "links": [
+        {
+          "label": "HuggingFace",
+          "url": "https://huggingface.co/xiangjx/musk"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/lilab-stanford/MUSK"
+        },
+        {
+          "label": "PDF",
+          "url": "https://www.nature.com/articles/s41586-024-08378-w"
+        }
+      ]
+    },
+    {
+      "venue": "BioRxiv",
+      "venue_highlight": false,
+      "model": "BEPH",
+      "method": [
+        "MIM"
+      ],
+      "architecture": [
+        "BEiTv2"
+      ],
+      "data_source": [
+        "TCGA"
+      ],
+      "data_statistics": [
+        "11,760 WSIs",
+        "11,774,353 Patches"
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Zhcyoung/BEPH"
+        },
+        {
+          "label": "PDF",
+          "url": "https://www.biorxiv.org/content/10.1101/2024.05.16.594499v1.full"
+        }
+      ]
+    },
+    {
+      "venue": "arXiv",
+      "venue_highlight": false,
+      "model": "Hibou",
+      "method": [
+        "DINOv2"
+      ],
+      "architecture": [
+        "ViT-L/14",
+        "ViT-B/14"
+      ],
+      "data_source": [
+        "Proprietary"
+      ],
+      "data_statistics": [
+        "936,441 H&E WSIs",
+        "202,464 non-H&E WSIs",
+        "ViT-L: 1.2B Patches",
+        "ViT-B: 512M Patches"
+      ],
+      "links": [
+        {
+          "label": "HuggingFace",
+          "url": "https://huggingface.co/histai/hibou-L"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/HistAI/hibou"
+        },
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2406.05074"
+        }
+      ]
+    },
+    {
+      "venue": "arXiv",
+      "venue_highlight": false,
+      "model": "mSTAR+",
+      "method": [
+        "S: CLIP",
+        "P: mSTAR"
+      ],
+      "architecture": [
+        "S: TransMIL",
+        "P: ViT-L"
+      ],
+      "data_source": [
+        "TCGA"
+      ],
+      "data_statistics": [
+        "11,727 WSIs",
+        "22,127 Modality Pairs"
+      ],
+      "links": [
+        {
+          "label": "HuggingFace",
+          "url": "https://huggingface.co/Wangyh/mSTAR"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Innse/mSTAR"
+        },
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2407.15362"
+        }
+      ]
+    },
+    {
+      "venue": "arXiv",
+      "venue_highlight": false,
+      "model": "GPFM",
+      "method": [
+        "UKD"
+      ],
+      "architecture": [
+        "ViT-L/14"
+      ],
+      "data_source": [
+        "33 Public",
+        "Dataset"
+      ],
+      "data_statistics": [
+        "72,280 WSIs",
+        "190,212,668 Patches"
+      ],
+      "links": [
+        {
+          "label": "HuggingFace",
+          "url": "https://huggingface.co/majiabo/GPFM"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/birkhoffkiki/GPFM"
+        },
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2407.18449"
+        }
+      ]
+    },
+    {
+      "venue": "arXiv",
+      "venue_highlight": false,
+      "model": "Virchow2\nVirchow2G",
+      "method": [
+        "Enhanced",
+        "DINOv2"
+      ],
+      "architecture": [
+        "ViT-H/14",
+        "ViT-G/14"
+      ],
+      "data_source": [
+        "MSKCC +",
+        "Worldwide"
+      ],
+      "data_statistics": [
+        "3,134,922 WSIs",
+        "with Diverse Stains"
+      ],
+      "links": [
+        {
+          "label": "HuggingFace",
+          "url": "https://huggingface.co/paige-ai/Virchow2"
+        },
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2408.00738"
+        }
+      ]
+    },
+    {
+      "venue": "ECCV",
+      "venue_highlight": true,
+      "model": "MADELEINE",
+      "method": [
+        "P: Pretrained",
+        "S: CLIP + GOT"
+      ],
+      "architecture": [
+        "P: CONCH",
+        "S:MH-ABMIL"
+      ],
+      "data_source": [
+        "Acrobat +",
+        "BWH"
+      ],
+      "data_statistics": [
+        "16,281 WSIs",
+        "with Diverse Stains"
+      ],
+      "links": [
+        {
+          "label": "HuggingFace",
+          "url": "https://huggingface.co/MahmoodLab/madeleine"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/mahmoodlab/MADELEINE"
+        },
+        {
+          "label": "PDF",
+          "url": "https://link.springer.com/chapter/10.1007/978-3-031-73414-4_2"
+        }
+      ]
+    },
+    {
+      "venue": "arXiv",
+      "venue_highlight": false,
+      "model": "Phikon-v2",
+      "method": [
+        "DINOv2"
+      ],
+      "architecture": [
+        "ViT-L/16"
+      ],
+      "data_source": [
+        "Public +",
+        "In-house"
+      ],
+      "data_statistics": [
+        "58,359 WSIs",
+        "456,060,584 Patches"
+      ],
+      "links": [
+        {
+          "label": "HuggingFace",
+          "url": "https://huggingface.co/owkin/phikon-v2"
+        },
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2409.09173"
+        }
+      ]
+    },
+    {
+      "venue": "Nat. Med.",
+      "venue_highlight": true,
+      "model": "TITAN",
+      "method": [
+        "P: Pretrained",
+        "Stage1: iBOT",
+        "Stage2: CoCa"
+      ],
+      "architecture": [
+        "P: CONCHv1.5",
+        "S: ViT-T/14"
+      ],
+      "data_source": [
+        "Mass-340K"
+      ],
+      "data_statistics": [
+        "335,645 WSIs",
+        "423,122 Image-Text Pairs",
+        "182,862 WSI-Text Pairs"
+      ],
+      "links": [
+        {
+          "label": "HuggingFace",
+          "url": "https://huggingface.co/MahmoodLab/TITAN"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/mahmoodlab/TITAN"
+        },
+        {
+          "label": "PDF",
+          "url": "https://www.nature.com/articles/s41591-025-03982-3"
+        }
+      ]
+    },
+    {
+      "venue": "arXiv",
+      "venue_highlight": false,
+      "model": "KEEP",
+      "method": [
+        "KEVL"
+      ],
+      "architecture": [
+        "UNI"
+      ],
+      "data_source": [
+        "Quilt-1M +",
+        "OpenPath"
+      ],
+      "data_statistics": [
+        "143K Image-Text Pairs",
+        "Hierarchical Medical KG"
+      ],
+      "links": [
+        {
+          "label": "HuggingFace",
+          "url": "https://huggingface.co/Astaxanthin/KEEP"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/MAGIC-AI4Med/KEEP"
+        },
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2412.13126"
+        }
+      ]
+    },
+    {
+      "venue": "arXiv",
+      "venue_highlight": false,
+      "model": "THREADS",
+      "method": [
+        "P: Pretrained",
+        "S: CLIP"
+      ],
+      "architecture": [
+        "P: CONCHv1.5",
+        "S: MH-ABMIL"
+      ],
+      "data_source": [
+        "MBTG-47K:",
+        "MGH+BWH",
+        "+TCGA",
+        "+GTEx"
+      ],
+      "data_statistics": [
+        "47,171 H&E WSIs",
+        "125,148,770 Patches",
+        "26,615 Bulk RNA",
+        "20,556 DNA Variants"
+      ],
+      "links": [
+        {
+          "label": "HuggingFace",
+          "url": "https://huggingface.co/datasets/MahmoodLab/Patho-Bench"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/mahmoodlab/patho-bench"
+        },
+        {
+          "label": "PDF",
+          "url": "https://arxiv.org/pdf/2501.16652"
+        }
+      ]
+    }
+  ]
+}

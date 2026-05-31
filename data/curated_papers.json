@@ -1,0 +1,417 @@
+{
+  "schema": "awesomewsi.curated_papers.v1",
+  "source": "Migrated mechanically from README.md Curated Papers section. No task, method, dataset, or code metadata has been inferred.",
+  "sections": [
+    {
+      "venue": "ICML",
+      "year": 2026,
+      "conference_start": "2026-07-06",
+      "conference_end": "2026-07-11",
+      "papers": []
+    },
+    {
+      "venue": "CVPR",
+      "year": 2026,
+      "conference_start": "2026-06-03",
+      "conference_end": "2026-06-07",
+      "papers": []
+    },
+    {
+      "venue": "ICLR",
+      "year": 2026,
+      "conference_start": "2026-04-23",
+      "conference_end": "2026-04-27",
+      "papers": []
+    },
+    {
+      "venue": "AAAI",
+      "year": 2026,
+      "conference_start": "2026-01-20",
+      "conference_end": "2026-01-27",
+      "papers": []
+    },
+    {
+      "venue": "NeurIPS",
+      "year": 2025,
+      "conference_start": "2025-11-30",
+      "conference_end": "2025-12-07",
+      "papers": []
+    },
+    {
+      "venue": "ICCV",
+      "year": 2025,
+      "conference_start": "2025-10-19",
+      "conference_end": "2025-10-23",
+      "papers": [
+        {
+          "id": "iccv-2025-graph-domain-adaptation-dual-branch-encoder",
+          "venue": "ICCV",
+          "year": 2025,
+          "order": 1,
+          "title": "Graph Domain Adaptation with Dual-branch Encoder and Two-level Alignment for Whole Slide Image-based Survival Prediction",
+          "paper_url": "https://arxiv.org/abs/2411.14001",
+          "summary": "This paper proposes a dual-branch graph encoder with message-passing and shortest-path branches, together with two-level alignment at the category and feature levels to capture semantic information from WSIs and mitigate domain shifts between datasets.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "iccv-2025-continual-multiple-instance-learning-enhanced-localization",
+          "venue": "ICCV",
+          "year": 2025,
+          "order": 2,
+          "title": "Continual Multiple Instance Learning with Enhanced Localization for Histopathological Whole Slide Image Analysis",
+          "paper_url": "https://arxiv.org/abs/2507.02395",
+          "summary": "This paper introduces continual multiple instance learning with enhanced localization for both localization and adaptability with minimal forgetting in continual learning settings.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "iccv-2025-cracking-instance-jigsaw-puzzles",
+          "venue": "ICCV",
+          "year": 2025,
+          "order": 3,
+          "title": "Cracking Instance Jigsaw Puzzles: An Alternative to Multiple Instance Learning for Whole Slide Image Analysis",
+          "paper_url": "https://arxiv.org/abs/2507.08178",
+          "summary": "This paper proposes a Siamese network solution, an alternative to the permutation-invariant MIL framework, to better model the spatial correlations between image patches.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "iccv-2025-flow-mil",
+          "venue": "ICCV",
+          "year": 2025,
+          "order": 4,
+          "title": "Flow-MIL: Constructing Highly-expressive Latent Feature Space For Whole Slide Image Classification Using Normalizing Flow",
+          "paper_url": "https://iccv.thecvf.com/virtual/2025/poster/2490",
+          "summary": "This paper proposes Flow-MIL, which maps instance features into a simple, highly expressive latent space that preserves critical semantics via a normalizing-flow latent semantic embedding space and GMM-based latent prototypes, enabling better instance-level insight and stronger slide-level predictions.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "iccv-2025-gmmamba",
+          "venue": "ICCV",
+          "year": 2025,
+          "order": 5,
+          "title": "GMMamba: Group Masking Mamba for Whole Slide Image Classification",
+          "paper_url": "https://iccv.thecvf.com/virtual/2025/poster/1554",
+          "summary": "This paper proposes GMMamba, which couples intra-group masking Mamba and cross-group super-feature sampling to form compact local representations and discriminative global features, thereby reducing redundant or uninformative instances and better modeling long-range dependencies in WSIs.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "iccv-2025-pixel-mamba",
+          "venue": "ICCV",
+          "year": 2025,
+          "order": 6,
+          "title": "Bridging Local Inductive Bias and Long-Range Dependencies with Pixel-Mamba for End-to-end Whole Slide Image Analysis",
+          "paper_url": "https://arxiv.org/abs/2412.16711",
+          "summary": "This paper introduces Pixel-Mamba, which incorporates local inductive biases through progressively expanding tokens to hierarchically combine both local and global information and address computational and representational challenges.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "iccv-2025-wsi-llava",
+          "venue": "ICCV",
+          "year": 2025,
+          "order": 7,
+          "title": "WSI-LLaVA: A Multimodal Large Language Model for Whole Slide Image",
+          "paper_url": "https://arxiv.org/abs/2412.02141",
+          "summary": "This paper proposes WSI-LLaVA, a WSI-level MLLM trained to produce morphology-grounded explanations, and releases WSI-Bench, a 180k-pair morphology-aware benchmark, strengthening morphological understanding and explainability in WSI reasoning while addressing the common failure of current MLLMs to attend to key morphology and justify their answers.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "iccv-2025-ps3",
+          "venue": "ICCV",
+          "year": 2025,
+          "order": 8,
+          "title": "PS3: A Multimodal Transformer Integrating Pathology Reports with Histology Images and Biological Pathways for Cancer Survival Prediction",
+          "paper_url": "https://arxiv.org/abs/2509.20022",
+          "summary": "This paper proposes PS3, a prototype-based multimodal transformer that integrates pathology reports, histology whole slide images, and pathway-level transcriptomics, enabling effective intra-modal and cross-modal attention for survival prediction and addressing modality imbalance in early fusion.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "iccv-2025-histaug",
+          "venue": "ICCV",
+          "year": 2025,
+          "order": 9,
+          "title": "Controllable Latent Space Augmentation for Digital Pathology",
+          "paper_url": "https://arxiv.org/abs/2508.14588",
+          "summary": "This paper introduces HistAug, a controllable feature space augmentation for patch features, to overcome the challenge of heavy computational cost in patch image augmentation as well as the challenge of preserving the semantic information during feature space augmentation.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "iccv-2025-modaltune",
+          "venue": "ICCV",
+          "year": 2025,
+          "order": 10,
+          "title": "ModalTune: Fine-Tuning Slide-Level Foundation Models with Multi-Modal Information for Multi-task Learning in Digital Pathology",
+          "paper_url": "https://arxiv.org/abs/2503.17564",
+          "summary": "This paper proposes ModalTune, which leverages modal adapters to integrate new modalities without modifying the weights of slide-level foundation models and better utilize shared information between different modalities and tasks.",
+          "source": "README",
+          "last_verified": null
+        }
+      ]
+    },
+    {
+      "venue": "ICML",
+      "year": 2025,
+      "conference_start": "2025-07-13",
+      "conference_end": "2025-07-19",
+      "papers": [
+        {
+          "id": "icml-2025-whole-slide-flow-matching",
+          "venue": "ICML",
+          "year": 2025,
+          "order": 1,
+          "title": "Scalable Generation of Spatial Transcriptomics from Histology Images via Whole-Slide Flow Matching",
+          "paper_url": "https://icml.cc/virtual/2025/poster/45412",
+          "summary": "This paper introduces flow matching to model the joint distribution of gene expression across entire slide (rather than predicting spots independently) to solve the challenge of capturing cell-cell interactions when generating spatial transcriptomics from histology images, using an efficient slide-level encoder with local spatial attention to overcome memory constraints.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "icml-2025-distributed-parallel-gradient-stacking",
+          "venue": "ICML",
+          "year": 2025,
+          "order": 2,
+          "title": "Distributed Parallel Gradient Stacking (DPGS): Solving Whole Slide Image Stacking Challenge in Multi-Instance Learning",
+          "paper_url": "https://icml.cc/virtual/2025/poster/43811",
+          "summary": "This paper introduces Distributed Parallel Gradient Stacking with Deep Model-Gradient Compression to solve the non-stackable data problem in MIL where varying patch counts across WSIs prevent efficient batch processing.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "icml-2025-l-diffusion",
+          "venue": "ICML",
+          "year": 2025,
+          "order": 3,
+          "title": "L-Diffusion: Laplace Diffusion for Efficient Pathology Image Segmentation",
+          "paper_url": "https://icml.cc/virtual/2025/poster/46562",
+          "summary": "This paper introduces a diffusion model using multiple Laplace distributions (instead of Gaussian) combined with contrastive learning for pixel-wise feature refinement to solve the challenge of segmenting rare cell and tissue types in pathology images with limited annotations.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "icml-2025-do-mil-models-transfer",
+          "venue": "ICML",
+          "year": 2025,
+          "order": 4,
+          "title": "Do Multiple Instance Learning Models Transfer?",
+          "paper_url": "https://icml.cc/virtual/2025/poster/44403",
+          "summary": "This paper conducts the first comprehensive investigation of transfer learning in MIL models to solve the challenge of small, weakly-supervised clinical datasets in computational pathology.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "icml-2025-mil-dropout",
+          "venue": "ICML",
+          "year": 2025,
+          "order": 5,
+          "title": "How Effective Can Dropout Be in Multiple Instance Learning?",
+          "paper_url": "https://icml.cc/virtual/2025/poster/43917",
+          "summary": "This paper introduces MIL-Dropout that systematically drops top-k most important instances to address noisy feature embeddings and weak supervision in WSI classification, demonstrating improved generalization across five MIL benchmarks with negligible computational cost.",
+          "source": "README",
+          "last_verified": null
+        }
+      ]
+    },
+    {
+      "venue": "CVPR",
+      "year": 2025,
+      "conference_start": "2025-06-11",
+      "conference_end": "2025-06-15",
+      "papers": [
+        {
+          "id": "cvpr-2025-focus",
+          "venue": "CVPR",
+          "year": 2025,
+          "order": 1,
+          "title": "FOCUS: Knowledge-enhanced Adaptive Visual Compression for Few-shot Whole Slide Image Classification",
+          "paper_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Guo_FOCUS_Knowledge-enhanced_Adaptive_Visual_Compression_for_Few-shot_Whole_Slide_Image_CVPR_2025_paper.html",
+          "summary": "This paper introduces knowledge-enhanced adaptive visual compression with language prompts to solve the challenge of few-shot WSI classification with limited training data and vast irrelevant patches, achieving superior performance on cancer diagnosis by prioritizing diagnostically relevant regions through pathology foundation models.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "cvpr-2025-distilled-prompt-learning",
+          "venue": "CVPR",
+          "year": 2025,
+          "order": 2,
+          "title": "Distilled Prompt Learning for Incomplete Multimodal Survival Prediction",
+          "paper_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Xu_Distilled_Prompt_Learning_for_Incomplete_Multimodal_Survival_Prediction_CVPR_2025_paper.html",
+          "summary": "This paper introduces a two-stage prompting framework (unimodal and multimodal) to solve the challenge of incomplete multimodal data collection in survival prediction, enabling inference of missing modality information from available ones.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "cvpr-2025-hierarchical-distillation-mil",
+          "venue": "CVPR",
+          "year": 2025,
+          "order": 3,
+          "title": "Fast and Accurate Gigapixel Pathological Image Classification with Hierarchical Distillation Multi-Instance Learning",
+          "paper_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Dong_Fast_and_Accurate_Gigapixel_Pathological_Image_Classification_with_Hierarchical_Distillation_CVPR_2025_paper.html",
+          "summary": "This paper introduces hierarchical distillation MIL with dynamic masking and lightweight pre-screening to solve the high inference cost challenge in gigapixel WSI classification.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "cvpr-2025-slidechat",
+          "venue": "CVPR",
+          "year": 2025,
+          "order": 4,
+          "title": "SlideChat: A Large Vision-Language Assistant for Whole-Slide Pathology Image Understanding",
+          "paper_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Chen_SlideChat_A_Large_Vision-Language_Assistant_for_Whole-Slide_Pathology_Image_Understanding_CVPR_2025_paper.html",
+          "summary": "This paper introduces SlideChat, the first vision-language assistant capable of understanding gigapixel WSIs, supported by the SlideInstruction dataset (4.2K captions, 176K VQA pairs) and SlideBench benchmark, to solve the challenge of existing MLLMs being limited to patch-level analysis without WSI-level contextual understanding.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "cvpr-2025-2dmamba",
+          "venue": "CVPR",
+          "year": 2025,
+          "order": 5,
+          "title": "2DMamba: Efficient State Space Model for Image Representation with Applications on Giga-Pixel Whole Slide Image Classification",
+          "paper_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Zhang_2DMamba_Efficient_State_Space_Model_for_Image_Representation_with_Applications_CVPR_2025_paper.html",
+          "summary": "This paper introduces an efficient 2D selective state space model with hardware-aware optimization to solve the quadratic complexity challenge of transformers in processing gigapixel WSIs.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "cvpr-2025-cpath-omni",
+          "venue": "CVPR",
+          "year": 2025,
+          "order": 6,
+          "title": "CPath-Omni: A Unified Multimodal Foundation Model for Patch and Whole Slide Image Analysis in Computational Pathology",
+          "paper_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Sun_CPath-Omni_A_Unified_Multimodal_Foundation_Model_for_Patch_and_Whole_CVPR_2025_paper.html",
+          "summary": "This paper introduces CPath-Omni, a 15B multimodal foundation model that unifies patch-level and WSI analysis in a single framework to solve the challenge of previous models being trained separately for either patches or WSIs, preventing knowledge transfer across scales, achieving state-of-the-art performance on 39 of 42 datasets across classification, VQA, captioning, and visual referring tasks.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "cvpr-2025-merge",
+          "venue": "CVPR",
+          "year": 2025,
+          "order": 7,
+          "title": "MERGE: Multi-faceted Hierarchical Graph-based GNN for Gene Expression Prediction from Whole Slide Histopathology Images",
+          "paper_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Ganguly_MERGE_Multi-faceted_Hierarchical_Graph-based_GNN_for_Gene_Expression_Prediction_from_CVPR_2025_paper.html",
+          "summary": "This paper introduces a graph neural network that clusters tissue patches by both spatial proximity and morphological similarity with intra- and inter-cluster connections to solve the challenge of existing methods failing to model interactions between tissue locations crucial for gene expression prediction, while also addressing spatial transcriptomics data artifacts through gene-aware smoothing techniques.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "cvpr-2025-histofs",
+          "venue": "CVPR",
+          "year": 2025,
+          "order": 8,
+          "title": "HistoFS: Non-IID Histopathologic Whole Slide Image Classification via Federated Style Transfer with RoI-Preserving",
+          "paper_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Raswa_HistoFS_Non-IID_Histopathologic_Whole_Slide_Image_Classification_via_Federated_Style_CVPR_2025_paper.html",
+          "summary": "This paper introduces HistoFS, which incorporates a pseudo-bag style and an authenticity module so the model can learn from multiple centers while maintaining essential RoIs, addressing the non-IID challenge across centers.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "cvpr-2025-m3amba",
+          "venue": "CVPR",
+          "year": 2025,
+          "order": 9,
+          "title": "M3amba: Memory Mamba is All You Need for Whole Slide Image Classification",
+          "paper_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Zheng_M3amba_Memory_Mamba_is_All_You_Need_for_Whole_Slide_CVPR_2025_paper.html",
+          "summary": "This paper proposes a memory-driven Mamba framework that fully explores the global latent relations among instances, mitigating both the contextual forgetting issue and the failure to capture global context in WSI that vanilla Mamba has.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "cvpr-2025-continual-learning-mil",
+          "venue": "CVPR",
+          "year": 2025,
+          "order": 10,
+          "title": "Advancing Multiple Instance Learning with Continual Learning for Whole Slide Imaging",
+          "paper_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Li_Advancing_Multiple_Instance_Learning_with_Continual_Learning_for_Whole_Slide_CVPR_2025_paper.html",
+          "summary": "This paper proposes Attention Knowledge Distillation and the Pseudo-Bag Memory Pool to supplement the current continual learning framework and mitigate catastrophic forgetting, mainly in the attention layer of the MIL model.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "cvpr-2025-wise",
+          "venue": "CVPR",
+          "year": 2025,
+          "order": 11,
+          "title": "WISE: A Framework for Gigapixel Whole-Slide-Image Lossless Compression",
+          "paper_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Mao_WISE_A_Framework_for_Gigapixel_Whole-Slide-Image_Lossless_Compression_CVPR_2025_paper.html",
+          "summary": "This paper proposes WISE as a lossless compression method that employs a hierarchical encoding strategy to extract effective bits, reducing the entropy of the image and then adopting a dictionary-based method to handle the irregular frequency patterns to mitigate the storage challenge of the gigapixel WSIs.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "cvpr-2025-mexd",
+          "venue": "CVPR",
+          "year": 2025,
+          "order": 12,
+          "title": "MExD: An Expert-Infused Diffusion Model for Whole-Slide Image Classification",
+          "paper_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Zhao_MExD_An_Expert-Infused_Diffusion_Model_for_Whole-Slide_Image_Classification_CVPR_2025_paper.html",
+          "summary": "This paper proposes an Expert-Infused Diffusion Model that incorporates the benefits of MoE and diffusion model to effectively extract discriminative features, reduce patch noise, and address data imbalance problems.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "cvpr-2025-pathology-aware-moe",
+          "venue": "CVPR",
+          "year": 2025,
+          "order": 13,
+          "title": "Learning Heterogeneous Tissues with Mixture of Experts for Gigapixel Whole Slide Images",
+          "paper_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Wu_Learning_Heterogeneous_Tissues_with_Mixture_of_Experts_for_Gigapixel_Whole_CVPR_2025_paper.html",
+          "summary": "This paper proposes a plug-and-play Pathology-Aware Mixture-of-Experts module to learn pathology-specific information based on an MoE structure and discard patches that none of the experts prioritize, addressing complex pathological tissue environments and the absence of target-driven domain knowledge.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "cvpr-2025-foundation-model-agnostic-slide-representation",
+          "venue": "CVPR",
+          "year": 2025,
+          "order": 14,
+          "title": "Unsupervised Foundation Model-Agnostic Slide-Level Representation Learning",
+          "paper_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Lenz_Unsupervised_Foundation_Model-Agnostic_Slide-Level_Representation_Learning_CVPR_2025_paper.html",
+          "summary": "This paper proposes a self-supervised method for single-modality slide-level aggregator pretraining, using features from different foundation models and patch configurations for contrastive learning without requiring multimodal data or multiview augmentation.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "cvpr-2025-conditional-latent-differentiation-vae",
+          "venue": "CVPR",
+          "year": 2025,
+          "order": 15,
+          "title": "Robust Multimodal Survival Prediction with Conditional Latent Differentiation Variational AutoEncoder",
+          "paper_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Zhou_Robust_Multimodal_Survival_Prediction_with_Conditional_Latent_Differentiation_Variational_AutoEncoder_CVPR_2025_paper.html",
+          "summary": "This paper proposes a Conditional Latent Differentiation Variational AutoEncoder for robust multimodal survival prediction that compresses gigapixel WSIs and generates genomic embeddings with diverse biological functions, enabling effective prediction even when genomic data is missing.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "cvpr-2025-biox-cpath",
+          "venue": "CVPR",
+          "year": 2025,
+          "order": 16,
+          "title": "BioX-CPath: Biologically-driven Explainable Diagnostics for Multistain IHC Computational Pathology",
+          "paper_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Gallagher-Syed_BioX-CPath_Biologically-driven_Explainable_Diagnostics_for_Multistain_IHC_Computational_Pathology_CVPR_2025_paper.html",
+          "summary": "This paper introduces BioX-CPath, an explainable graph neural network architecture that leverages both spatial and semantic features across multiple stains to provide biologically interpretable diagnostics for multistain IHC computational pathology.",
+          "source": "README",
+          "last_verified": null
+        },
+        {
+          "id": "cvpr-2025-multi-resolution-pathology-language",
+          "venue": "CVPR",
+          "year": 2025,
+          "order": 17,
+          "title": "Multi-Resolution Pathology-Language Pre-training Model with Text-Guided Visual Representation",
+          "paper_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Albastaki_Multi-Resolution_Pathology-Language_Pre-training_Model_with_Text-Guided_Visual_Representation_CVPR_2025_paper.html",
+          "summary": "This paper proposes a multi-resolution pathology-language pre-training model that aligns visual and textual features across multiple magnification levels to address the challenge of single-resolution VLMs failing to capture both contextual overview and cellular details.",
+          "source": "README",
+          "last_verified": null
+        }
+      ]
+    }
+  ]
+}

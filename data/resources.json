@@ -1,0 +1,348 @@
+{
+  "schema": "awesomewsi.resources.v1",
+  "source": "Migrated mechanically from README.md Useful Toolboxes, Datasets, and Benchmarks sections. No new resources or metadata have been inferred.",
+  "sections": [
+    {
+      "title": "🔧 Useful Toolboxes",
+      "categories": [
+        {
+          "title": "WSI I/O, Visualization, and Annotation",
+          "items": [
+            {
+              "order": 1,
+              "name": "OpenSlide",
+              "url": "https://openslide.org",
+              "description": "The foundational C library and Python interface for reading many WSI formats."
+            },
+            {
+              "order": 2,
+              "name": "QuPath",
+              "url": "https://qupath.github.io",
+              "description": "Open-source software for WSI visualization, annotation, and bioimage analysis."
+            },
+            {
+              "order": 3,
+              "name": "ASAP",
+              "url": "https://computationalpathologygroup.github.io/ASAP/",
+              "description": "A fast WSI viewer with annotation tools and support for visualizing algorithm outputs."
+            },
+            {
+              "order": 4,
+              "name": "SlideIO",
+              "url": "https://www.slideio.com/",
+              "description": "A Python module for reading whole slides and slide regions across multiple microscopy formats."
+            },
+            {
+              "order": 5,
+              "name": "large_image",
+              "url": "https://girder.github.io/large_image/",
+              "description": "A tile-source library for serving and processing large images, including WSI-style tiled access."
+            },
+            {
+              "order": 6,
+              "name": "paquo",
+              "url": "https://paquo.readthedocs.io/",
+              "description": "A Python interface for interacting with QuPath projects and annotations."
+            },
+            {
+              "order": 7,
+              "name": "ASlide",
+              "url": "https://github.com/MrPeterJin/ASlide/",
+              "description": "An integrated pathology image reading library with broad format support."
+            }
+          ]
+        },
+        {
+          "title": "Preprocessing, QC, and Image Analysis",
+          "items": [
+            {
+              "order": 1,
+              "name": "histolab",
+              "url": "https://github.com/histolab/histolab",
+              "description": "A digital pathology image-processing library for WSI tiling and tissue-aware preprocessing."
+            },
+            {
+              "order": 2,
+              "name": "HistoQC",
+              "url": "https://github.com/choosehappy/HistoQC",
+              "description": "An open-source quality-control tool for detecting artifacts and quantifying slide quality."
+            },
+            {
+              "order": 3,
+              "name": "HistomicsTK",
+              "url": "https://github.com/DigitalSlideArchive/HistomicsTK",
+              "description": "A Python toolkit for pathology image analysis algorithms in the Digital Slide Archive ecosystem."
+            },
+            {
+              "order": 4,
+              "name": "SliDL",
+              "url": "https://github.com/markowetzlab/slidl",
+              "description": "A toolbox for WSI preprocessing workflows in deep learning, including tiling and artifact/background filtering."
+            },
+            {
+              "order": 5,
+              "name": "PathML",
+              "url": "https://pathml.org/",
+              "description": "A Python toolbox for computational pathology workflows over high-resolution pathology images."
+            }
+          ]
+        },
+        {
+          "title": "Modeling and End-to-End Pipelines",
+          "items": [
+            {
+              "order": 1,
+              "name": "CLAM",
+              "url": "https://github.com/mahmoodlab/CLAM",
+              "description": "A WSI pipeline for patching, feature extraction, MIL training, and heatmap visualization."
+            },
+            {
+              "order": 2,
+              "name": "Trident",
+              "url": "https://github.com/mahmoodlab/trident",
+              "description": "A foundation-model-oriented WSI processing toolkit from Mahmood Lab."
+            },
+            {
+              "order": 3,
+              "name": "TIAToolbox",
+              "url": "https://tia-toolbox.readthedocs.io/en/latest/",
+              "description": "An end-to-end PyTorch toolkit for WSI reading, preprocessing, modeling, and visualization."
+            },
+            {
+              "order": 4,
+              "name": "Slideflow",
+              "url": "https://slideflow.dev/",
+              "description": "A Python package for building and evaluating deep learning models for digital pathology."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "📊 Datasets",
+      "categories": [
+        {
+          "title": "Public WSI Cohorts",
+          "items": [
+            {
+              "order": 1,
+              "name": "GDC Data Portal",
+              "url": "https://portal.gdc.cancer.gov/",
+              "description": "Access to cancer study data, including TCGA and CPTAC tissue slide images where available."
+            },
+            {
+              "order": 2,
+              "name": "TCGA",
+              "url": "https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga",
+              "description": "A landmark cancer genomics program with diagnostic slide images accessible through the GDC ecosystem."
+            },
+            {
+              "order": 3,
+              "name": "GTEx Histology Viewer",
+              "url": "https://gtexportal.org/home/histologyPage",
+              "description": "Histology images from the Genotype-Tissue Expression project across normal human tissues."
+            },
+            {
+              "order": 4,
+              "name": "HEST-1k",
+              "url": "https://github.com/mahmoodlab/HEST",
+              "description": "Paired histology and spatial transcriptomics data with an accompanying HEST library and benchmark."
+            }
+          ]
+        },
+        {
+          "title": "Challenge and Task-Specific WSI Datasets",
+          "items": [
+            {
+              "order": 1,
+              "name": "Camelyon16",
+              "url": "https://camelyon16.grand-challenge.org",
+              "description": "H&E lymph-node WSIs for breast cancer metastasis detection."
+            },
+            {
+              "order": 2,
+              "name": "Camelyon17",
+              "url": "https://camelyon17.grand-challenge.org",
+              "description": "Multi-center H&E lymph-node WSIs for breast cancer metastasis detection and classification."
+            },
+            {
+              "order": 3,
+              "name": "PANDA",
+              "url": "https://www.kaggle.com/competitions/prostate-cancer-grade-assessment",
+              "description": "Prostate biopsy WSIs for Gleason grading and prostate cancer grade assessment."
+            },
+            {
+              "order": 4,
+              "name": "BRACS",
+              "url": "https://www.bracs.icar.cnr.it",
+              "description": "Breast carcinoma subtyping data with labeled WSIs and labeled ROIs."
+            },
+            {
+              "order": 5,
+              "name": "BCNB",
+              "url": "https://bcnb.grand-challenge.org/",
+              "description": "Early breast cancer core-needle biopsy WSIs with clinical variables and pathologist annotations."
+            },
+            {
+              "order": 6,
+              "name": "PAIP2021",
+              "url": "https://paip2021.grand-challenge.org",
+              "description": "Multi-organ WSIs for perineural invasion detection in colon, prostate, and pancreatobiliary cancers."
+            },
+            {
+              "order": 7,
+              "name": "TUPAC16",
+              "url": "https://tupac.grand-challenge.org/",
+              "description": "Breast cancer WSIs for tumor proliferation assessment."
+            },
+            {
+              "order": 8,
+              "name": "TIGER",
+              "url": "https://tiger.grand-challenge.org/",
+              "description": "Breast cancer WSIs for tumor-infiltrating lymphocyte assessment."
+            },
+            {
+              "order": 9,
+              "name": "ACROBAT",
+              "url": "https://acrobat.grand-challenge.org/overview/",
+              "description": "Multi-stain breast cancer WSIs for WSI registration."
+            },
+            {
+              "order": 10,
+              "name": "HEROHE",
+              "url": "https://ecdp2020.grand-challenge.org/Dataset/",
+              "description": "H&E breast cancer WSIs for HER2-status prediction."
+            },
+            {
+              "order": 11,
+              "name": "BreastPathQ",
+              "url": "https://breastpathq.grand-challenge.org/",
+              "description": "Breast cancer H&E WSI-derived data for tumor cellularity assessment."
+            }
+          ]
+        },
+        {
+          "title": "Multimodal and Image-Text Pathology Datasets",
+          "items": [
+            {
+              "order": 1,
+              "name": "Quilt-1M",
+              "url": "https://github.com/wisdomikezogwo/quilt1m",
+              "description": "A histopathology image-text dataset with paired image-text samples curated from educational and web sources."
+            },
+            {
+              "order": 2,
+              "name": "OpenPath",
+              "url": "https://www.nature.com/articles/s41591-023-02504-3",
+              "description": "Pathology image-text pairs curated from public medical social-media content for PLIP pretraining."
+            },
+            {
+              "order": 3,
+              "name": "PathGen-1.6M",
+              "url": "https://huggingface.co/datasets/jamessyx/PathGen",
+              "description": "A pathology image-caption dataset generated through a multi-agent collaboration pipeline."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "🏆 Benchmarks",
+      "categories": [
+        {
+          "title": "Pathology Foundation Model and MIL Benchmarks",
+          "items": [
+            {
+              "order": 1,
+              "name": "Patho-Bench",
+              "url": "https://github.com/mahmoodlab/Patho-Bench",
+              "description": "A standardized benchmark library for computational pathology foundation models."
+            },
+            {
+              "order": 2,
+              "name": "HEST-Benchmark",
+              "url": "https://github.com/mahmoodlab/HEST",
+              "description": "A benchmark for evaluating pathology foundation models on gene-expression prediction from histology."
+            },
+            {
+              "order": 3,
+              "name": "PathBench-MIL",
+              "url": "https://github.com/Sbrussee/PathBench-MIL",
+              "description": "A benchmarking and AutoML framework for multiple-instance learning pipelines in histopathology."
+            }
+          ]
+        },
+        {
+          "title": "WSI Vision-Language and Multimodal Benchmarks",
+          "items": [
+            {
+              "order": 1,
+              "name": "WSI-Bench",
+              "url": "https://github.com/XinhengLyu/WSI-LLaVA",
+              "description": "A morphology-aware benchmark for gigapixel WSI understanding and VQA."
+            },
+            {
+              "order": 2,
+              "name": "SlideBench",
+              "url": "https://github.com/uni-medical/SlideChat",
+              "description": "A WSI multimodal benchmark released with SlideChat for captioning, report, and closed-form VQA tasks."
+            },
+            {
+              "order": 3,
+              "name": "PathMMU",
+              "url": "https://github.com/PathMMU-Benchmark/PathMMU",
+              "description": "An expert-validated pathology multimodal understanding and reasoning benchmark."
+            }
+          ]
+        },
+        {
+          "title": "Challenge Benchmarks and Leaderboards",
+          "items": [
+            {
+              "order": 1,
+              "name": "Camelyon16",
+              "url": "https://camelyon16.grand-challenge.org",
+              "description": "Breast cancer lymph-node metastasis detection challenge."
+            },
+            {
+              "order": 2,
+              "name": "Camelyon17",
+              "url": "https://camelyon17.grand-challenge.org",
+              "description": "Multi-center breast cancer lymph-node metastasis challenge."
+            },
+            {
+              "order": 3,
+              "name": "PANDA",
+              "url": "https://www.kaggle.com/competitions/prostate-cancer-grade-assessment",
+              "description": "Prostate cancer grade-assessment competition."
+            },
+            {
+              "order": 4,
+              "name": "PAIP2021",
+              "url": "https://paip2021.grand-challenge.org",
+              "description": "Perineural invasion detection challenge across multiple organ cancers."
+            },
+            {
+              "order": 5,
+              "name": "TIGER",
+              "url": "https://tiger.grand-challenge.org",
+              "description": "Tumor-infiltrating lymphocyte assessment challenge in breast cancer."
+            },
+            {
+              "order": 6,
+              "name": "ACROBAT",
+              "url": "https://acrobat.grand-challenge.org/overview/",
+              "description": "WSI registration challenge for differently stained breast cancer tissue sections."
+            },
+            {
+              "order": 7,
+              "name": "HEROHE",
+              "url": "https://ecdp2020.grand-challenge.org/",
+              "description": "HER2-status prediction challenge from H&E breast cancer WSIs."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

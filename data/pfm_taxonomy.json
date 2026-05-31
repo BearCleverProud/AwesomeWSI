@@ -1,0 +1,465 @@
+{
+  "schema": "awesomewsi.pfm_taxonomy.v1",
+  "source": "Migrated mechanically from README.md Hierarchical Taxonomy for PFMs table.",
+  "models": [
+    {
+      "model": "CTransPath",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": false
+      },
+      "model_pretraining": {
+        "input": "H",
+        "base_method": "MoCov3",
+        "magnification_or_resolution": "10/224"
+      },
+      "model_design": {
+        "architecture": "Swin-T/14",
+        "parameters": "28.3M",
+        "scale": "S"
+      }
+    },
+    {
+      "model": "REMEDIS",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": false
+      },
+      "model_pretraining": {
+        "input": "H",
+        "base_method": "SimCLR",
+        "magnification_or_resolution": "Multi/224"
+      },
+      "model_design": {
+        "architecture": "ResNet-50",
+        "parameters": "25.6M",
+        "scale": "S"
+      }
+    },
+    {
+      "model": "HIPT",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": true
+      },
+      "model_pretraining": {
+        "input": "H",
+        "base_method": "DINO",
+        "magnification_or_resolution": "20/256,4096"
+      },
+      "model_design": {
+        "architecture": "ViT-S/16-XS/256",
+        "parameters": "21.7/2.78M",
+        "scale": "S/XS"
+      }
+    },
+    {
+      "model": "PLIP",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": false
+      },
+      "model_pretraining": {
+        "input": "P, T",
+        "base_method": "CLIP",
+        "magnification_or_resolution": "20/224"
+      },
+      "model_design": {
+        "architecture": "ViT-B/32",
+        "parameters": "87M",
+        "scale": "B"
+      }
+    },
+    {
+      "model": "CONCH",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": false
+      },
+      "model_pretraining": {
+        "input": "W, T",
+        "base_method": "iBOT/CoCa",
+        "magnification_or_resolution": "20/256"
+      },
+      "model_design": {
+        "architecture": "ViT/B-16",
+        "parameters": "86.3M",
+        "scale": "B"
+      }
+    },
+    {
+      "model": "Phikon",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": false
+      },
+      "model_pretraining": {
+        "input": "H",
+        "base_method": "iBOT",
+        "magnification_or_resolution": "20/224"
+      },
+      "model_design": {
+        "architecture": "ViT-S/B/L/16",
+        "parameters": "21.7/85.8/307M",
+        "scale": "S/B/L"
+      }
+    },
+    {
+      "model": "UNI",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": false
+      },
+      "model_pretraining": {
+        "input": "H",
+        "base_method": "DINOv2",
+        "magnification_or_resolution": "20/256,512"
+      },
+      "model_design": {
+        "architecture": "ViT-L/16",
+        "parameters": "307M",
+        "scale": "L"
+      }
+    },
+    {
+      "model": "Virchow",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": false
+      },
+      "model_pretraining": {
+        "input": "H",
+        "base_method": "DINOv2",
+        "magnification_or_resolution": "20/224"
+      },
+      "model_design": {
+        "architecture": "ViT-H/14",
+        "parameters": "632M",
+        "scale": "H"
+      }
+    },
+    {
+      "model": "SINAI",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": false
+      },
+      "model_pretraining": {
+        "input": "H",
+        "base_method": "DINO/MAE",
+        "magnification_or_resolution": "Unknown"
+      },
+      "model_design": {
+        "architecture": "ViT-S/L",
+        "parameters": "21.7M/303.3M",
+        "scale": "S/L"
+      }
+    },
+    {
+      "model": "CHIEF",
+      "model_scope": {
+        "extractor": false,
+        "aggregator": true
+      },
+      "model_pretraining": {
+        "input": "H,T",
+        "base_method": "Sup.+CLIP",
+        "magnification_or_resolution": "10/224"
+      },
+      "model_design": {
+        "architecture": "CHIEF",
+        "parameters": "1.2M",
+        "scale": "XS"
+      }
+    },
+    {
+      "model": "Prov-GigaPath",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": true
+      },
+      "model_pretraining": {
+        "input": "H,I",
+        "base_method": "DINOv2/MAE",
+        "magnification_or_resolution": "20/256"
+      },
+      "model_design": {
+        "architecture": "ViT-g/14/LongNet",
+        "parameters": "1.13B/85.1M",
+        "scale": "g/B"
+      }
+    },
+    {
+      "model": "Pathoduet",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": false
+      },
+      "model_pretraining": {
+        "input": "H,I",
+        "base_method": "MoCov3",
+        "magnification_or_resolution": "40/256,20/1024"
+      },
+      "model_design": {
+        "architecture": "ViT-B/16",
+        "parameters": "85.8M",
+        "scale": "B"
+      }
+    },
+    {
+      "model": "RudolfV",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": false
+      },
+      "model_pretraining": {
+        "input": "W",
+        "base_method": "DINOv2",
+        "magnification_or_resolution": "20,40,80/256"
+      },
+      "model_design": {
+        "architecture": "ViT-L/14",
+        "parameters": "304M",
+        "scale": "L"
+      }
+    },
+    {
+      "model": "PLUTO",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": false
+      },
+      "model_pretraining": {
+        "input": "W",
+        "base_method": "DINOv2",
+        "magnification_or_resolution": "20,40/224"
+      },
+      "model_design": {
+        "architecture": "FlexiViT-S/16",
+        "parameters": "22M",
+        "scale": "S"
+      }
+    },
+    {
+      "model": "PRISM",
+      "model_scope": {
+        "extractor": false,
+        "aggregator": true
+      },
+      "model_pretraining": {
+        "input": "H,T",
+        "base_method": "CoCa",
+        "magnification_or_resolution": "20/224"
+      },
+      "model_design": {
+        "architecture": "Perceiver",
+        "parameters": "45.0M",
+        "scale": "S"
+      }
+    },
+    {
+      "model": "TANGLE",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": true
+      },
+      "model_pretraining": {
+        "input": "H,G",
+        "base_method": "iBOT/SimCLR",
+        "magnification_or_resolution": "20/224"
+      },
+      "model_design": {
+        "architecture": "ViT-B/16/ABMIL",
+        "parameters": "86.3/2.3M",
+        "scale": "B/XS"
+      }
+    },
+    {
+      "model": "MUSK",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": false
+      },
+      "model_pretraining": {
+        "input": "H,T",
+        "base_method": "MIM",
+        "magnification_or_resolution": "10,20,40/384"
+      },
+      "model_design": {
+        "architecture": "BEiT-3",
+        "parameters": "675M",
+        "scale": "H"
+      }
+    },
+    {
+      "model": "BEPH",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": false
+      },
+      "model_pretraining": {
+        "input": "H",
+        "base_method": "MIM",
+        "magnification_or_resolution": "40/224"
+      },
+      "model_design": {
+        "architecture": "BEiTv2",
+        "parameters": "192.55M",
+        "scale": "B"
+      }
+    },
+    {
+      "model": "Hibou",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": false
+      },
+      "model_pretraining": {
+        "input": "W",
+        "base_method": "DINOv2",
+        "magnification_or_resolution": "Unknown"
+      },
+      "model_design": {
+        "architecture": "ViT-B/L/16",
+        "parameters": "86.3/307M",
+        "scale": "B/L"
+      }
+    },
+    {
+      "model": "mSTAR+",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": true
+      },
+      "model_pretraining": {
+        "input": "H,G,T",
+        "base_method": "CLIP/ST",
+        "magnification_or_resolution": "20/256"
+      },
+      "model_design": {
+        "architecture": "TransMIL/ViT-L",
+        "parameters": "2.67/307M",
+        "scale": "XS/L"
+      }
+    },
+    {
+      "model": "GPFM",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": false
+      },
+      "model_pretraining": {
+        "input": "H",
+        "base_method": "UDK",
+        "magnification_or_resolution": "40/512"
+      },
+      "model_design": {
+        "architecture": "ViT-L/14",
+        "parameters": "307M",
+        "scale": "L"
+      }
+    },
+    {
+      "model": "Virchow2G",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": false
+      },
+      "model_pretraining": {
+        "input": "W",
+        "base_method": "DINOv2",
+        "magnification_or_resolution": "5,10,20,40/224"
+      },
+      "model_design": {
+        "architecture": "ViT-G/14",
+        "parameters": "1.9B",
+        "scale": "G"
+      }
+    },
+    {
+      "model": "MADELEINE",
+      "model_scope": {
+        "extractor": false,
+        "aggregator": true
+      },
+      "model_pretraining": {
+        "input": "W",
+        "base_method": "CLIP",
+        "magnification_or_resolution": "10,20/256"
+      },
+      "model_design": {
+        "architecture": "MH-ABMIL",
+        "parameters": "5.0M",
+        "scale": "XS"
+      }
+    },
+    {
+      "model": "Phikon-v2",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": false
+      },
+      "model_pretraining": {
+        "input": "W",
+        "base_method": "DINOv2",
+        "magnification_or_resolution": "20/224"
+      },
+      "model_design": {
+        "architecture": "ViT-L/16",
+        "parameters": "307M",
+        "scale": "L"
+      }
+    },
+    {
+      "model": "TITAN",
+      "model_scope": {
+        "extractor": false,
+        "aggregator": true
+      },
+      "model_pretraining": {
+        "input": "W,T",
+        "base_method": "iBOT/CoCa",
+        "magnification_or_resolution": "20/8192"
+      },
+      "model_design": {
+        "architecture": "TITAN/TITAN<sub>V</sub>",
+        "parameters": "48.5/42.1M",
+        "scale": "S"
+      }
+    },
+    {
+      "model": "KEEP",
+      "model_scope": {
+        "extractor": true,
+        "aggregator": false
+      },
+      "model_pretraining": {
+        "input": "W,T",
+        "base_method": "CLIP",
+        "magnification_or_resolution": "20/224"
+      },
+      "model_design": {
+        "architecture": "UNI",
+        "parameters": "307M",
+        "scale": "L"
+      }
+    },
+    {
+      "model": "THREADS",
+      "model_scope": {
+        "extractor": false,
+        "aggregator": true
+      },
+      "model_pretraining": {
+        "input": "H,D,R",
+        "base_method": "CLIP",
+        "magnification_or_resolution": "20/512"
+      },
+      "model_design": {
+        "architecture": "MH-ABMIL",
+        "parameters": "11.3M",
+        "scale": "XS"
+      }
+    }
+  ]
+}

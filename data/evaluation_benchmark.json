@@ -1,0 +1,677 @@
+{
+  "schema": "awesomewsi.evaluation_benchmark.v1",
+  "source": "Migrated mechanically from README.md Evaluation Benchmark table.",
+  "tasks": {
+    "slide_level": [
+      "classification",
+      "survival_prediction",
+      "retrieval",
+      "segmentation"
+    ],
+    "patch_level": [
+      "classification",
+      "patch_to_patch",
+      "segmentation"
+    ],
+    "multimodal": [
+      "image_to_text",
+      "text_to_image",
+      "report_generation",
+      "vqa"
+    ],
+    "biological": [
+      "genetic_alteration",
+      "molecular_prediction"
+    ]
+  },
+  "models": [
+    {
+      "model": "CTransPath",
+      "slide_level": {
+        "classification": "C",
+        "survival_prediction": "C",
+        "retrieval": "❌",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "F/C",
+        "patch_to_patch": "Z",
+        "segmentation": "C"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "❌",
+        "molecular_prediction": "❌"
+      }
+    },
+    {
+      "model": "REMEDIS",
+      "slide_level": {
+        "classification": "C",
+        "survival_prediction": "C",
+        "retrieval": "❌",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "❌",
+        "patch_to_patch": "❌",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "❌",
+        "molecular_prediction": "❌"
+      }
+    },
+    {
+      "model": "HIPT",
+      "slide_level": {
+        "classification": "C",
+        "survival_prediction": "C",
+        "retrieval": "❌",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "❌",
+        "patch_to_patch": "❌",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "❌",
+        "molecular_prediction": "❌"
+      }
+    },
+    {
+      "model": "PLIP",
+      "slide_level": {
+        "classification": "❌",
+        "survival_prediction": "❌",
+        "retrieval": "❌",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "Z",
+        "patch_to_patch": "Z",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "Z",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "❌",
+        "molecular_prediction": "❌"
+      }
+    },
+    {
+      "model": "CONCH",
+      "slide_level": {
+        "classification": "Z/F/C",
+        "survival_prediction": "❌",
+        "retrieval": "❌",
+        "segmentation": "Z"
+      },
+      "patch_level": {
+        "classification": "Z/F",
+        "patch_to_patch": "❌",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "Z",
+        "text_to_image": "Z",
+        "report_generation": "C",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "❌",
+        "molecular_prediction": "❌"
+      }
+    },
+    {
+      "model": "Phikon",
+      "slide_level": {
+        "classification": "C",
+        "survival_prediction": "C",
+        "retrieval": "❌",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "C",
+        "patch_to_patch": "❌",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "C",
+        "molecular_prediction": "C"
+      }
+    },
+    {
+      "model": "UNI",
+      "slide_level": {
+        "classification": "F/C",
+        "survival_prediction": "❌",
+        "retrieval": "F",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "F/C",
+        "patch_to_patch": "Z",
+        "segmentation": "C"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "❌",
+        "molecular_prediction": "❌"
+      }
+    },
+    {
+      "model": "Virchow",
+      "slide_level": {
+        "classification": "C",
+        "survival_prediction": "❌",
+        "retrieval": "❌",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "C",
+        "patch_to_patch": "❌",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "C",
+        "molecular_prediction": "❌"
+      }
+    },
+    {
+      "model": "SINAI",
+      "slide_level": {
+        "classification": "C",
+        "survival_prediction": "❌",
+        "retrieval": "❌",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "❌",
+        "patch_to_patch": "❌",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "C",
+        "molecular_prediction": "C"
+      }
+    },
+    {
+      "model": "CHIEF",
+      "slide_level": {
+        "classification": "C",
+        "survival_prediction": "C",
+        "retrieval": "❌",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "❌",
+        "patch_to_patch": "❌",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "C",
+        "molecular_prediction": "C"
+      }
+    },
+    {
+      "model": "Prov-GigaPath",
+      "slide_level": {
+        "classification": "Z/C",
+        "survival_prediction": "❌",
+        "retrieval": "C",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "❌",
+        "patch_to_patch": "❌",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "Z/C",
+        "molecular_prediction": "❌"
+      }
+    },
+    {
+      "model": "Pathoduet",
+      "slide_level": {
+        "classification": "C",
+        "survival_prediction": "❌",
+        "retrieval": "❌",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "F/C",
+        "patch_to_patch": "❌",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "❌",
+        "molecular_prediction": "F/C"
+      }
+    },
+    {
+      "model": "RudolfV",
+      "slide_level": {
+        "classification": "❌",
+        "survival_prediction": "❌",
+        "retrieval": "Z",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "C",
+        "patch_to_patch": "❌",
+        "segmentation": "C"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "C",
+        "molecular_prediction": "C"
+      }
+    },
+    {
+      "model": "PLUTO",
+      "slide_level": {
+        "classification": "C",
+        "survival_prediction": "❌",
+        "retrieval": "❌",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "C",
+        "patch_to_patch": "❌",
+        "segmentation": "C"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "❌",
+        "molecular_prediction": "C"
+      }
+    },
+    {
+      "model": "PRISM",
+      "slide_level": {
+        "classification": "Z/C",
+        "survival_prediction": "❌",
+        "retrieval": "❌",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "❌",
+        "patch_to_patch": "❌",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "C",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "F/C",
+        "molecular_prediction": "❌"
+      }
+    },
+    {
+      "model": "TANGLE",
+      "slide_level": {
+        "classification": "F",
+        "survival_prediction": "❌",
+        "retrieval": "C",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "❌",
+        "patch_to_patch": "❌",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "❌",
+        "molecular_prediction": "❌"
+      }
+    },
+    {
+      "model": "MUSK",
+      "slide_level": {
+        "classification": "C",
+        "survival_prediction": "C",
+        "retrieval": "❌",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "Z/F/C",
+        "patch_to_patch": "Z",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "Z",
+        "text_to_image": "Z",
+        "report_generation": "❌",
+        "vqa": "C"
+      },
+      "biological": {
+        "genetic_alteration": "C",
+        "molecular_prediction": "C"
+      }
+    },
+    {
+      "model": "BEPH",
+      "slide_level": {
+        "classification": "Z/F/C",
+        "survival_prediction": "C",
+        "retrieval": "❌",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "C",
+        "patch_to_patch": "❌",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "❌",
+        "molecular_prediction": "❌"
+      }
+    },
+    {
+      "model": "Hibou",
+      "slide_level": {
+        "classification": "C",
+        "survival_prediction": "❌",
+        "retrieval": "❌",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "C",
+        "patch_to_patch": "❌",
+        "segmentation": "C"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "C",
+        "molecular_prediction": "❌"
+      }
+    },
+    {
+      "model": "mSTAR",
+      "slide_level": {
+        "classification": "Z/F/C",
+        "survival_prediction": "C",
+        "retrieval": "❌",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "❌",
+        "patch_to_patch": "❌",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "C",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "C",
+        "molecular_prediction": "C"
+      }
+    },
+    {
+      "model": "GPFM",
+      "slide_level": {
+        "classification": "C",
+        "survival_prediction": "C",
+        "retrieval": "❌",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "C",
+        "patch_to_patch": "Z",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "C",
+        "vqa": "C"
+      },
+      "biological": {
+        "genetic_alteration": "C",
+        "molecular_prediction": "❌"
+      }
+    },
+    {
+      "model": "Virchow2",
+      "slide_level": {
+        "classification": "❌",
+        "survival_prediction": "❌",
+        "retrieval": "❌",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "❌",
+        "patch_to_patch": "❌",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "C",
+        "text_to_image": "❌",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "❌",
+        "molecular_prediction": "❌"
+      }
+    },
+    {
+      "model": "MADELEINE",
+      "slide_level": {
+        "classification": "F",
+        "survival_prediction": "C",
+        "retrieval": "❌",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "❌",
+        "patch_to_patch": "❌",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "❌",
+        "molecular_prediction": "F/C"
+      }
+    },
+    {
+      "model": "Phikon-v2",
+      "slide_level": {
+        "classification": "F/C",
+        "survival_prediction": "❌",
+        "retrieval": "❌",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "❌",
+        "patch_to_patch": "❌",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "F/C",
+        "molecular_prediction": "F/C"
+      }
+    },
+    {
+      "model": "TITAN",
+      "slide_level": {
+        "classification": "Z/F/C",
+        "survival_prediction": "C",
+        "retrieval": "Z",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "C",
+        "patch_to_patch": "❌",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "Z",
+        "text_to_image": "Z",
+        "report_generation": "C",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "C",
+        "molecular_prediction": "C"
+      }
+    },
+    {
+      "model": "KEEP",
+      "slide_level": {
+        "classification": "Z",
+        "survival_prediction": "❌",
+        "retrieval": "❌",
+        "segmentation": "Z"
+      },
+      "patch_level": {
+        "classification": "Z",
+        "patch_to_patch": "❌",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "Z",
+        "text_to_image": "Z",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "❌",
+        "molecular_prediction": "❌"
+      }
+    },
+    {
+      "model": "THREADS",
+      "slide_level": {
+        "classification": "F/C",
+        "survival_prediction": "C",
+        "retrieval": "Z",
+        "segmentation": "❌"
+      },
+      "patch_level": {
+        "classification": "❌",
+        "patch_to_patch": "❌",
+        "segmentation": "❌"
+      },
+      "multimodal": {
+        "image_to_text": "❌",
+        "text_to_image": "❌",
+        "report_generation": "❌",
+        "vqa": "❌"
+      },
+      "biological": {
+        "genetic_alteration": "C",
+        "molecular_prediction": "F/C"
+      }
+    }
+  ]
+}

@@ -173,6 +173,15 @@ h3 {
   font-size: clamp(17px, 1.8vw, 21px);
 }
 
+.policy-note {
+  max-width: 760px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.5;
+}
+
 .action-row {
   display: flex;
   flex-wrap: wrap;
@@ -1039,6 +1048,17 @@ pre {
   background: #fff7ef;
   color: #6f3c12;
   font-weight: 700;
+}
+
+.load-warning {
+  margin: 12px clamp(16px, 4vw, 48px);
+  padding: 12px 14px;
+  border: 1px solid #d7c68b;
+  border-radius: var(--radius);
+  background: #fffbea;
+  color: #63500d;
+  font-size: 14px;
+  font-weight: 750;
 }
 
 .sr-status {

@@ -482,7 +482,7 @@
       }
     },
     {
-      "model": "mSTAR",
+      "model": "mSTAR+",
       "slide_level": {
         "classification": "Z/F/C",
         "survival_prediction": "C",

@@ -122,6 +122,8 @@ If you find our paper useful, please consider citing our paper in your work:
 
 [IJCAI](https://www.ijcai.org/proceedings/2025/1193) | [PDF](https://www.ijcai.org/proceedings/2025/1193.pdf) | [arXiv](https://arxiv.org/abs/2504.04045)
 
+> **Update policy:** This website is a living companion to the IJCAI 2025 survey. Some venues, links, and resources are updated after the camera-ready version; taxonomy and evaluation tables are synchronized with the survey unless explicitly marked as post-survey updates.
+
 ---
 
 ### Hierarchical Taxonomy for PFMs
@@ -132,7 +134,7 @@ The following table presents **comprehensive technical specifications** for Our 
 - **🏗️ Model Design** → Model architectures, parameter counts, scale categories (XS to G)  
 - **📏 Scale Hierarchy** → From 2.78M (XS) to 1.9B (G) parameters following ViT-based quantization  
 
-**Input Modalities:** H&E-stained flag **(H)**, Patch/tile image **(P)**, Text/report **(T)**, Slide-level WSI **(W)**, Genes **(G)**, DNA **(D)**, RNA **(R)**. **H** is added only when the source clearly indicates H&E-stained pathology input; **P/W** encode the image granularity.<br>
+**Input Modalities:** H&E **(H)**, Patch **(P)**, Text **(T)**, WSIs with unspecified stains **(W)**, IHC **(I)**, Genomics **(G)**, DNA **(D)**, RNA **(R)**.<br>
 **Scale Categories:** XS, S, B, L, H, g, G (Extra-Small to Giant) based on parameter count
 
 > 🔍 **Essential for developers** to understand PFM architectures, computational requirements, and implementation specifications for deployment in clinical and research environments.
@@ -164,7 +166,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">CTransPath</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>H, P</td>
+            <td>H</td>
             <td>MoCov3</td>
             <td>10/224</td>
             <td class="architecture">Swin-T/14</td>
@@ -175,7 +177,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">REMEDIS</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>H, P</td>
+            <td>H</td>
             <td>SimCLR</td>
             <td>Multi/224</td>
             <td class="architecture">ResNet-50</td>
@@ -186,7 +188,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">HIPT</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="check-mark">✅</span></td>
-            <td>H, P, W</td>
+            <td>H</td>
             <td>DINO</td>
             <td>20/256,4096</td>
             <td class="architecture">ViT-S/16-XS/256</td>
@@ -208,7 +210,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">CONCH</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>P, T</td>
+            <td>W, T</td>
             <td>iBOT/CoCa</td>
             <td>20/256</td>
             <td class="architecture">ViT/B-16</td>
@@ -219,7 +221,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">Phikon</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>H, P</td>
+            <td>H</td>
             <td>iBOT</td>
             <td>20/224</td>
             <td class="architecture">ViT-S/B/L/16</td>
@@ -230,7 +232,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">UNI</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>H, P</td>
+            <td>H</td>
             <td>DINOv2</td>
             <td>20/256,512</td>
             <td class="architecture">ViT-L/16</td>
@@ -241,7 +243,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">Virchow</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>H, P</td>
+            <td>H</td>
             <td>DINOv2</td>
             <td>20/224</td>
             <td class="architecture">ViT-H/14</td>
@@ -252,7 +254,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">SINAI</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>H, P</td>
+            <td>H</td>
             <td>DINO/MAE</td>
             <td>Unknown</td>
             <td class="architecture">ViT-S/L</td>
@@ -263,7 +265,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">CHIEF</td>
             <td><span class="cross-mark">❌</span></td>
             <td><span class="check-mark">✅</span></td>
-            <td>H, W</td>
+            <td>H, T</td>
             <td>Sup.+CLIP</td>
             <td>10/224</td>
             <td class="architecture">CHIEF</td>
@@ -274,7 +276,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">Prov-GigaPath</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="check-mark">✅</span></td>
-            <td>P, W</td>
+            <td>H, I</td>
             <td>DINOv2/MAE</td>
             <td>20/256</td>
             <td class="architecture">ViT-g/14/LongNet</td>
@@ -285,7 +287,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">Pathoduet</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>P</td>
+            <td>H, I</td>
             <td>MoCov3</td>
             <td>40/256,20/1024</td>
             <td class="architecture">ViT-B/16</td>
@@ -296,7 +298,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">RudolfV</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>P</td>
+            <td>W</td>
             <td>DINOv2</td>
             <td>20,40,80/256</td>
             <td class="architecture">ViT-L/14</td>
@@ -307,7 +309,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">PLUTO</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>P</td>
+            <td>W</td>
             <td>DINOv2</td>
             <td>20,40/224</td>
             <td class="architecture">FlexiViT-S/16</td>
@@ -318,7 +320,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">PRISM</td>
             <td><span class="cross-mark">❌</span></td>
             <td><span class="check-mark">✅</span></td>
-            <td>H, W, T</td>
+            <td>H, T</td>
             <td>CoCa</td>
             <td>20/224</td>
             <td class="architecture">Perceiver</td>
@@ -329,7 +331,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">TANGLE</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="check-mark">✅</span></td>
-            <td>H, P, W, G</td>
+            <td>H, G</td>
             <td>iBOT/SimCLR</td>
             <td>20/224</td>
             <td class="architecture">ViT-B/16/ABMIL</td>
@@ -340,7 +342,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">MUSK</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>H, P, T</td>
+            <td>H, T</td>
             <td>MIM</td>
             <td>10,20,40/384</td>
             <td class="architecture">BEiT-3</td>
@@ -351,7 +353,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">BEPH</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>H, P</td>
+            <td>H</td>
             <td>MIM</td>
             <td>40/224</td>
             <td class="architecture">BEiTv2</td>
@@ -362,7 +364,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">Hibou</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>P</td>
+            <td>W</td>
             <td>DINOv2</td>
             <td>Unknown</td>
             <td class="architecture">ViT-B/L/16</td>
@@ -373,7 +375,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">mSTAR+</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="check-mark">✅</span></td>
-            <td>H, P, W, G, T</td>
+            <td>H, G, T</td>
             <td>CLIP/ST</td>
             <td>20/256</td>
             <td class="architecture">TransMIL/ViT-L</td>
@@ -384,7 +386,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">GPFM</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>P</td>
+            <td>H</td>
             <td>UDK</td>
             <td>40/512</td>
             <td class="architecture">ViT-L/14</td>
@@ -395,7 +397,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">Virchow2G</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>P</td>
+            <td>W</td>
             <td>DINOv2</td>
             <td>5,10,20,40/224</td>
             <td class="architecture">ViT-G/14</td>
@@ -417,7 +419,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">Phikon-v2</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>H, P</td>
+            <td>W</td>
             <td>DINOv2</td>
             <td>20/224</td>
             <td class="architecture">ViT-L/16</td>
@@ -439,7 +441,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">KEEP</td>
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
-            <td>P, T</td>
+            <td>W, T</td>
             <td>CLIP</td>
             <td>20/224</td>
             <td class="architecture">UNI</td>
@@ -450,7 +452,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td class="model-name">THREADS</td>
             <td><span class="cross-mark">❌</span></td>
             <td><span class="check-mark">✅</span></td>
-            <td>H, W, D, R</td>
+            <td>H, D, R</td>
             <td>CLIP</td>
             <td>20/512</td>
             <td class="architecture">MH-ABMIL</td>
@@ -499,7 +501,7 @@ The following comprehensive table presents the surveyed PFMs with detailed techn
             <td><a href="https://github.com/Xiyue-Wang/TransPath">GitHub</a> <a href="https://www.sciencedirect.com/science/article/pii/S1361841522002043">PDF</a></td>
         </tr>
         <tr>
-            <td class="venue"><strong>Nat. Bio. Engg.</strong></td>
+            <td class="venue"><strong>Nat. Biomed. Eng.</strong></td>
             <td class="model-name">REMEDIS</td>
             <td>SimCLR</td>
             <td class="architecture">ResNet-50</td>
@@ -535,7 +537,7 @@ The following comprehensive table presents the surveyed PFMs with detailed techn
             <td><a href="https://huggingface.co/MahmoodLab/CONCH">HuggingFace</a> <a href="https://github.com/mahmoodlab/CONCH">GitHub</a> <a href="https://www.nature.com/articles/s41591-024-02856-4">PDF</a></td>
         </tr>
         <tr>
-            <td class="venue">MedRxiv</td>
+            <td class="venue">medRxiv</td>
             <td class="model-name">Phikon</td>
             <td>iBOT</td>
             <td class="architecture">ViT-S/B/L/16</td>
@@ -609,7 +611,7 @@ The following comprehensive table presents the surveyed PFMs with detailed techn
         <tr>
             <td class="venue"><strong>ICML W.</strong></td>
             <td class="model-name">PLUTO</td>
-            <td>DINOv2+<br>MAE+Fourior</td>
+            <td>DINOv2+<br>MAE+Fourier</td>
             <td class="architecture">FlexiViT-S/16</td>
             <td>TCGA +<br>Proprietary</td>
             <td>158,852 WSIs<br>195 Million Patches</td>
@@ -670,7 +672,7 @@ The following comprehensive table presents the surveyed PFMs with detailed techn
             <td><a href="https://huggingface.co/Wangyh/mSTAR">HuggingFace</a> <a href="https://github.com/Innse/mSTAR">GitHub</a> <a href="https://www.nature.com/articles/s41467-025-66220-x">PDF</a></td>
         </tr>
         <tr>
-            <td class="venue"><strong>Nat. Bio. Engg.</strong></td>
+            <td class="venue"><strong>Nat. Biomed. Eng.</strong></td>
             <td class="model-name">GPFM</td>
             <td>UKD</td>
             <td class="architecture">ViT-L/14</td>
@@ -680,7 +682,8 @@ The following comprehensive table presents the surveyed PFMs with detailed techn
         </tr>
         <tr>
             <td class="venue">arXiv</td>
-            <td class="model-name">Virchow2<br>Virchow2G</td>
+            <td class="model-name">Virchow2
+Virchow2G</td>
             <td>Enhanced<br>DINOv2</td>
             <td class="architecture">ViT-H/14<br>ViT-G/14</td>
             <td>MSKCC +<br>Worldwide</td>
@@ -730,7 +733,7 @@ The following comprehensive table presents the surveyed PFMs with detailed techn
             <td class="architecture">P: CONCHv1.5<br>S: MH-ABMIL</td>
             <td>MBTG-47K:<br>MGH+BWH<br>+TCGA<br>+GTEx</td>
             <td>47,171 H&amp;E WSIs<br>125,148,770 Patches<br>26,615 Bulk RNA<br>20,556 DNA Variants</td>
-            <td><a href="https://huggingface.co/datasets/MahmoodLab/Patho-Bench">HuggingFace</a> <a href="https://github.com/mahmoodlab/patho-bench">GitHub</a> <a href="https://arxiv.org/pdf/2501.16652">PDF</a></td>
+            <td><a href="https://huggingface.co/datasets/MahmoodLab/Patho-Bench">Benchmark/Data</a> <a href="https://github.com/mahmoodlab/patho-bench">Benchmark Code</a> <a href="https://arxiv.org/pdf/2501.16652">Paper</a></td>
         </tr>
     </tbody>
 </table>
@@ -1081,7 +1084,7 @@ The following comparison table systematically evaluates the PFMs across **13 dis
       <td style="text-align: center;">❌</td>
     </tr>
     <tr>
-      <td>mSTAR</td>
+      <td>mSTAR+</td>
       <td style="text-align: center;">Z/F/C</td>
       <td style="text-align: center;">C</td>
       <td style="text-align: center;">❌</td>

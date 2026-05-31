@@ -31,7 +31,7 @@
       ]
     },
     {
-      "venue": "Nat. Bio. Engg.",
+      "venue": "Nat. Biomed. Eng.",
       "venue_highlight": true,
       "model": "REMEDIS",
       "method": [
@@ -150,7 +150,7 @@
       ]
     },
     {
-      "venue": "MedRxiv",
+      "venue": "medRxiv",
       "venue_highlight": false,
       "model": "Phikon",
       "method": [
@@ -407,7 +407,7 @@
       "model": "PLUTO",
       "method": [
         "DINOv2+",
-        "MAE+Fourior"
+        "MAE+Fourier"
       ],
       "architecture": [
         "FlexiViT-S/16"
@@ -619,7 +619,7 @@
       ]
     },
     {
-      "venue": "Nat. Bio. Engg.",
+      "venue": "Nat. Biomed. Eng.",
       "venue_highlight": true,
       "model": "GPFM",
       "method": [
@@ -841,15 +841,15 @@
       ],
       "links": [
         {
-          "label": "HuggingFace",
+          "label": "Benchmark/Data",
           "url": "https://huggingface.co/datasets/MahmoodLab/Patho-Bench"
         },
         {
-          "label": "GitHub",
+          "label": "Benchmark Code",
           "url": "https://github.com/mahmoodlab/patho-bench"
         },
         {
-          "label": "PDF",
+          "label": "Paper",
           "url": "https://arxiv.org/pdf/2501.16652"
         }
       ]

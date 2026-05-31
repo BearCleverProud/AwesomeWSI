@@ -8,6 +8,15 @@
     news: "data/news.json",
   };
 
+  const DATA_FALLBACKS = {
+    foundation: { models: [] },
+    taxonomy: { models: [] },
+    evaluation: { tasks: {}, models: [] },
+    papers: { tag_definitions: { task: [], topic: [] }, sections: [] },
+    resources: { sections: [] },
+    news: { items: [] },
+  };
+
   const state = {
     data: null,
     surveyView: "models",
@@ -63,11 +72,12 @@
   ];
 
   const modalityLabels = {
-    H: "H&E-stained (H)",
-    P: "Patch/tile (P)",
-    T: "Text/report (T)",
-    W: "Slide-level WSI (W)",
-    G: "Genes (G)",
+    H: "H&E (H)",
+    P: "Patch (P)",
+    T: "Text (T)",
+    W: "WSI, stain unspecified (W)",
+    I: "IHC (I)",
+    G: "Genomics (G)",
     D: "DNA (D)",
     R: "RNA (R)",
   };
@@ -315,15 +325,32 @@
   }
 
   async function loadData() {
-    const [foundation, taxonomy, evaluation, papers, resources, news] = await Promise.all([
-      loadJson(DATA_PATHS.foundation),
-      loadJson(DATA_PATHS.taxonomy),
-      loadJson(DATA_PATHS.evaluation),
-      loadJson(DATA_PATHS.papers),
-      loadJson(DATA_PATHS.resources),
-      loadJson(DATA_PATHS.news),
-    ]);
-    return { foundation, taxonomy, evaluation, papers, resources, news };
+    const entries = await Promise.all(
+      Object.entries(DATA_PATHS).map(async ([key, path]) => {
+        try {
+          return [key, await loadJson(path), null];
+        } catch (error) {
+          return [key, JSON.parse(JSON.stringify(DATA_FALLBACKS[key])), { path, error }];
+        }
+      })
+    );
+    const data = {};
+    const errors = [];
+    entries.forEach(([key, value, failure]) => {
+      data[key] = value;
+      if (failure) errors.push(failure);
+    });
+    data.errors = errors;
+    return data;
+  }
+
+  function renderDataWarnings() {
+    if (!state.data?.errors?.length) return;
+    const files = state.data.errors.map(({ path }) => `<code>${escapeHtml(path)}</code>`).join(", ");
+    document.querySelector(".site-header")?.insertAdjacentHTML(
+      "afterend",
+      `<div class="load-warning">Some structured data could not be loaded: ${files}. The affected sections are shown with empty fallback data.</div>`
+    );
   }
 
   function taxonomyByModel() {
@@ -1239,6 +1266,7 @@
   async function init() {
     try {
       state.data = await loadData();
+      renderDataWarnings();
       setStats();
       populateFilters();
       bindEvents();

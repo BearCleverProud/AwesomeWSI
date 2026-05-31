@@ -3,6 +3,17 @@
   "source": "Migrated from README.md News section.",
   "items": [
     {
+      "date": "Jun 2026",
+      "title": "Mobile survey explorer refined",
+      "description": "Mobile model and evaluation views were redesigned as aligned cards, and evaluation labels now match the survey's zero-shot, few-shot, and complete-training notation.",
+      "links": [
+        {
+          "label": "Survey",
+          "url": "index.html#survey-explorer"
+        }
+      ]
+    },
+    {
       "date": "May 2026",
       "title": "Website launched",
       "description": "Browse the survey companion, model explorer, evaluation matrix, and curated WSI resources online.",

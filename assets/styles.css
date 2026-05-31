@@ -744,6 +744,10 @@ pre {
   font-size: 13px;
 }
 
+.evaluation-group-cell {
+  display: none;
+}
+
 .model-name {
   font-weight: 850;
 }
@@ -829,7 +833,7 @@ pre {
   color: #57478c;
 }
 
-.score-pill.finetune {
+.score-pill.few-shot {
   background: #f7efe5;
   color: var(--amber);
 }
@@ -1353,8 +1357,145 @@ pre {
     font-size: 11px;
   }
 
+  .evaluation-table-wrap {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+  }
+
+  #evaluationTable {
+    min-width: 0;
+    border-collapse: separate;
+    background: transparent;
+    font-size: 13px;
+  }
+
+  #evaluationTable,
+  #evaluationTable tbody,
+  #evaluationTable tr,
+  #evaluationTable td {
+    display: block;
+    width: 100%;
+  }
+
+  #evaluationTable thead {
+    display: none;
+  }
+
+  #evaluationTable tbody {
+    display: grid;
+    gap: 10px;
+  }
+
+  #evaluationTable tr {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 10px;
+    row-gap: 0;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--paper);
+    box-shadow: 0 8px 20px rgba(32, 33, 36, 0.05);
+  }
+
+  #evaluationTable td {
+    display: grid;
+    justify-items: center;
+    gap: 4px;
+    min-width: 0;
+    padding: 7px 0;
+    border-bottom: 0;
+    text-align: center;
+  }
+
+  #evaluationTable td[data-label="Model"] {
+    grid-column: 1 / -1;
+    justify-items: start;
+    padding-top: 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--soft-line);
+    text-align: left;
+  }
+
+  #evaluationTable td[data-label="Model"]::before {
+    display: none;
+  }
+
+  #evaluationTable .evaluation-group-cell {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 28px;
+    margin-top: 8px;
+    padding: 9px 0 3px;
+    border-top: 1px solid var(--soft-line);
+    color: var(--teal-dark);
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  #evaluationTable .evaluation-group-cell[data-group-index="0"] {
+    margin-top: 0;
+    border-top: 0;
+  }
+
+  #evaluationTable td[data-label]:not([data-label="Model"])::before {
+    content: attr(data-label);
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  #evaluationTable .model-name {
+    font-size: 18px;
+  }
+
+  #evaluationTable .score-pill {
+    min-width: 32px;
+  }
+
   h1 {
     font-size: clamp(30px, 10vw, 42px);
+  }
+}
+
+@media (min-width: 520px) and (max-width: 760px) {
+  #evaluationTable tr {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  #evaluationTable td[data-label="Model"],
+  #evaluationTable .evaluation-group-cell {
+    grid-column: 1 / -1;
+  }
+
+  #evaluationTable td[data-label]:not([data-label="Model"]) {
+    grid-column: span 3;
+  }
+
+  #evaluationTable td[data-label]:not([data-label="Model"])::before {
+    width: 100%;
+    font-size: 9px;
+    letter-spacing: 0.035em;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  #evaluationTable td[data-label][data-task-count="3"] {
+    grid-column: span 4;
+  }
+
+  #evaluationTable td[data-label][data-task-count="2"] {
+    grid-column: span 6;
   }
 }
 

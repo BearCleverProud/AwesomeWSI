@@ -119,6 +119,20 @@
     molecular_prediction: "MP",
   };
 
+  const taskFullLabels = {
+    classification: "Classification",
+    survival_prediction: "Survival",
+    retrieval: "Retrieval",
+    segmentation: "Segmentation",
+    patch_to_patch: "Patch-to-patch",
+    image_to_text: "Image-to-text",
+    text_to_image: "Text-to-image",
+    report_generation: "Report generation",
+    vqa: "VQA",
+    genetic_alteration: "Genetic alteration",
+    molecular_prediction: "Molecular prediction",
+  };
+
   const taskGroupLabels = {
     slide_level: "Slide-level",
     patch_level: "Patch-level",
@@ -127,13 +141,19 @@
   };
 
   const scoreLegend = [
-    ["C", "Classification or clinical task"],
-    ["F", "Fine-tuning"],
+    ["C", "Complete training"],
+    ["F", "Few-shot"],
     ["Z", "Zero-shot"],
-    ["I", "Image-level"],
-    ["F/C", "Fine-tuning / classification"],
+    ["F/C", "Few-shot / complete training"],
     ["NR", "Not reported"],
   ];
+
+  const scoreMeanings = {
+    C: "Complete training",
+    F: "Few-shot",
+    Z: "Zero-shot",
+    I: "Image-level",
+  };
 
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
@@ -810,7 +830,7 @@
   function scoreClass(value) {
     if (value === "❌" || value === "NR") return "missing";
     if (String(value).includes("Z")) return "zero-shot";
-    if (String(value).includes("F")) return "finetune";
+    if (String(value).includes("F")) return "few-shot";
     return "positive";
   }
 
@@ -819,7 +839,11 @@
   }
 
   function scoreTitle(value) {
-    return value === "❌" || value === "NR" ? "Not reported" : value;
+    if (value === "❌" || value === "NR") return "Not reported";
+    return String(value)
+      .split("/")
+      .map((score) => scoreMeanings[score] ?? score)
+      .join(" / ");
   }
 
   function renderEvaluation() {
@@ -850,15 +874,32 @@
     const body = models
       .map((model) => {
         const cells = groupEntries
-          .flatMap(([group, tasks]) => tasks.map((task) => model[group][task]))
-          .map(
-            (value) =>
-              `<td><span class="score-pill ${scoreClass(value)}" title="${escapeHtml(scoreTitle(value))}">${escapeHtml(
-                scoreDisplay(value)
-              )}</span></td>`
+          .flatMap(([group, tasks], groupIndex) => {
+            const groupLabel = taskGroupLabels[group] ?? group;
+            return [
+              `<td class="evaluation-group-cell" data-group-index="${groupIndex}">${escapeHtml(groupLabel)}</td>`,
+              ...tasks.map((task, taskIndex) => ({
+                group: groupLabel,
+                task: taskFullLabels[task] ?? taskLabels[task] ?? task,
+                taskCount: tasks.length,
+                taskIndex,
+                value: model[group][task],
+              })),
+            ];
+          })
+          .map((cell) =>
+            typeof cell === "string"
+              ? cell
+              : `<td data-group="${escapeHtml(cell.group)}" data-label="${escapeHtml(
+                  cell.task
+                )}" data-task-count="${cell.taskCount}" data-task-index="${cell.taskIndex}"><span class="score-pill ${scoreClass(
+                  cell.value
+                )}" title="${escapeHtml(
+                  scoreTitle(cell.value)
+                )}">${escapeHtml(scoreDisplay(cell.value))}</span></td>`
           )
           .join("");
-        return `<tr><td><span class="model-name">${inlineText(model.model)}</span></td>${cells}</tr>`;
+        return `<tr><td data-label="Model"><span class="model-name">${inlineText(model.model)}</span></td>${cells}</tr>`;
       })
       .join("");
 

@@ -789,13 +789,19 @@
           ...uniqueValues(taxes.map((tax) => tax.model_design?.parameters && `Params: ${tax.model_design.parameters}`)),
         ].filter(Boolean);
         return `<tr>
-          <td><span class="model-name">${inlineText(model.model)}</span></td>
-          <td>${model.venue_highlight ? `<strong>${escapeHtml(model.venue)}</strong>` : escapeHtml(model.venue)}</td>
-          <td>${tagList(scopeTagItems(taxes), "teal")}</td>
-          <td>${tagList(pretraining)}</td>
-          <td>${joinLines(architecture)}${scaleTags.length ? `<div class="model-meta-tags">${tagList(scaleTags)}</div>` : ""}</td>
-          <td>${joinLines(model.data_source)}<br><span class="muted-lines">${joinLines(model.data_statistics)}</span></td>
-          <td>${linksHtml(model.links)}</td>
+          <td data-label="Model"><span class="model-name">${inlineText(model.model)}</span></td>
+          <td data-label="Venue">${
+            model.venue_highlight ? `<strong>${escapeHtml(model.venue)}</strong>` : escapeHtml(model.venue)
+          }</td>
+          <td data-label="Scope">${tagList(scopeTagItems(taxes), "teal")}</td>
+          <td data-label="Pretraining">${tagList(pretraining)}</td>
+          <td data-label="Architecture">${joinLines(architecture)}${
+            scaleTags.length ? `<div class="model-meta-tags">${tagList(scaleTags)}</div>` : ""
+          }</td>
+          <td data-label="Data">${joinLines(model.data_source)}<br><span class="muted-lines">${joinLines(
+          model.data_statistics
+        )}</span></td>
+          <td data-label="Links">${linksHtml(model.links)}</td>
         </tr>`;
       })
       .join("");

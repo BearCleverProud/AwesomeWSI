@@ -1370,8 +1370,8 @@ The following comparison table systematically evaluates the PFMs across **13 dis
 4. [HEST-1k](https://github.com/mahmoodlab/HEST): Paired histology and spatial transcriptomics data with an accompanying HEST library and benchmark.
 
 ### Challenge and Task-Specific WSI Datasets
-1. [Camelyon16](https://camelyon16.grand-challenge.org): H&E lymph-node WSIs for breast cancer metastasis detection.
-2. [Camelyon17](https://camelyon17.grand-challenge.org): Multi-center H&E lymph-node WSIs for breast cancer metastasis detection and classification.
+1. [Camelyon16](https://camelyon16.grand-challenge.org): H&amp;E lymph-node WSIs for breast cancer metastasis detection.
+2. [Camelyon17](https://camelyon17.grand-challenge.org): Multi-center H&amp;E lymph-node WSIs for breast cancer metastasis detection and classification.
 3. [PANDA](https://www.kaggle.com/competitions/prostate-cancer-grade-assessment): Prostate biopsy WSIs for Gleason grading and prostate cancer grade assessment.
 4. [BRACS](https://www.bracs.icar.cnr.it): Breast carcinoma subtyping data with labeled WSIs and labeled ROIs.
 5. [BCNB](https://bcnb.grand-challenge.org/): Early breast cancer core-needle biopsy WSIs with clinical variables and pathologist annotations.
@@ -1379,8 +1379,8 @@ The following comparison table systematically evaluates the PFMs across **13 dis
 7. [TUPAC16](https://tupac.grand-challenge.org/): Breast cancer WSIs for tumor proliferation assessment.
 8. [TIGER](https://tiger.grand-challenge.org/): Breast cancer WSIs for tumor-infiltrating lymphocyte assessment.
 9. [ACROBAT](https://acrobat.grand-challenge.org/overview/): Multi-stain breast cancer WSIs for WSI registration.
-10. [HEROHE](https://ecdp2020.grand-challenge.org/Dataset/): H&E breast cancer WSIs for HER2-status prediction.
-11. [BreastPathQ](https://breastpathq.grand-challenge.org/): Breast cancer H&E WSI-derived data for tumor cellularity assessment.
+10. [HEROHE](https://ecdp2020.grand-challenge.org/Dataset/): H&amp;E breast cancer WSIs for HER2-status prediction.
+11. [BreastPathQ](https://breastpathq.grand-challenge.org/): Breast cancer H&amp;E WSI-derived data for tumor cellularity assessment.
 
 ### Multimodal and Image-Text Pathology Datasets
 1. [Quilt-1M](https://github.com/wisdomikezogwo/quilt1m): A histopathology image-text dataset with paired image-text samples curated from educational and web sources.
@@ -1393,20 +1393,41 @@ The following comparison table systematically evaluates the PFMs across **13 dis
 1. [Patho-Bench](https://github.com/mahmoodlab/Patho-Bench): A standardized benchmark library for computational pathology foundation models.
 2. [HEST-Benchmark](https://github.com/mahmoodlab/HEST): A benchmark for evaluating pathology foundation models on gene-expression prediction from histology.
 3. [PathBench-MIL](https://github.com/Sbrussee/PathBench-MIL): A benchmarking and AutoML framework for multiple-instance learning pipelines in histopathology.
+4. [THUNDER](https://mics-lab.github.io/thunder/): A tile-level histopathology benchmark for comparing pathology foundation models across downstream performance, feature space, robustness, and uncertainty.
+5. [eva](https://kaiko-ai.github.io/eva/): An open-source evaluation framework and public leaderboard for oncology and pathology foundation models.
+6. [PLISM benchmark](https://github.com/owkin/plism-benchmark): A robustness benchmark for pathology foundation models on the PLISM dataset.
+7. [PathBench (Clinical PFM)](https://birkhoffkiki.github.io/PathBench/): A multi-task, multi-organ clinical benchmark and leaderboard for real-world pathology foundation model evaluation.
 
 ### WSI Vision-Language and Multimodal Benchmarks
 1. [WSI-Bench](https://github.com/XinhengLyu/WSI-LLaVA): A morphology-aware benchmark for gigapixel WSI understanding and VQA.
 2. [SlideBench](https://github.com/uni-medical/SlideChat): A WSI multimodal benchmark released with SlideChat for captioning, report, and closed-form VQA tasks.
 3. [PathMMU](https://github.com/PathMMU-Benchmark/PathMMU): An expert-validated pathology multimodal understanding and reasoning benchmark.
+4. [PathBench (LMM)](https://github.com/superjamessyx/PathBench): A patch- and WSI-level pathology large multimodal model benchmark with PatchVQA, WSICap, and WSIVQA subsets.
+5. [HistoVL](https://arxiv.org/abs/2503.12990): A holistic histopathology vision-language benchmark spanning many organs, cancer types, cohorts, and acquisition tools.
+6. [DALPHIN](https://www.computationalpathologygroup.eu/projects/dalphin/): A multicentric pathology AI copilot and VQA benchmark built from histopathology images derived from whole-slide cases.
+7. [REG2 / REG2026](https://reg2026.grand-challenge.org/): A WSI pathology report-generation and diagnostic-reasoning challenge using paired slide and reasoning data.
+
+### Dense Prediction and Cell Benchmarks
+1. [PFM-DenseBench](https://m4a1tastegood.github.io/PFM-DenseBench/): A large-scale dense-prediction benchmark evaluating pathology foundation models across segmentation datasets and adaptation strategies.
+2. [PathoCellBench](https://papers.miccai.org/miccai-2025/0670-Paper4441.html): A cell-phenotyping benchmark for pathology foundation models on H&amp;E histopathology images.
+3. [BCSS](https://bcsegmentation.grand-challenge.org/): A breast cancer semantic segmentation benchmark with tissue-region annotations from H&amp;E whole-slide images.
+4. [MIDOG](https://midog2025.grand-challenge.org/): A mitosis detection and atypical mitosis classification benchmark focused on domain generalization in histopathology.
+5. [OCELOT](https://ocelot2023.grand-challenge.org/): A cell detection benchmark using paired cell-level and tissue-level histopathology annotations to study cell-tissue interaction.
 
 ### Challenge Benchmarks and Leaderboards
 1. [Camelyon16](https://camelyon16.grand-challenge.org): Breast cancer lymph-node metastasis detection challenge.
 2. [Camelyon17](https://camelyon17.grand-challenge.org): Multi-center breast cancer lymph-node metastasis challenge.
 3. [PANDA](https://www.kaggle.com/competitions/prostate-cancer-grade-assessment): Prostate cancer grade-assessment competition.
-4. [PAIP2021](https://paip2021.grand-challenge.org): Perineural invasion detection challenge across multiple organ cancers.
-5. [TIGER](https://tiger.grand-challenge.org): Tumor-infiltrating lymphocyte assessment challenge in breast cancer.
-6. [ACROBAT](https://acrobat.grand-challenge.org/overview/): WSI registration challenge for differently stained breast cancer tissue sections.
-7. [HEROHE](https://ecdp2020.grand-challenge.org/): HER2-status prediction challenge from H&E breast cancer WSIs.
+4. [PAIP2019](https://paip2019.grand-challenge.org/): Liver cancer WSI segmentation and viable tumor burden estimation challenge.
+5. [PAIP2021](https://paip2021.grand-challenge.org): Perineural invasion detection challenge across multiple organ cancers.
+6. [TIGER](https://tiger.grand-challenge.org): Tumor-infiltrating lymphocyte assessment challenge in breast cancer.
+7. [ACROBAT](https://acrobat.grand-challenge.org/overview/): WSI registration challenge for differently stained breast cancer tissue sections.
+8. [HEROHE](https://ecdp2020.grand-challenge.org/): HER2-status prediction challenge from H&amp;E breast cancer WSIs.
+9. [TUPAC16](https://tupac.grand-challenge.org/): Breast tumor proliferation assessment challenge from whole-slide images.
+10. [BreastPathQ](https://breastpathq.grand-challenge.org/): Breast cancer cellularity estimation challenge using H&amp;E whole-slide image-derived data.
+11. [ACDC@LungHP](https://acdc-lunghp.grand-challenge.org/): Automatic cancer detection and classification benchmark for whole-slide lung histopathology.
+12. [DigestPath2019](https://digestpath2019.grand-challenge.org/): Digestive-system pathology detection and segmentation challenge.
+13. [ANHIR](https://anhir.grand-challenge.org/): Automatic non-rigid histological image registration benchmark for differently stained tissue sections.
 <!-- END GENERATED SECTION: resources -->
 
 ## 📄 Citation

@@ -1,6 +1,6 @@
 {
   "schema": "awesomewsi.resources.v1",
-  "source": "Migrated mechanically from README.md Useful Toolboxes, Datasets, and Benchmarks sections. No new resources or metadata have been inferred.",
+  "source": "Maintained structured resource data for README and website rendering. Initial entries were migrated from README; later additions were verified from official project, paper, or challenge pages.",
   "sections": [
     {
       "title": "🔧 Useful Toolboxes",
@@ -269,6 +269,30 @@
               "name": "PathBench-MIL",
               "url": "https://github.com/Sbrussee/PathBench-MIL",
               "description": "A benchmarking and AutoML framework for multiple-instance learning pipelines in histopathology."
+            },
+            {
+              "order": 4,
+              "name": "THUNDER",
+              "url": "https://mics-lab.github.io/thunder/",
+              "description": "A tile-level histopathology benchmark for comparing pathology foundation models across downstream performance, feature space, robustness, and uncertainty."
+            },
+            {
+              "order": 5,
+              "name": "eva",
+              "url": "https://kaiko-ai.github.io/eva/",
+              "description": "An open-source evaluation framework and public leaderboard for oncology and pathology foundation models."
+            },
+            {
+              "order": 6,
+              "name": "PLISM benchmark",
+              "url": "https://github.com/owkin/plism-benchmark",
+              "description": "A robustness benchmark for pathology foundation models on the PLISM dataset."
+            },
+            {
+              "order": 7,
+              "name": "PathBench (Clinical PFM)",
+              "url": "https://birkhoffkiki.github.io/PathBench/",
+              "description": "A multi-task, multi-organ clinical benchmark and leaderboard for real-world pathology foundation model evaluation."
             }
           ]
         },
@@ -292,6 +316,65 @@
               "name": "PathMMU",
               "url": "https://github.com/PathMMU-Benchmark/PathMMU",
               "description": "An expert-validated pathology multimodal understanding and reasoning benchmark."
+            },
+            {
+              "order": 4,
+              "name": "PathBench (LMM)",
+              "url": "https://github.com/superjamessyx/PathBench",
+              "description": "A patch- and WSI-level pathology large multimodal model benchmark with PatchVQA, WSICap, and WSIVQA subsets."
+            },
+            {
+              "order": 5,
+              "name": "HistoVL",
+              "url": "https://arxiv.org/abs/2503.12990",
+              "description": "A holistic histopathology vision-language benchmark spanning many organs, cancer types, cohorts, and acquisition tools."
+            },
+            {
+              "order": 6,
+              "name": "DALPHIN",
+              "url": "https://www.computationalpathologygroup.eu/projects/dalphin/",
+              "description": "A multicentric pathology AI copilot and VQA benchmark built from histopathology images derived from whole-slide cases."
+            },
+            {
+              "order": 7,
+              "name": "REG2 / REG2026",
+              "url": "https://reg2026.grand-challenge.org/",
+              "description": "A WSI pathology report-generation and diagnostic-reasoning challenge using paired slide and reasoning data."
+            }
+          ]
+        },
+        {
+          "title": "Dense Prediction and Cell Benchmarks",
+          "items": [
+            {
+              "order": 1,
+              "name": "PFM-DenseBench",
+              "url": "https://m4a1tastegood.github.io/PFM-DenseBench/",
+              "description": "A large-scale dense-prediction benchmark evaluating pathology foundation models across segmentation datasets and adaptation strategies."
+            },
+            {
+              "order": 2,
+              "name": "PathoCellBench",
+              "url": "https://papers.miccai.org/miccai-2025/0670-Paper4441.html",
+              "description": "A cell-phenotyping benchmark for pathology foundation models on H&E histopathology images."
+            },
+            {
+              "order": 3,
+              "name": "BCSS",
+              "url": "https://bcsegmentation.grand-challenge.org/",
+              "description": "A breast cancer semantic segmentation benchmark with tissue-region annotations from H&E whole-slide images."
+            },
+            {
+              "order": 4,
+              "name": "MIDOG",
+              "url": "https://midog2025.grand-challenge.org/",
+              "description": "A mitosis detection and atypical mitosis classification benchmark focused on domain generalization in histopathology."
+            },
+            {
+              "order": 5,
+              "name": "OCELOT",
+              "url": "https://ocelot2023.grand-challenge.org/",
+              "description": "A cell detection benchmark using paired cell-level and tissue-level histopathology annotations to study cell-tissue interaction."
             }
           ]
         },
@@ -318,27 +401,63 @@
             },
             {
               "order": 4,
+              "name": "PAIP2019",
+              "url": "https://paip2019.grand-challenge.org/",
+              "description": "Liver cancer WSI segmentation and viable tumor burden estimation challenge."
+            },
+            {
+              "order": 5,
               "name": "PAIP2021",
               "url": "https://paip2021.grand-challenge.org",
               "description": "Perineural invasion detection challenge across multiple organ cancers."
             },
             {
-              "order": 5,
+              "order": 6,
               "name": "TIGER",
               "url": "https://tiger.grand-challenge.org",
               "description": "Tumor-infiltrating lymphocyte assessment challenge in breast cancer."
             },
             {
-              "order": 6,
+              "order": 7,
               "name": "ACROBAT",
               "url": "https://acrobat.grand-challenge.org/overview/",
               "description": "WSI registration challenge for differently stained breast cancer tissue sections."
             },
             {
-              "order": 7,
+              "order": 8,
               "name": "HEROHE",
               "url": "https://ecdp2020.grand-challenge.org/",
               "description": "HER2-status prediction challenge from H&E breast cancer WSIs."
+            },
+            {
+              "order": 9,
+              "name": "TUPAC16",
+              "url": "https://tupac.grand-challenge.org/",
+              "description": "Breast tumor proliferation assessment challenge from whole-slide images."
+            },
+            {
+              "order": 10,
+              "name": "BreastPathQ",
+              "url": "https://breastpathq.grand-challenge.org/",
+              "description": "Breast cancer cellularity estimation challenge using H&E whole-slide image-derived data."
+            },
+            {
+              "order": 11,
+              "name": "ACDC@LungHP",
+              "url": "https://acdc-lunghp.grand-challenge.org/",
+              "description": "Automatic cancer detection and classification benchmark for whole-slide lung histopathology."
+            },
+            {
+              "order": 12,
+              "name": "DigestPath2019",
+              "url": "https://digestpath2019.grand-challenge.org/",
+              "description": "Digestive-system pathology detection and segmentation challenge."
+            },
+            {
+              "order": 13,
+              "name": "ANHIR",
+              "url": "https://anhir.grand-challenge.org/",
+              "description": "Automatic non-rigid histological image registration benchmark for differently stained tissue sections."
             }
           ]
         }

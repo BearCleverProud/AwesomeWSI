@@ -1027,38 +1027,339 @@ pre {
 }
 
 @media (max-width: 760px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  main {
+    padding: 0 12px 40px;
+  }
+
   .site-header {
     align-items: flex-start;
     flex-direction: column;
+    gap: 10px;
+    min-height: 0;
+    padding: 10px 12px 12px;
+  }
+
+  .brand {
+    min-width: 0;
+    gap: 10px;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 auto;
+  }
+
+  .brand strong {
+    font-size: 15px;
+  }
+
+  .brand small {
+    font-size: 11px;
   }
 
   .top-nav {
+    width: 100%;
+    flex-wrap: nowrap;
     justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .top-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .top-nav a {
+    flex: 0 0 auto;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .hero {
+    padding: 30px 0 24px;
+  }
+
+  .page-hero {
+    padding: 34px 0 24px;
   }
 
   .workspace-bar {
     align-items: stretch;
     flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .workspace-bar h2 {
+    font-size: 24px;
   }
 
   .news-list {
     grid-template-columns: 1fr;
   }
 
-  .summary-band,
   .resource-items,
   .tag-definition-panel {
     grid-template-columns: 1fr;
   }
 
+  .summary-band {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    border: 0;
+    background: transparent;
+  }
+
+  .metric {
+    min-height: 84px;
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+
+  .metric span {
+    font-size: 26px;
+  }
+
   .view,
   .workspace-bar,
   .tab-list {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .tab-list {
+    gap: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .tab {
+    min-height: 36px;
+    padding: 7px 10px;
+    font-size: 13px;
+  }
+
+  .filter-strip {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-right: -14px;
+    padding: 1px 14px 6px 0;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .filter-menu-button {
+    min-width: 124px;
+    min-height: 42px;
+    flex: 0 0 124px;
+    padding: 7px 10px;
+  }
+
+  .filter-menu-button strong {
+    max-width: 104px;
+    font-size: 12px;
+  }
+
+  .filter-clear {
+    min-height: 42px;
+    flex: 0 0 auto;
+    padding: 0 12px;
+  }
+
+  .filter-popover {
+    max-height: 280px;
+    overflow: auto;
+    margin-top: 8px;
+    padding: 10px;
+  }
+
+  .filter-options {
+    gap: 6px;
+  }
+
+  .filter-option {
+    min-height: 32px;
+    padding: 5px 9px;
+    font-size: 12px;
+  }
+
+  .model-table-wrap {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+  }
+
+  #modelTable {
+    min-width: 0;
+    border-collapse: separate;
+    background: transparent;
+    font-size: 14px;
+  }
+
+  #modelTable,
+  #modelTable tbody,
+  #modelTable tr,
+  #modelTable td {
+    display: block;
+    width: 100%;
+  }
+
+  #modelTable thead {
+    display: none;
+  }
+
+  #modelTable tbody {
+    display: grid;
+    gap: 10px;
+  }
+
+  #modelTable tr {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    column-gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--paper);
+    box-shadow: 0 8px 20px rgba(32, 33, 36, 0.05);
+  }
+
+  #modelTable td {
+    display: grid;
+    gap: 4px;
+    padding: 6px 0;
+    border-bottom: 0;
+  }
+
+  #modelTable td[data-label="Model"],
+  #modelTable td[data-label="Pretraining"] {
+    grid-column: 1 / -1;
+  }
+
+  #modelTable td[data-label="Scope"] {
+    grid-column: 4 / -1;
+  }
+
+  #modelTable td[data-label="Venue"] {
+    grid-column: 1 / 4;
+  }
+
+  #modelTable td[data-label="Architecture"] {
+    grid-column: 1 / 3;
+  }
+
+  #modelTable td[data-label="Data"] {
+    grid-column: 3 / 5;
+  }
+
+  #modelTable td[data-label="Links"] {
+    grid-column: 5 / -1;
+  }
+
+  #modelTable td[data-label="Venue"],
+  #modelTable td[data-label="Scope"],
+  #modelTable td[data-label="Pretraining"],
+  #modelTable td[data-label="Architecture"],
+  #modelTable td[data-label="Data"],
+  #modelTable td[data-label="Links"] {
+    align-content: start;
+    justify-items: center;
+    min-width: 0;
+    padding: 6px 0 8px;
+    text-align: center;
+  }
+
+  #modelTable td[data-label="Venue"],
+  #modelTable td[data-label="Scope"],
+  #modelTable td[data-label="Pretraining"],
+  #modelTable td[data-label="Architecture"],
+  #modelTable td[data-label="Data"],
+  #modelTable td[data-label="Links"] {
+    border-top: 1px solid var(--soft-line);
+  }
+
+  #modelTable td[data-label="Architecture"],
+  #modelTable td[data-label="Data"],
+  #modelTable td[data-label="Links"] {
+    padding-top: 8px;
+  }
+
+  #modelTable td::before {
+    content: attr(data-label);
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  #modelTable td[data-label="Model"] {
+    padding-top: 0;
+    padding-bottom: 6px;
+  }
+
+  #modelTable td[data-label="Model"]::before {
+    display: none;
+  }
+
+  #modelTable td[data-label="Pretraining"]::before {
+    width: 100%;
+    text-align: center;
+  }
+
+  #modelTable td[data-label="Pretraining"] .tag-list {
+    width: 100%;
+    justify-content: center;
+  }
+
+  #modelTable .model-name {
+    font-size: 18px;
+  }
+
+  #modelTable td[data-label="Architecture"] .model-meta-tags {
+    margin-top: 4px;
+  }
+
+  #modelTable td[data-label="Architecture"],
+  #modelTable td[data-label="Data"],
+  #modelTable td[data-label="Links"] {
+    overflow-wrap: anywhere;
+  }
+
+  #modelTable .muted-lines {
+    margin-top: 2px;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  #modelTable .tag-list,
+  #modelTable .link-list {
+    justify-content: center;
+    gap: 5px;
+  }
+
+  #modelTable .tag,
+  #modelTable .link-pill {
+    min-height: 24px;
+    padding: 3px 7px;
+    font-size: 11px;
   }
 
   h1 {
     font-size: clamp(30px, 10vw, 42px);
+  }
+}
+
+@media (max-width: 420px) {
+  .summary-band {
+    grid-template-columns: 1fr;
   }
 }

@@ -1,6 +1,6 @@
 {
   "schema": "awesomewsi.evaluation_benchmark.v1",
-  "source": "Migrated mechanically from README.md Evaluation Benchmark table.",
+  "source": "Based on the README Evaluation Benchmark table and maintained with source-verified refinements.",
   "tasks": {
     "slide_level": [
       "classification",
@@ -538,12 +538,12 @@
         "segmentation": "❌"
       },
       "patch_level": {
-        "classification": "❌",
+        "classification": "C",
         "patch_to_patch": "❌",
         "segmentation": "❌"
       },
       "multimodal": {
-        "image_to_text": "C",
+        "image_to_text": "❌",
         "text_to_image": "❌",
         "report_generation": "❌",
         "vqa": "❌"

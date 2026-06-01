@@ -1,6 +1,6 @@
 {
   "schema": "awesomewsi.foundation_models.v1",
-  "source": "Migrated mechanically from README.md Foundation Models Overview table.",
+  "source": "Maintained from the README Foundation Models Overview table with source-verified refinements.",
   "models": [
     {
       "venue": "MedIA",
@@ -470,11 +470,16 @@
         "S: ABMIL"
       ],
       "data_source": [
-        "TG-GATEs"
+        "TG-GATEs",
+        "TCGA-BRCA",
+        "TCGA-NSCLC"
       ],
       "data_statistics": [
-        "47,227 WSIs",
-        "6,597 Image-Gene Pair"
+        "Visual pretraining: 47,227 WSIs",
+        "15M Patches",
+        "S+E RNA pairs: 6,597 liver",
+        "1,020 breast",
+        "1,012 lung"
       ],
       "links": [
         {
@@ -593,7 +598,7 @@
         "P: mSTAR"
       ],
       "architecture": [
-        "S: TransMIL",
+        "S: TransMIL+ (pretrained aggregator)",
         "P: ViT-L"
       ],
       "data_source": [
@@ -601,7 +606,8 @@
       ],
       "data_statistics": [
         "11,727 WSIs",
-        "22,127 Modality Pairs"
+        "22,127 Pretraining Modality Pairs",
+        "26,169 Curated Modality Pairs"
       ],
       "links": [
         {
@@ -797,7 +803,7 @@
         "OpenPath"
       ],
       "data_statistics": [
-        "143K Image-Text Pairs",
+        "143K KG-structured Image-Text Semantic Groups",
         "Hierarchical Medical KG"
       ],
       "links": [

@@ -122,7 +122,7 @@ If you find our paper useful, please consider citing our paper in your work:
 
 [IJCAI](https://www.ijcai.org/proceedings/2025/1193) | [PDF](https://www.ijcai.org/proceedings/2025/1193.pdf) | [arXiv](https://arxiv.org/abs/2504.04045)
 
-> **Update policy:** This website is a living companion to the IJCAI 2025 survey. Some venues, links, and resources are updated after the camera-ready version; taxonomy and evaluation tables are synchronized with the survey unless explicitly marked as post-survey updates.
+> **Update policy:** This website is a living companion to the IJCAI 2025 survey. The IJCAI paper is the fixed camera-ready record; the website and JSON tables are maintained as live resources with updated venues, links, metadata, and curated table refinements.
 
 ---
 
@@ -132,7 +132,7 @@ The following table presents **comprehensive technical specifications** for Our 
 - **🔧 Model Scope** → Extractor-centric, Aggregator-centric, Hybrid-centric approaches  
 - **⚙️ Model Pretraining** → Input modalities, base methods, magnification/resolution specifications  
 - **🏗️ Model Design** → Model architectures, parameter counts, scale categories (XS to G)  
-- **📏 Scale Hierarchy** → From 2.78M (XS) to 1.9B (G) parameters following ViT-based quantization  
+- **📏 Scale Hierarchy** → From 2.78M (XS) to 1.9B (G) parameters following model-scale categorization
 
 **Input Modalities:** H&E **(H)**, Patch **(P)**, Text **(T)**, WSIs with unspecified stains **(W)**, IHC **(I)**, Genomics **(G)**, DNA **(D)**, RNA **(R)**.<br>
 **Scale Categories:** XS, S, B, L, H, g, G (Extra-Small to Giant) based on parameter count
@@ -213,7 +213,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td>W, T</td>
             <td>iBOT/CoCa</td>
             <td>20/256</td>
-            <td class="architecture">ViT/B-16</td>
+            <td class="architecture">ViT-B/16</td>
             <td class="params">86.3M</td>
             <td><span class="scale-badge scale-b">B</span></td>
         </tr>
@@ -310,7 +310,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
             <td>W</td>
-            <td>DINOv2</td>
+            <td>DINOv2+MAE+Fourier</td>
             <td>20,40/224</td>
             <td class="architecture">FlexiViT-S/16</td>
             <td class="params">22M</td>
@@ -367,7 +367,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td>W</td>
             <td>DINOv2</td>
             <td>Unknown</td>
-            <td class="architecture">ViT-B/L/16</td>
+            <td class="architecture">ViT-B/14, ViT-L/14</td>
             <td class="params">86.3/307M</td>
             <td><span class="scale-badge scale-b">B</span>/<span class="scale-badge scale-l">L</span></td>
         </tr>
@@ -378,7 +378,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td>H, G, T</td>
             <td>CLIP/ST</td>
             <td>20/256</td>
-            <td class="architecture">TransMIL/ViT-L</td>
+            <td class="architecture">TransMIL+/ViT-L</td>
             <td class="params">2.67/307M</td>
             <td><span class="scale-badge scale-xs">XS</span>/<span class="scale-badge scale-l">L</span></td>
         </tr>
@@ -432,8 +432,8 @@ The following table presents **comprehensive technical specifications** for Our 
             <td><span class="check-mark">✅</span></td>
             <td>W, T</td>
             <td>iBOT/CoCa</td>
-            <td>20/8192</td>
-            <td class="architecture">TITAN/TITAN<sub>V</sub></td>
+            <td>20/8192 tokens</td>
+            <td class="architecture">TITAN/TITAN-V</td>
             <td class="params">48.5/42.1M</td>
             <td><span class="scale-badge scale-s">S</span></td>
         </tr>
@@ -442,7 +442,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td><span class="check-mark">✅</span></td>
             <td><span class="cross-mark">❌</span></td>
             <td>W, T</td>
-            <td>CLIP</td>
+            <td>KEVL/CLIP-style VLP</td>
             <td>20/224</td>
             <td class="architecture">UNI</td>
             <td class="params">307M</td>
@@ -631,8 +631,8 @@ The following comprehensive table presents the surveyed PFMs with detailed techn
             <td class="model-name">TANGLE</td>
             <td>P: iBOT<br>S: Alignment</td>
             <td class="architecture">P: ViT-B/16<br>S: ABMIL</td>
-            <td>TG-GATEs</td>
-            <td>47,227 WSIs<br>6,597 Image-Gene Pair</td>
+            <td>TG-GATEs<br>TCGA-BRCA<br>TCGA-NSCLC</td>
+            <td>Visual pretraining: 47,227 WSIs<br>15M Patches<br>S+E RNA pairs: 6,597 liver<br>1,020 breast<br>1,012 lung</td>
             <td><a href="https://github.com/mahmoodlab/TANGLE">GitHub</a> <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Jaume_Transcriptomics-guided_Slide_Representation_Learning_in_Computational_Pathology_CVPR_2024_paper.pdf">PDF</a></td>
         </tr>
         <tr>
@@ -666,9 +666,9 @@ The following comprehensive table presents the surveyed PFMs with detailed techn
             <td class="venue"><strong>Nat. Commun.</strong></td>
             <td class="model-name">mSTAR+</td>
             <td>S: CLIP<br>P: mSTAR</td>
-            <td class="architecture">S: TransMIL<br>P: ViT-L</td>
+            <td class="architecture">S: TransMIL+ (pretrained aggregator)<br>P: ViT-L</td>
             <td>TCGA</td>
-            <td>11,727 WSIs<br>22,127 Modality Pairs</td>
+            <td>11,727 WSIs<br>22,127 Pretraining Modality Pairs<br>26,169 Curated Modality Pairs</td>
             <td><a href="https://huggingface.co/Wangyh/mSTAR">HuggingFace</a> <a href="https://github.com/Innse/mSTAR">GitHub</a> <a href="https://www.nature.com/articles/s41467-025-66220-x">PDF</a></td>
         </tr>
         <tr>
@@ -723,7 +723,7 @@ Virchow2G</td>
             <td>KEVL</td>
             <td class="architecture">UNI</td>
             <td>Quilt-1M +<br>OpenPath</td>
-            <td>143K Image-Text Pairs<br>Hierarchical Medical KG</td>
+            <td>143K KG-structured Image-Text Semantic Groups<br>Hierarchical Medical KG</td>
             <td><a href="https://huggingface.co/Astaxanthin/KEEP">HuggingFace</a> <a href="https://github.com/MAGIC-AI4Med/KEEP">GitHub</a> <a href="https://doi.org/10.1016/j.ccell.2026.01.019">DOI</a></td>
         </tr>
         <tr>
@@ -1121,10 +1121,10 @@ The following comparison table systematically evaluates the PFMs across **13 dis
       <td style="text-align: center;">❌</td>
       <td style="text-align: center;">❌</td>
       <td style="text-align: center;">❌</td>
-      <td style="text-align: center;">❌</td>
-      <td style="text-align: center;">❌</td>
-      <td style="text-align: center;">❌</td>
       <td style="text-align: center;">C</td>
+      <td style="text-align: center;">❌</td>
+      <td style="text-align: center;">❌</td>
+      <td style="text-align: center;">❌</td>
       <td style="text-align: center;">❌</td>
       <td style="text-align: center;">❌</td>
       <td style="text-align: center;">❌</td>

@@ -1,6 +1,6 @@
 {
   "schema": "awesomewsi.pfm_taxonomy.v1",
-  "source": "Synchronized with IJCAI 2025 PDF Table 1.",
+  "source": "Based on IJCAI 2025 PDF Table 1 and maintained with source-verified refinements.",
   "models": [
     {
       "model": "CTransPath",
@@ -82,7 +82,7 @@
         "magnification_or_resolution": "20/256"
       },
       "model_design": {
-        "architecture": "ViT/B-16",
+        "architecture": "ViT-B/16",
         "parameters": "86.3M",
         "scale": "B"
       }
@@ -231,7 +231,7 @@
       },
       "model_pretraining": {
         "input": "W",
-        "base_method": "DINOv2",
+        "base_method": "DINOv2+MAE+Fourier",
         "magnification_or_resolution": "20,40/224"
       },
       "model_design": {
@@ -320,7 +320,7 @@
         "magnification_or_resolution": "Unknown"
       },
       "model_design": {
-        "architecture": "ViT-B/L/16",
+        "architecture": "ViT-B/14, ViT-L/14",
         "parameters": "86.3/307M",
         "scale": "B/L"
       }
@@ -419,10 +419,10 @@
       "model_pretraining": {
         "input": "W, T",
         "base_method": "iBOT/CoCa",
-        "magnification_or_resolution": "20/8192"
+        "magnification_or_resolution": "20/8192 tokens"
       },
       "model_design": {
-        "architecture": "TITAN/TITAN<sub>V</sub>",
+        "architecture": "TITAN/TITAN-V",
         "parameters": "48.5/42.1M",
         "scale": "S"
       }
@@ -435,7 +435,7 @@
       },
       "model_pretraining": {
         "input": "W, T",
-        "base_method": "CLIP",
+        "base_method": "KEVL/CLIP-style VLP",
         "magnification_or_resolution": "20/224"
       },
       "model_design": {

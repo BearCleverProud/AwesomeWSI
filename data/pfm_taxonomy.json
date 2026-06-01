@@ -337,7 +337,7 @@
         "magnification_or_resolution": "20/256"
       },
       "model_design": {
-        "architecture": "TransMIL/ViT-L",
+        "architecture": "TransMIL+/ViT-L",
         "parameters": "2.67/307M",
         "scale": "XS/L"
       }
@@ -419,7 +419,7 @@
       "model_pretraining": {
         "input": "W, T",
         "base_method": "iBOT/CoCa",
-        "magnification_or_resolution": "20/8192 tokens"
+        "magnification_or_resolution": "20/8192"
       },
       "model_design": {
         "architecture": "TITAN/TITAN-V",

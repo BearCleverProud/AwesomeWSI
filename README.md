@@ -432,7 +432,7 @@ The following table presents **comprehensive technical specifications** for Our 
             <td><span class="check-mark">✅</span></td>
             <td>W, T</td>
             <td>iBOT/CoCa</td>
-            <td>20/8192 tokens</td>
+            <td>20/8192</td>
             <td class="architecture">TITAN/TITAN-V</td>
             <td class="params">48.5/42.1M</td>
             <td><span class="scale-badge scale-s">S</span></td>

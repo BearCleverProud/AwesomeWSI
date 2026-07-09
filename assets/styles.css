@@ -914,6 +914,7 @@ pre {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--paper);
+  overflow: hidden;
 }
 
 .conference-head {
@@ -922,11 +923,45 @@ pre {
   justify-content: space-between;
   gap: 16px;
   padding: 16px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.conference-head::-webkit-details-marker {
+  display: none;
+}
+
+.conference-section[open] .conference-head {
   border-bottom: 1px solid var(--line);
 }
 
-.conference-head h3 {
+.conference-title {
+  display: grid;
+  gap: 4px;
+}
+
+.conference-title strong {
   font-size: 22px;
+  color: var(--ink);
+}
+
+.conference-title small,
+.conference-count small {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.conference-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: max-content;
+  color: var(--teal);
+}
+
+.conference-count strong {
+  font-size: 20px;
 }
 
 .conference-date,
@@ -949,10 +984,24 @@ pre {
   background: var(--paper);
 }
 
+.paper-item-head {
+  display: grid;
+  gap: 6px;
+}
+
 .paper-item h4 {
   margin: 0;
   font-size: 16px;
   line-height: 1.35;
+}
+
+.paper-source {
+  width: fit-content;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .paper-tags {
@@ -965,9 +1014,53 @@ pre {
   margin-top: 6px;
 }
 
-.paper-item p {
+.paper-summary {
   margin: 0;
   color: #4c565b;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.paper-summary.expanded {
+  display: block;
+  overflow: visible;
+}
+
+.paper-actions {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.paper-detail-toggle,
+.paper-show-more {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fbfcfb;
+  color: var(--link);
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.paper-detail-toggle {
+  padding: 6px 10px;
+}
+
+.paper-show-more {
+  width: 100%;
+  padding: 12px 16px;
+  border-width: 1px 0 0;
+  border-radius: 0;
+  background: var(--paper);
+}
+
+.paper-detail-toggle:hover,
+.paper-show-more:hover {
+  background: var(--soft);
 }
 
 .empty-state {

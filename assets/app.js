@@ -27,6 +27,8 @@
       task: [],
       topic: [],
     },
+    expandedPaperSections: [],
+    expandedPaperSummaries: [],
     openPaperMenu: null,
     venue: [],
     scope: [],
@@ -992,36 +994,77 @@
         [sections.length - populatedSections, "prepared sections"],
       ]);
     }
+    const isNarrowed = Boolean(state.ecosystemQuery || hasActivePaperFilters);
+    const firstPopulatedKey = paperSectionKey(sections.find((section) => section.papers.length));
+    const defaultVisiblePapers = 8;
     paperList.innerHTML = sections
       .map((section) => {
+        const sectionKey = paperSectionKey(section);
         const papers = section.papers.filter((paper) => paperMatchesSearch(paper) && matchesPaperFilters(paper));
+        const showAll = isNarrowed || state.expandedPaperSections.includes(sectionKey);
+        const visiblePapers = showAll ? papers : papers.slice(0, defaultVisiblePapers);
+        const hiddenCount = papers.length - visiblePapers.length;
+        const shouldOpen = isNarrowed ? Boolean(papers.length) : sectionKey === firstPopulatedKey;
         const content = section.papers.length
           ? papers.length
-            ? `<div class="paper-items">${papers
+            ? `<div class="paper-items">${visiblePapers
                 .map(
-                  (paper) => `<article class="paper-item">
-                    <h4><a href="${escapeHtml(paper.paper_url)}" target="_blank" rel="noreferrer">${inlineText(
-                    paper.title
-                  )}</a></h4>
-                    <div class="paper-tags">
-                      ${tagList(paperTagItems("task", paper.tasks, "teal"))}
-                      ${tagList(paperTagItems("topic", paper.topics, "berry"))}
-                    </div>
-                    <p>${inlineText(paper.summary)}</p>
-                  </article>`
+                  (paper) => {
+                    const expanded = state.expandedPaperSummaries.includes(paper.id);
+                    return `<article class="paper-item">
+                      <div class="paper-item-head">
+                        <h4><a href="${escapeHtml(paper.paper_url)}" target="_blank" rel="noreferrer">${inlineText(
+                      paper.title
+                    )}</a></h4>
+                        <span class="paper-source">${escapeHtml(paper.source ?? `${section.venue} ${section.year}`)}</span>
+                      </div>
+                      <div class="paper-tags">
+                        ${tagList(paperTagItems("task", paper.tasks, "teal"))}
+                        ${tagList(paperTagItems("topic", paper.topics, "berry"))}
+                      </div>
+                      <p class="paper-summary ${expanded ? "expanded" : ""}">${inlineText(paper.summary)}</p>
+                      <div class="paper-actions">
+                        <button class="paper-detail-toggle" type="button" data-paper-summary-id="${escapeHtml(
+                          paper.id
+                        )}" aria-expanded="${expanded ? "true" : "false"}">${expanded ? "Less" : "Details"}</button>
+                      </div>
+                    </article>`;
+                  }
                 )
-                .join("")}</div>`
+                .join("")}</div>${
+                hiddenCount > 0
+                  ? `<button class="paper-show-more" type="button" data-paper-show-all="${escapeHtml(
+                      sectionKey
+                    )}">Show ${escapeHtml(hiddenCount)} more</button>`
+                  : ""
+              }`
             : `<div class="empty-state">No papers match the current search or filters.</div>`
           : `<div class="empty-state">Coming soon.</div>`;
-        return `<section class="conference-section">
-          <div class="conference-head">
-            <h3>${escapeHtml(section.venue)} ${escapeHtml(section.year)}</h3>
-            <span class="conference-date">${escapeHtml(formatDateRange(section))}</span>
-          </div>
+        return `<details class="conference-section" ${shouldOpen ? "open" : ""}>
+          <summary class="conference-head">
+            <span class="conference-title">
+              <strong>${escapeHtml(section.venue)} ${escapeHtml(section.year)}</strong>
+              <small>${escapeHtml(formatDateRange(section))}</small>
+            </span>
+            <span class="conference-count">
+              <strong>${escapeHtml(papers.length)}</strong>
+              <small>${isNarrowed && section.papers.length ? `of ${escapeHtml(section.papers.length)}` : "papers"}</small>
+            </span>
+          </summary>
           ${content}
-        </section>`;
+        </details>`;
       })
       .join("");
+  }
+
+  function paperSectionKey(section) {
+    if (!section) return "";
+    return `${section.venue}-${section.year}`;
+  }
+
+  function togglePaperSummary(id) {
+    state.expandedPaperSummaries = toggleValue(state.expandedPaperSummaries, id);
+    renderPapers();
   }
 
   function sectionLabel(title) {
@@ -1151,8 +1194,22 @@
 
     $("#resource-explorer")?.addEventListener("click", (event) => {
       const tagButton = event.target.closest("[data-paper-tag-kind]");
-      if (!tagButton) return;
-      togglePaperFilter(tagButton.dataset.paperTagKind, tagButton.dataset.paperTagValue);
+      if (tagButton) {
+        togglePaperFilter(tagButton.dataset.paperTagKind, tagButton.dataset.paperTagValue);
+        return;
+      }
+
+      const showAllButton = event.target.closest("[data-paper-show-all]");
+      if (showAllButton) {
+        state.expandedPaperSections = uniqueValues([...state.expandedPaperSections, showAllButton.dataset.paperShowAll]);
+        renderPapers();
+        return;
+      }
+
+      const summaryButton = event.target.closest("[data-paper-summary-id]");
+      if (summaryButton) {
+        togglePaperSummary(summaryButton.dataset.paperSummaryId);
+      }
     });
 
     $("#paperFilters")?.addEventListener("click", (event) => {

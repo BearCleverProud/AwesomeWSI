@@ -1223,6 +1223,9 @@ The following comparison table systematically evaluates the PFMs across **13 dis
 
 **Topic tags:** `mil` MIL or slide-level aggregation; `foundation_model` pathology foundation model pretraining/adaptation/evaluation; `vision_language` image-text/report/language-prompt/VLM/LLM reasoning; `generative_model` diffusion, flow, VAE, or related generative modeling; `multi_omics` histology with gene/RNA/DNA/genomic/spatial transcriptomic/pathway data, not report text alone; `efficient_wsi` sampling, compression, scalable training/inference, or other WSI efficiency methods.
 
+<details>
+<summary><strong>Show curated paper list</strong></summary>
+
 <!-- BEGIN GENERATED SECTION: curated_papers -->
 <!-- Generated from data/curated_papers.json. Do not edit this section directly. -->
 ### ICML 2026
@@ -1230,8 +1233,56 @@ The following comparison table systematically evaluates the PFMs across **13 dis
 ### CVPR 2026
 
 ### ICLR 2026
+1. [ASMIL: Attention-Stabilized Multiple Instance Learning for Whole-Slide Imaging](https://iclr.cc/virtual/2026/poster/10010847): This paper proposes ASMIL, an attention-stabilized MIL framework that uses an anchor model, normalized sigmoid attention, and token random dropping, addressing unstable attention dynamics, over-concentrated attention, and overfitting in WSI diagnosis.<br>
+   Tags: task: `classification`; topic: `mil`
+2. [Exploiting Low-Dimensional Manifold of Features for Few-Shot Whole Slide Image Classification](https://iclr.cc/virtual/2026/poster/10010420): This paper proposes the Manifold Residual block, a plug-and-play module that preserves pathology foundation model feature geometry with a fixed random anchor and low-rank residual pathway, addressing overfitting and manifold distortion in few-shot WSI classification.<br>
+   Tags: task: `classification`; topic: `foundation_model`, `mil`
+3. [Multihead Mixture of Experts for Classification of Gigapixel Pathology Images](https://iclr.cc/virtual/2026/poster/10009435): This paper proposes MAMMOTH, a parameter-efficient multi-head mixture-of-experts transformation module for MIL pipelines, addressing the overlooked bottleneck between general-purpose patch features and task-specific slide-level aggregation.<br>
+   Tags: task: `classification`; topic: `mil`
+4. [Histopathology-Genomics Multi-modal Structural Representation Learning for Data-Efficient Precision Oncology](https://iclr.cc/virtual/2026/poster/10011779): This paper proposes MSRL, a graph-structure-learning framework for histopathology-genomics representation learning that models inter-case relevance and uses authentic genomics from related training cases, addressing missing genomics and data-efficient precision oncology prediction.<br>
+   Tags: task: `survival`, `classification`, `molecular`; topic: `multi_omics`
+5. [Fusing Pixels and Genes: Spatially-Aware Learning in Computational Pathology](https://iclr.cc/virtual/2026/poster/10006892): This paper proposes STAMP, a spatial-transcriptomics-augmented pathology representation learning framework that aligns pathology images with spatial gene expression using hierarchical multi-scale contrastive alignment, addressing weak molecular supervision in pathology image representations.<br>
+   Tags: task: `molecular`; topic: `multi_omics`
+6. [HistoPrism: Unlocking Functional Pathway Analysis from Pan-Cancer Histology via Gene Expression Prediction](https://iclr.cc/virtual/2026/poster/10011361): This paper proposes HistoPrism, an efficient transformer-based pan-cancer model for predicting spatial gene expression from H&E histology and a pathway-level benchmark, addressing cross-cancer generalization and functional coherence in histology-to-transcriptomics modeling.<br>
+   Tags: task: `molecular`; topic: `multi_omics`
+7. [Structural Prognostic Event Modeling for Multimodal Cancer Survival Analysis](https://iclr.cc/virtual/2026/poster/10009019): This paper proposes SlotSPE, a slot-based multimodal survival framework that compresses histology images and gene profiles into modality-specific prognostic event slots, addressing sparse patient-specific survival signals and interpretable multimodal interaction modeling.<br>
+   Tags: task: `survival`; topic: `multi_omics`
+8. [Bridging Radiology and Pathology Foundation Models via Concept-Based Multimodal Co-Adaptation](https://iclr.cc/virtual/2026/poster/10007362): This paper proposes Concept Tuning and Fusing, a parameter-efficient framework that uses clinically grounded concepts and shared prompt tokens to co-adapt radiology and pathology foundation models, addressing cross-domain multimodal fusion and interpretability.<br>
+   Tags: task: `classification`, `survival`; topic: `foundation_model`, `vision_language`
+9. [PathChat-SegR1: Reasoning Segmentation in Pathology via SO-GRPO](https://iclr.cc/virtual/2026/poster/10010784): This paper proposes PathChat-SegR1, a pathology reasoning-segmentation model with stain-invariant self-distillation and segmentation-optimized GRPO, addressing zero-shot pathology segmentation and the lack of pathology-specific reasoning segmentation benchmarks.<br>
+   Tags: task: `segmentation`, `language`, `benchmark`; topic: `vision_language`
 
 ### AAAI 2026
+1. [PathFLIP: Fine-grained Language-Image Pretraining for Versatile Computational Pathology](https://ojs.aaai.org/index.php/AAAI/article/view/37649): This paper proposes PathFLIP, a fine-grained pathology language-image pretraining framework that decomposes slide captions into region-level sub-captions and grounds them to WSI regions, addressing weak visual-text alignment for slide classification, retrieval, lesion localization, and instruction-following pathology analysis.<br>
+   Tags: task: `classification`, `segmentation`, `language`; topic: `foundation_model`, `vision_language`
+2. [Graph-Semantic Guided Learning for Virtual Immunohistochemistry Staining on Consecutive Histology Sections](https://ojs.aaai.org/index.php/AAAI/article/view/37807): This paper proposes GSGStain, a graph-semantic guided virtual IHC staining framework that builds cell graphs from H&E images and rectifies noisy biomarker semantics from adjacent IHC sections, addressing semantic underuse and section-misalignment artifacts in H&E-to-IHC generation.<br>
+   Tags: task: `generation`; topic: `generative_model`
+3. [Auxiliary Gene Learning: Spatial Gene Expression Estimation by Auxiliary Gene Selection](https://ojs.aaai.org/index.php/AAAI/article/view/37857): This paper proposes Auxiliary Gene Learning, which reformulates ignored low-expression genes as auxiliary prediction tasks and selects useful auxiliary genes with differentiable top-k bi-level optimization, addressing noisy and restricted target-gene supervision in spatial gene expression estimation from pathological images.<br>
+   Tags: task: `molecular`; topic: `multi_omics`
+4. [Towards Effective and Efficient Context-aware Nucleus Detection in Histopathology Whole Slide Images](https://ojs.aaai.org/index.php/AAAI/article/view/37860): This paper proposes an efficient context-aware nucleus detection method that reuses historical sliding-window features and nearby unlabeled patches instead of repeatedly cropping large field-of-view regions, addressing missing tissue context and high WSI inference latency.<br>
+   Tags: task: `segmentation`; topic: `efficient_wsi`
+5. [FedSDA: Federated Stain Distribution Alignment for Non-IID Histopathological Image Classification](https://ojs.aaai.org/index.php/AAAI/article/view/37918): This paper proposes FedSDA, a federated stain distribution alignment method that uses stain separation and privacy-conscious diffusion-based distribution modeling to align client stain distributions, addressing non-IID histopathology classification under decentralized data constraints.<br>
+   Tags: task: `classification`; topic: `generative_model`
+6. [HiFusion: Hierarchical Intra-Spot Alignment and Regional Context Fusion for Spatial Gene Expression Prediction from Histopathology](https://ojs.aaai.org/index.php/AAAI/article/view/38036): This paper proposes HiFusion, a spatial gene expression prediction framework that combines multi-resolution intra-spot morphology modeling with context-aware cross-scale fusion, addressing within-spot heterogeneity and noisy surrounding-tissue context in ST inference from H&E WSIs.<br>
+   Tags: task: `molecular`; topic: `multi_omics`
+7. [CiNuSeg: Class Incremental Nuclei Segmentation via Anchor-driven Consistency Learning with Dual Region Regularization](https://ojs.aaai.org/index.php/AAAI/article/view/38055): This paper proposes CiNuSeg, an anchor-driven consistency learning framework with dual region regularization for class-incremental nuclei segmentation, addressing new-cell-class adaptation while preserving prior nuclei segmentation knowledge.<br>
+   Tags: task: `segmentation`
+8. [MUSE: Multi-Scale Dense Self-Distillation for Nucleus Detection and Classification](https://ojs.aaai.org/index.php/AAAI/article/view/38170): This paper proposes MUSE, a multi-scale dense self-distillation method for nucleus detection and classification that uses coordinate-guided local self-distillation and large-field semi-supervised fine-tuning, addressing annotation scarcity and cross-scale representation learning in histopathological nuclei analysis.<br>
+   Tags: task: `segmentation`, `classification`
+9. [Dual-Path Knowledge-Augmented Contrastive Alignment Network for Spatially Resolved Transcriptomics](https://ojs.aaai.org/index.php/AAAI/article/view/38278): This paper proposes DKAN, a dual-path knowledge-augmented contrastive alignment network that uses gene semantic representations from external databases and one-stage contrastive learning, addressing weak biological context use and heterogeneous image-gene alignment in spatial transcriptomics prediction.<br>
+   Tags: task: `molecular`; topic: `multi_omics`
+10. [Content-aware Information Compression and Selection for Whole Slide Image Analysis](https://ojs.aaai.org/index.php/AAAI/article/view/38350): This paper proposes CICS, a plug-and-play WSI MIL module with context-aware compression and global-proximity selective attention, addressing redundant instance computation and uninformative feature interference in WSI classification and survival prediction.<br>
+   Tags: task: `classification`, `survival`; topic: `mil`, `efficient_wsi`
+11. [Libra-MIL: Multimodal Prototypes Stereoscopic Infused with Task-specific Language Priors for Few-shot Whole Slide Image Classification](https://ojs.aaai.org/index.php/AAAI/article/view/38415): This paper proposes Libra-MIL, a multimodal prototype-based MIL framework that uses frozen LLM-generated task-specific pathology entity descriptions, vision prototypes, and stereoscopic optimal transport fusion, addressing few-shot WSI classification and interpretability under bag-level supervision.<br>
+   Tags: task: `classification`; topic: `mil`, `vision_language`
+12. [Cancer Survival Prediction by Cyclic Generation and Multi-grained Alignment](https://ojs.aaai.org/index.php/AAAI/article/view/39060): This paper proposes CIMA, an end-to-end multimodal survival framework that cyclically imputes missing histopathology and genomics modalities and aligns slide patches with biological pathways, addressing incomplete genomics data and hard-to-interpret cross-modal interactions.<br>
+   Tags: task: `survival`; topic: `multi_omics`, `generative_model`
+13. [Palimpsest: Reconciling the CISS Trilemma for Incremental Nuclei Segmentation](https://ojs.aaai.org/index.php/AAAI/article/view/39458): This paper proposes Palimpsest, an exemplar-free incremental nuclei segmentation framework with parameter-conserving synthesis, similarity-aware centroid recalibration, and adaptive residual shading, addressing the stability-plasticity-scalability trade-off in evolving computational pathology segmentation.<br>
+   Tags: task: `segmentation`
+14. [Patho-R1: A Multimodal Reinforcement Learning-Based Pathology Expert Reasoner](https://ojs.aaai.org/index.php/AAAI/article/view/40071): This paper proposes Patho-R1, a pathology VLM reasoner trained through continued image-text pretraining, supervised chain-of-thought fine-tuning, and reinforcement learning, addressing diagnostic accuracy and reasoning plausibility in pathology classification, retrieval, VQA, and multiple-choice reasoning.<br>
+   Tags: task: `classification`, `language`; topic: `foundation_model`, `vision_language`
+15. [Patho-AgenticRAG: Towards Multimodal Agentic Retrieval-Augmented Generation for Pathology VLMs via Reinforcement Learning](https://ojs.aaai.org/index.php/AAAI/article/view/40239): This paper proposes Patho-AgenticRAG, a multimodal agentic RAG framework that retrieves page-level text-image evidence from pathology textbooks and supports planning and multi-turn search, addressing hallucination and weak visual evidence grounding in pathology VLM reasoning.<br>
+   Tags: task: `language`; topic: `vision_language`
 
 ### NeurIPS 2025
 1. [PathVQ: Reforming Computational Pathology Foundation Model for Whole Slide Image Analysis via Vector Quantization](https://proceedings.neurips.cc/paper_files/paper/2025/hash/59f278de1619bdb6b53fd04e8e0976e0-Abstract-Conference.html): This paper proposes PathVQ, a WSI foundation model framework that vector-quantizes spatial patch tokens into compact discrete codes and uses multi-scale VQ supervision for slide-level self-supervised learning, addressing the efficiency-representation trade-off in scalable pathology foundation models.<br>
@@ -1337,6 +1388,8 @@ The following comparison table systematically evaluates the PFMs across **13 dis
 17. [Multi-Resolution Pathology-Language Pre-training Model with Text-Guided Visual Representation](https://openaccess.thecvf.com/content/CVPR2025/html/Albastaki_Multi-Resolution_Pathology-Language_Pre-training_Model_with_Text-Guided_Visual_Representation_CVPR_2025_paper.html): This paper proposes a multi-resolution pathology-language pre-training model that aligns visual and textual features across multiple magnification levels to address the challenge of single-resolution VLMs failing to capture both contextual overview and cellular details.<br>
    Tags: task: `classification`, `survival`; topic: `foundation_model`, `vision_language`
 <!-- END GENERATED SECTION: curated_papers -->
+
+</details>
 
 <!-- BEGIN GENERATED SECTION: resources -->
 <!-- Generated from data/resources.json. Do not edit this section directly. -->
